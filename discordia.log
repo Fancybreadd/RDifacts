@@ -4634,3 +4634,178 @@
 2022-07-02 15:19:16 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
 2022-07-02 15:19:16 | [INFO]    | Shard 0 : Received HELLO
 2022-07-02 15:19:17 | [INFO]    | Shard 0 : Received READY
+2022-07-04 13:32:22 | [INFO]    | Discordia 2.9.1
+2022-07-04 13:32:22 | [INFO]    | Connecting to Discord...
+2022-07-04 13:32:23 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-07-04 13:32:23 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-07-04 13:32:23 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-07-04 13:32:23 | [INFO]    | Shard 0 : Received HELLO
+2022-07-04 13:32:24 | [INFO]    | Shard 0 : Received READY
+2022-10-15 22:33:44 | [INFO]    | Discordia 2.9.1
+2022-10-15 22:33:44 | [INFO]    | Connecting to Discord...
+2022-10-15 22:33:44 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-15 22:33:45 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-15 22:33:45 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-15 22:33:45 | [INFO]    | Shard 0 : Received HELLO
+2022-10-15 22:33:45 | [INFO]    | Shard 0 : Received READY
+2022-10-15 22:35:10 | [INFO]    | Discordia 2.9.1
+2022-10-15 22:35:10 | [INFO]    | Connecting to Discord...
+2022-10-15 22:35:10 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-15 22:35:10 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-15 22:35:11 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-15 22:35:11 | [INFO]    | Shard 0 : Received HELLO
+2022-10-15 22:35:11 | [INFO]    | Shard 0 : Received READY
+2022-10-15 22:38:02 | [INFO]    | Discordia 2.9.1
+2022-10-15 22:38:02 | [INFO]    | Connecting to Discord...
+2022-10-15 22:38:02 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-15 22:38:02 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-15 22:38:02 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-15 22:38:02 | [INFO]    | Shard 0 : Received HELLO
+2022-10-15 22:38:03 | [INFO]    | Shard 0 : Received READY
+2022-10-15 22:39:45 | [INFO]    | Discordia 2.9.1
+2022-10-15 22:39:45 | [INFO]    | Connecting to Discord...
+2022-10-15 22:39:46 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-15 22:39:46 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-15 22:39:46 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-15 22:39:46 | [INFO]    | Shard 0 : Received HELLO
+2022-10-15 22:39:47 | [INFO]    | Shard 0 : Received READY
+2022-10-15 22:41:38 | [INFO]    | Discordia 2.9.1
+2022-10-15 22:41:38 | [INFO]    | Connecting to Discord...
+2022-10-15 22:41:38 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-15 22:41:38 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-15 22:41:39 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-15 22:41:39 | [INFO]    | Shard 0 : Received HELLO
+2022-10-15 22:41:39 | [INFO]    | Shard 0 : Received READY
+2022-10-15 22:45:35 | [INFO]    | Discordia 2.9.1
+2022-10-15 22:45:35 | [INFO]    | Connecting to Discord...
+2022-10-15 22:45:36 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-15 22:45:36 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-15 22:45:36 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-15 22:45:36 | [INFO]    | Shard 0 : Received HELLO
+2022-10-15 22:45:36 | [INFO]    | Shard 0 : Received READY
+2022-10-15 22:50:27 | [INFO]    | Discordia 2.9.1
+2022-10-15 22:50:27 | [INFO]    | Connecting to Discord...
+2022-10-15 22:50:27 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-15 22:50:27 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-15 22:50:28 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-15 22:50:28 | [INFO]    | Shard 0 : Received HELLO
+2022-10-15 22:50:28 | [INFO]    | Shard 0 : Received READY
+2022-10-15 22:51:30 | [INFO]    | Discordia 2.9.1
+2022-10-15 22:51:30 | [INFO]    | Connecting to Discord...
+2022-10-15 22:51:30 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-15 22:51:30 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-15 22:51:31 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-15 22:51:31 | [INFO]    | Shard 0 : Received HELLO
+2022-10-15 22:51:31 | [INFO]    | Shard 0 : Received READY
+2022-10-15 22:53:03 | [INFO]    | Discordia 2.9.1
+2022-10-15 22:53:03 | [INFO]    | Connecting to Discord...
+2022-10-15 22:53:04 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-15 22:53:04 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-15 22:53:04 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-15 22:53:04 | [INFO]    | Shard 0 : Received HELLO
+2022-10-15 22:53:04 | [INFO]    | Shard 0 : Received READY
+2022-10-15 22:55:03 | [INFO]    | Discordia 2.9.1
+2022-10-15 22:55:03 | [INFO]    | Connecting to Discord...
+2022-10-15 22:55:04 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-15 22:55:04 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-15 22:55:04 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-15 22:55:04 | [INFO]    | Shard 0 : Received HELLO
+2022-10-15 22:55:04 | [INFO]    | Shard 0 : Received READY
+2022-10-15 22:57:40 | [INFO]    | Discordia 2.9.1
+2022-10-15 22:57:40 | [INFO]    | Connecting to Discord...
+2022-10-15 22:57:40 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-15 22:57:40 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-15 22:57:41 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-15 22:57:41 | [INFO]    | Shard 0 : Received HELLO
+2022-10-15 22:57:41 | [INFO]    | Shard 0 : Received READY
+2022-10-15 23:00:03 | [INFO]    | Discordia 2.9.1
+2022-10-15 23:00:03 | [INFO]    | Connecting to Discord...
+2022-10-15 23:00:03 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-15 23:00:03 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-15 23:00:04 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-15 23:00:04 | [INFO]    | Shard 0 : Received HELLO
+2022-10-15 23:00:04 | [INFO]    | Shard 0 : Received READY
+2022-10-15 23:05:51 | [INFO]    | Discordia 2.9.1
+2022-10-15 23:05:51 | [INFO]    | Connecting to Discord...
+2022-10-15 23:05:52 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-15 23:05:52 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-15 23:05:52 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-15 23:05:52 | [INFO]    | Shard 0 : Received HELLO
+2022-10-15 23:05:52 | [INFO]    | Shard 0 : Received READY
+2022-10-15 23:11:32 | [INFO]    | Discordia 2.9.1
+2022-10-15 23:11:32 | [INFO]    | Connecting to Discord...
+2022-10-15 23:11:33 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-15 23:11:33 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-15 23:11:33 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-15 23:11:33 | [INFO]    | Shard 0 : Received HELLO
+2022-10-15 23:11:33 | [INFO]    | Shard 0 : Received READY
+2022-10-15 23:11:59 | [INFO]    | Discordia 2.9.1
+2022-10-15 23:11:59 | [INFO]    | Connecting to Discord...
+2022-10-15 23:12:00 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-15 23:12:00 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-15 23:12:00 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-15 23:12:00 | [INFO]    | Shard 0 : Received HELLO
+2022-10-15 23:12:00 | [INFO]    | Shard 0 : Received READY
+2022-10-15 23:27:58 | [INFO]    | Discordia 2.9.1
+2022-10-15 23:27:58 | [INFO]    | Connecting to Discord...
+2022-10-15 23:27:59 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-15 23:27:59 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-15 23:27:59 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-15 23:27:59 | [INFO]    | Shard 0 : Received HELLO
+2022-10-15 23:28:00 | [INFO]    | Shard 0 : Received READY
+2022-10-15 23:28:15 | [INFO]    | Discordia 2.9.1
+2022-10-15 23:28:15 | [INFO]    | Connecting to Discord...
+2022-10-15 23:28:15 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-15 23:28:15 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-15 23:28:16 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-15 23:28:16 | [INFO]    | Shard 0 : Received HELLO
+2022-10-15 23:28:16 | [INFO]    | Shard 0 : Received READY
+2022-10-15 23:29:00 | [INFO]    | Discordia 2.9.1
+2022-10-15 23:29:00 | [INFO]    | Connecting to Discord...
+2022-10-15 23:29:01 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-15 23:29:01 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-15 23:29:01 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-15 23:29:01 | [INFO]    | Shard 0 : Received HELLO
+2022-10-15 23:29:01 | [INFO]    | Shard 0 : Received READY
+2022-10-15 23:29:51 | [INFO]    | Discordia 2.9.1
+2022-10-15 23:29:51 | [INFO]    | Connecting to Discord...
+2022-10-15 23:29:51 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-15 23:29:51 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-15 23:29:51 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-15 23:29:51 | [INFO]    | Shard 0 : Received HELLO
+2022-10-15 23:29:52 | [INFO]    | Shard 0 : Received READY
+2022-10-17 14:05:30 | [INFO]    | Discordia 2.9.1
+2022-10-17 14:05:30 | [INFO]    | Connecting to Discord...
+2022-10-17 14:05:31 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-17 14:05:31 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-17 14:05:32 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-17 14:05:32 | [INFO]    | Shard 0 : Received HELLO
+2022-10-17 14:05:32 | [INFO]    | Shard 0 : Received READY
+2022-10-21 17:30:18 | [INFO]    | Discordia 2.9.1
+2022-10-21 17:30:18 | [INFO]    | Connecting to Discord...
+2022-10-21 17:30:19 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-21 17:30:19 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-21 17:30:20 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-21 17:30:20 | [INFO]    | Shard 0 : Received HELLO
+2022-10-21 17:30:20 | [INFO]    | Shard 0 : Received READY
+2022-10-21 17:32:29 | [INFO]    | Discordia 2.9.1
+2022-10-21 17:32:29 | [INFO]    | Connecting to Discord...
+2022-10-21 17:32:29 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-21 17:32:29 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-21 17:32:29 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-21 17:32:29 | [INFO]    | Shard 0 : Received HELLO
+2022-10-21 17:32:30 | [INFO]    | Shard 0 : Received READY
+2022-10-21 17:34:35 | [INFO]    | Discordia 2.9.1
+2022-10-21 17:34:35 | [INFO]    | Connecting to Discord...
+2022-10-21 17:34:35 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-21 17:34:35 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-21 17:34:36 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-21 17:34:36 | [INFO]    | Shard 0 : Received HELLO
+2022-10-21 17:34:36 | [INFO]    | Shard 0 : Received READY
+2022-10-21 17:35:25 | [INFO]    | Discordia 2.9.1
+2022-10-21 17:35:25 | [INFO]    | Connecting to Discord...
+2022-10-21 17:35:26 | [INFO]    | Authenticated as HEARTifacts-Prototype#4118
+2022-10-21 17:35:26 | [INFO]    | Launching shard 0 (1 out of 1)...
+2022-10-21 17:35:26 | [INFO]    | Shard 0 : Connected to wss://gateway.discord.gg
+2022-10-21 17:35:26 | [INFO]    | Shard 0 : Received HELLO
+2022-10-21 17:35:26 | [INFO]    | Shard 0 : Received READY

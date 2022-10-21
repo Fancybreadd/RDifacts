@@ -1,6 +1,6 @@
 {
-    "WornDagger": ["Worn Dagger","<:worndagger:962702025114677329>",1], 
-    "SunkenAnchor": ["Sunken Anchor","<:sunkenanchor:964745397404827728>",2],
-    "SilverRing": ["Silver Ring","<:silverring:964745464945721384>",3],
-    "EmptyCan": ["Empty Can","<:emptycan:964745485317447681>",4]
+    "ar1": ["Worn Dagger","<:worndagger:962702025114677329>",1], 
+    "ar2": ["Sunken Anchor","<:sunkenanchor:964745397404827728>",2],
+    "ar3": ["Silver Ring","<:silverring:964745464945721384>",3],
+    "ar4": ["Empty Can","<:emptycan:964745485317447681>",4]
 }

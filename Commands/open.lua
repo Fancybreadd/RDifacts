@@ -17,9 +17,9 @@ client:on("messageCreate", function(message)
 
                 local prizeval = math.random(1,4) --
                 local if_have = false
-                for i,v in ipairs (jsonstats.inventory) do --check player inventory if they have a copy
+                for i,v in ipairs (jsonstats.inventory) do --loops this command to the end to check inventory if it has a copy of an item
                     if v == KEYNAMETABLE[prizeval] then
-                        if_have = true
+                        if_have = true --turn this to true
                         break
                     end
                 print(i,v)
@@ -40,7 +40,8 @@ client:on("messageCreate", function(message)
                     check:close()
 
                     message.channel:send("Opening box...")
-                    message.channel:send("added " ..JSONITEMS[KEYNAMETABLE[prizeval]][1])
+                    message.channel:send(JSONITEMS[KEYNAMETABLE[prizeval]][2])
+                    message.channel:send("You got a **"..JSONITEMS[KEYNAMETABLE[prizeval]][1].."** !!")
 
                 else
 
@@ -51,7 +52,9 @@ client:on("messageCreate", function(message)
                     modify:close()
                     check:close()
                        
-                    message.channel:send("copy!")
+                    message.channel:send("Opening box...")
+                    message.channel:send(JSONITEMS[KEYNAMETABLE[prizeval]][2])
+                    message.channel:send("Seems like you got a dupe..")
                 end
                 
             else

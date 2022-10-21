@@ -1,3 +1,5 @@
+local cookingcost = 20
+
 client:on("messageCreate", function(message)
     if message.content == prefix..'cook' or message.content == prefix..'c' then
         local profileID = message.author.id 
@@ -13,7 +15,7 @@ client:on("messageCreate", function(message)
 
             if currenttime < playercooldown then
 
-                if jsonstats.wallet.ingredients > 15 then
+                if jsonstats.wallet.ingredients > cookingcost then
                     local randomscenarioval = math.random(1,3)
 
                     local cooksummary = (COOKRESULTS[COOKRESULTKEYNAMES[randomscenarioval]][1])
@@ -21,7 +23,7 @@ client:on("messageCreate", function(message)
                     print (cooksummary)
                     print (cookvalue)
 
-                    jsonstats.wallet.ingredients = jsonstats.wallet.ingredients - 15
+                    jsonstats.wallet.ingredients = jsonstats.wallet.ingredients - cookingcost
                     jsonstats.timers.adventuretimer = jsonstats.timers.adventuretimer - cookvalue
 
                     local minutescookvalue = cookvalue/60
@@ -44,7 +46,7 @@ client:on("messageCreate", function(message)
                             icon_url = message.author.avatarURL
                         },
 
-                        description = cooksummary.."\n**-15 Ingredients**\n**-"..minutescookvalue.." Minutes on adventuring cooldown!**"
+                        description = cooksummary.."\n**-20 Ingredients**\n**-"..minutescookvalue.." Minutes on adventuring cooldown!**"
 
                     }}
                 else

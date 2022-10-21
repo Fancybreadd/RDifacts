@@ -10,4 +10,9 @@ client:on('messageCreate', function(message)
     end
 end)
 
-
+--client:on('MessageCheck', function(USERMSG)
+    --if USERMSG.content == "cashew" then
+    --print("oh")
+    --end
+--end
+--)
