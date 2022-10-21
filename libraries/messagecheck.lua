@@ -1,4 +1,4 @@
-function MessageCheck(message) --splits your message into several words
+_G["MessageCheck"] = function (message) --splits your message into several words
 
    local tablecontent = {}
    for words in string.gmatch (message, "([^".."%s".."]+)") do --huh.. how does that work
