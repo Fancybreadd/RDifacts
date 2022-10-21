@@ -10,7 +10,7 @@ _G["discordia"] = require('discordia-with-buttons')
 _G["client"] = discordia.Client()
 _G["json"] = require('libraries/json') --json powers
 _G["unixseconds"] = require('libraries/secondstoclock')
-_G["messagechecker"] = require('libraries/messagecheck')
+dofile('libraries/messagecheck.lua')
 _G['path'] = "D:/artte/Heartifacts bot/PROFILES/"
 _G["prefix"] = "h$"
 
