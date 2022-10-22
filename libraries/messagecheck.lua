@@ -1,9 +1,9 @@
-_G["MessageCheck"] = function (message) --splits your message into several words
-
+_G["MessageCheck"] = function(content) --splits your message into several words
+   print("messagechecking!")
    local tablecontent = {}
-   for words in string.gmatch (message, "([^".."%s".."]+)") do --huh.. how does that work
-        print(words)
-        --table.insert(tablecontent,words)
+   for i in string.gmatch (content, "([^".."%s".."]+)") do --huh.. how does that work
+        table.insert(tablecontent,i)
    end
-   --return tablecontent
+   print(i)
+   return tablecontent
 end

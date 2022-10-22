@@ -1,4 +1,6 @@
-local BotPath = "D:/artte/Heartifacts bot/"
+local BotPath = "D:/artte/Heartifacts REPOSITORY/Heartifacts/"
+
+-- NOTE: PLEASE CHANGE BotPath AND ['path'] WHEN THE BOTS FILE PLACEMENT IS TAMPERED WITH
 
 _G['scandir'] = function (PATH)
     return fs.readdirSync(PATH)
@@ -9,10 +11,11 @@ end
 _G["discordia"] = require('discordia-with-buttons')
 _G["client"] = discordia.Client()
 _G["json"] = require('libraries/json') --json powers
-_G["unixseconds"] = require('libraries/secondstoclock')
-dofile('libraries/messagecheck.lua')
-_G['path'] = "D:/artte/Heartifacts bot/PROFILES/"
+_G['path'] = "D:/artte/Heartifacts REPOSITORY/Heartifacts/PROFILES"
 _G["prefix"] = "h$"
+
+dofile('libraries/secondstoclock.lua')
+dofile('libraries/messagecheck.lua')
 
 print('essentials loaded!')
 
@@ -106,8 +109,8 @@ client:on('ready', function()
     print('Logged in as '.. client.user.username)
 end)
 client:on('messageCreate', function(message) --this currently breaks the bot
-    MessageCheck(message)
-    print("--")
+    MessageCheck(message.content)
+    
 end
 )
 client:run('Bot OTYzNzA2NjQwOTk2MTIyNjU0.YlZ_wA.UjoXxszkTIiGUn0Xthv6fk-rdNQ')
@@ -131,3 +134,4 @@ client:run('Bot OTYzNzA2NjQwOTk2MTIyNjU0.YlZ_wA.UjoXxszkTIiGUn0Xthv6fk-rdNQ')
 
 --dofile executes all the code inside a directed file!
 --you can input another variables data in a new variable! ex: apron[foods]
+--using return ends the function

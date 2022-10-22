@@ -1,4 +1,4 @@
-function SecondsToClock(seconds)
+_G["SecondsToClock"] = function (seconds)
     local days = math.floor(seconds / 86400)
     seconds = seconds - days * 86400
     local hours = math.floor(seconds / 3600 )
