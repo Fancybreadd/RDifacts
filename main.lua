@@ -11,7 +11,7 @@ end
 _G["discordia"] = require('discordia-with-buttons')
 _G["client"] = discordia.Client()
 _G["json"] = require('libraries/json') --json powers
-_G['path'] = "D:/artte/Heartifacts REPOSITORY/Heartifacts/PROFILES"
+_G['path'] = "D:/artte/Heartifacts REPOSITORY/Heartifacts/PROFILES/"
 _G["prefix"] = "h$"
 
 dofile('libraries/secondstoclock.lua')
@@ -109,7 +109,11 @@ client:on('ready', function()
     print('Logged in as '.. client.user.username)
 end)
 client:on('messageCreate', function(message) --this currently breaks the bot
-    MessageCheck(message.content)
+    if message.author.bot then
+        return
+    else
+        MessageCheck(message.content)
+    end
     
 end
 )
