@@ -22,7 +22,7 @@ client:on('messageCreate', function(message)
             check:close()
         else
             local stats = {
-                wallet = {keys=1,boxes=1,marbles=0,materials=0,ingredients=0},
+                wallet = {keys=1,capsules=1,marbles=0,materials=0,ingredients=0},
                 inventory = {},
                 shadowinventory = {},
                 giftkey = true,

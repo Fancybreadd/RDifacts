@@ -2,17 +2,18 @@ local BotPath = "D:/artte/Heartifacts REPOSITORY/Heartifacts/"
 
 -- NOTE: PLEASE CHANGE BotPath AND ['path'] WHEN THE BOTS FILE PLACEMENT IS TAMPERED WITH
 
-_G['scandir'] = function (PATH)
-    return fs.readdirSync(PATH)
-end
-
-
 ---LIBS+STUFF---
-_G["discordia"] = require('discordia-with-buttons')
+_G["discordia"] = require('discordia-with-buttons') --lua discord powers
+_G["fs"] = require('fs')
 _G["client"] = discordia.Client()
 _G["json"] = require('libraries/json') --json powers
 _G['path'] = "D:/artte/Heartifacts REPOSITORY/Heartifacts/PROFILES/"
 _G["prefix"] = "h$"
+
+_G['scandir'] = function (PATH)
+    return fs.readdirSync(PATH)
+end
+
 
 dofile('libraries/secondstoclock.lua')
 dofile('libraries/messagecheck.lua')
@@ -72,11 +73,14 @@ _G['DKCOOLDOWN'] = 3600 -- daily key cooldown
 print('cooldowns loaded!')
 ---COMMANDS---
 
---for i, v in ipairs(scandir("Commands")) do
-    --local filename = string.sub(v,1,-5)
+--IMPORTANT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+for i, v in ipairs(scandir("Commands")) do --i dont know how to use this yet
+    local filename = string.sub(v,1,-5)
+    print(filename)
     --Command[filename] = dofile('Commands/'.. v)
---end
+end
 
+----------------old, will be deleted maybe??
 print ('all commands loaded!')
 
 require ('Commands/ping')
@@ -108,7 +112,7 @@ require ('Commands/cook')
 client:on('ready', function()
     print('Logged in as '.. client.user.username)
 end)
-client:on('messageCreate', function(message) --this currently breaks the bot
+client:on('messageCreate', function(message) --awaiting for use i dont know how to use this yet
     if message.author.bot then
         return
     else
@@ -122,8 +126,8 @@ client:run('Bot OTYzNzA2NjQwOTk2MTIyNjU0.YlZ_wA.UjoXxszkTIiGUn0Xthv6fk-rdNQ')
 
 ----------------------------
 
---notetoself: guilds are servers, nothing else.
---note, unix time = a second [1], a minute [60], an hour[3600]
+--guilds are servers, nothing else.
+--unix time = a second [1], a minute [60], an hour[3600]
 --if you ever change computers change profile pathing immediately
 
 --message.author.mentionstring pings yourself! good to know.
