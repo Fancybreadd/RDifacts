@@ -8,7 +8,7 @@ _G["fs"] = require('fs')
 _G["client"] = discordia.Client()
 _G["json"] = require('libraries/json') --json powers
 _G['path'] = "D:/artte/Heartifacts REPOSITORY/Heartifacts/PROFILES/"
-_G["prefix"] = "h$"
+_G["prefix"] = "h$" --prefix
 
 _G['scandir'] = function (PATH)
     return fs.readdirSync(PATH)
@@ -72,15 +72,11 @@ _G['DKCOOLDOWN'] = 3600 -- daily key cooldown
 
 print('cooldowns loaded!')
 ---COMMANDS---
+_G["Cmd"] = {}
 
---IMPORTANT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-for i, v in ipairs(scandir("Commands")) do --i dont know how to use this yet
-    local filename = string.sub(v,1,-5)
-    print(filename)
-    --Command[filename] = dofile('Commands/'.. v)
-end
 
-----------------old, will be deleted maybe??
+
+----------------old, will be deleted
 print ('all commands loaded!')
 
 require ('Commands/ping')
@@ -112,19 +108,20 @@ require ('Commands/cook')
 client:on('ready', function()
     print('Logged in as '.. client.user.username)
 end)
+
 client:on('messageCreate', function(message) --awaiting for use i dont know how to use this yet
     if message.author.bot then
         return
     else
-        MessageCheck(message.content)
+        MessageCheck(message, message.content)
     end
     
 end
 )
+
+-----------------------------------------------------------------------------
 client:run('Bot OTYzNzA2NjQwOTk2MTIyNjU0.YlZ_wA.UjoXxszkTIiGUn0Xthv6fk-rdNQ')
-
-
-----------------------------
+-----------------------------------------------------------------------------
 
 --guilds are servers, nothing else.
 --unix time = a second [1], a minute [60], an hour[3600]
