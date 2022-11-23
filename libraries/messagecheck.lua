@@ -4,11 +4,8 @@ print(scandir("Commands"))
 for i, v in ipairs(scandir("Commands")) do --i dont know how to use this yet
    local filename = string.sub(v,1,-5)
    print(filename)
-   --Cmd[filename] = dofile('Commands/'.. v)
+   Cmd[filename] = dofile('Commands/'.. v)
 end
-
-
-
 
 _G ["Command"] = {}
 
@@ -21,12 +18,12 @@ _G['addcommand'] = function(trigger, shorttrigger, commandfunction)
    table.insert(Command, newcommand)
 end
 
---addcommand("ping2","p2",Cmd.ping2) --any mention of cmd breaks
+addcommand("ping2","p2",Cmd.ping2) --any mention of cmd breaks
 
 
 A = function (message, content)
    if message.author.id ~= client.user.id or content then
-      print(message.content)
+      --print(message.content)
       message.channel:send("hi!!")
 
       local cutup = string.sub(message.content, 0, #message.content)

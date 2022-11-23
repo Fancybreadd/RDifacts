@@ -14,6 +14,7 @@ _G['scandir'] = function (PATH)
     return fs.readdirSync(PATH)
 end
 
+_G["Cmd"] = {}
 
 dofile('libraries/secondstoclock.lua')
 dofile('libraries/messagecheck.lua')
@@ -71,12 +72,7 @@ _G['ADVCOOLDOWN'] = 3600 -- adventure cooldown
 _G['DKCOOLDOWN'] = 3600 -- daily key cooldown
 
 print('cooldowns loaded!')
----COMMANDS---
-_G["Cmd"] = {}
-
-
-
-----------------old, will be deleted
+---COMMANDS, old please delete later
 print ('all commands loaded!')
 
 require ('Commands/ping')
