@@ -2,21 +2,32 @@
     "ar1": [
         "Worn Dagger",
         "<:worndagger:962702025114677329>",
-        1
+        1,
+        1,
+        "A simple steel dagger capable of doing slight damage to anything it touches. \n\n Its blade is dull and seems worn down."
     ], 
+
     "ar2": [
         "Sunken Anchor",
         "<:sunkenanchor:964745397404827728>",
-        2
+        2,
+        1,
+        "A sunken anchor."
     ],
+
     "ar3": [
         "Silver Ring",
         "<:silverring:964745464945721384>",
-        3
+        3,
+        1,
+        "Its gem seems to be missing, wonder where'd it go?"
     ],
+    
     "ar4": [
         "Empty Can",
         "<:emptycan:964745485317447681>",
-        4
+        4,
+        1,
+        "Nothing valuable about it, but it's always good to pick up litter! \n\n Dispose trash properly, kids!"
     ]
 }

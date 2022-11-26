@@ -1,7 +1,7 @@
 {
-    "Scenario1": ["You took a walk across the ocean and found some nice pebbles.",1,0,15,5,0],
-    "Scenario2": ["You went to a nearby forest to grab some firewood",0,0,0,15,15],
-    "Scenario3": ["You didnt do anything",1,0,0,0,5]
+    "Scenario1": ["You took a walk across the ocean and found some nice pebbles.",1,1,15,5,1],
+    "Scenario2": ["You went to a nearby forest to grab some firewood",1,1,1,15,15],
+    "Scenario3": ["You didnt do anything",1,1,1,1,5]
 
 
 

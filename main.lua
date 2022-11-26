@@ -1,23 +1,21 @@
-local BotPath = "D:/artte/Heartifacts REPOSITORY/Heartifacts/"
-
--- NOTE: PLEASE CHANGE BotPath AND ['path'] WHEN THE BOTS FILE PLACEMENT IS TAMPERED WITH
+local BotPath = "D:/artte/Heartifacts REPOSITORY/Heartifacts/" -- NOTE: PLEASE CHANGE BotPath AND ['path'] WHEN THE BOTS FILE PLACEMENT IS TAMPERED WITH
 
 ---LIBS+STUFF---
 _G["discordia"] = require('discordia-with-buttons') --lua discord powers
 _G["fs"] = require('fs')
 _G["client"] = discordia.Client()
 _G["json"] = require('libraries/json') --json powers
-_G['path'] = "D:/artte/Heartifacts REPOSITORY/Heartifacts/PROFILES/"
+_G['path'] = "D:/artte/Heartifacts REPOSITORY/Heartifacts/PROFILES/" --file path to bots files
 _G["prefix"] = "h$" --prefix
-
 _G['scandir'] = function (PATH)
-    return fs.readdirSync(PATH)
+return fs.readdirSync(PATH)
 end
 
 _G["Cmd"] = {}
 
 dofile('libraries/secondstoclock.lua')
 dofile('libraries/messagecheck.lua')
+dofile('libraries/noprofile.lua')
 
 print('essentials loaded!')
 
@@ -25,17 +23,17 @@ print('essentials loaded!')
 _G['JSONITEMLIST'] = io.open(BotPath.."ITEMLIST.json","r")
 _G['JSONITEMS'] = json.decode(io.input(JSONITEMLIST):read("*a"))
 _G['KEYNAMETABLE'] = {} --turn the entire ITEMLIST.json into a readable table
-            --ex: KEYNAMES["WornDagger":{}]
-            -- KEYNAMES are just the table full of the artifacts table keynames, they do not contain actual info inside
-              --ex: JSONITEMS[KEYNAMES[1]]["Worn Dagger", <emoji>, 1]
-              --[1] is the first index number of ITEMLIST, which brings up WornDagger
-              
-            for k,v in pairs(JSONITEMS) do
-                KEYNAMETABLE[#KEYNAMETABLE+1] = k; --lua is NOT 0-indexed, meaning it counts from 1 instead of 0
-                --print(k,v)
-            end
+    --ex: KEYNAMES["WornDagger":{}]
+    -- KEYNAMES are just the table full of the artifacts table keynames, they do not contain actual info inside
+    --ex: JSONITEMS[KEYNAMES[1]]["Worn Dagger", <emoji>, id, grade, desc]
+    --[1] is the first index number of ITEMLIST, which brings up WornDagger
 
-            table.sort(KEYNAMETABLE, function(a, b) return JSONITEMS[a][3] < JSONITEMS[b][3] end) --numerically sorts the entire jsonitemlist in order by id    
+    for k,v in pairs(JSONITEMS) do
+        KEYNAMETABLE[#KEYNAMETABLE+1] = k; --lua is NOT 0-indexed, meaning it counts from 1 instead of 0
+        --print(k,v)
+    end
+
+    table.sort(KEYNAMETABLE, function(a, b) return JSONITEMS[a][3] < JSONITEMS[b][3] end) --numerically sorts the entire jsonitemlist in order by id    
 
 JSONITEMLIST:close()
 
@@ -46,72 +44,46 @@ _G['SCENARIOLIST'] = io.open(BotPath.."AdventureSummary.json","r")
 _G['SCENARIOS'] = json.decode(io.input(SCENARIOLIST):read("*a"))
 _G['SCENARIOKEYNAMES'] = {}
 
-            for k,v in pairs(SCENARIOS) do
-                SCENARIOKEYNAMES[#SCENARIOKEYNAMES+1] = k;
-                print(k,v)
-            end
+    for k,v in pairs(SCENARIOS) do
+        SCENARIOKEYNAMES[#SCENARIOKEYNAMES+1] = k;
+        --print(k,v)
+    end
 SCENARIOLIST:close()
 
 print('adventuring system loaded!')
 
----COOKING SYSTEM---
+-----COOKING SYSTEM-----
 _G['COOKSCENARIOLIST'] = io.open(BotPath.."CookingSummary.json","r")
 _G['COOKRESULTS'] = json.decode(io.input(COOKSCENARIOLIST):read("*a"))
 _G['COOKRESULTKEYNAMES'] = {}
-            
-            for k,v in pairs(COOKRESULTS) do
-                COOKRESULTKEYNAMES[#COOKRESULTKEYNAMES+1] = k;
-                print(k,v)
-            end
+
+    for k,v in pairs(COOKRESULTS) do
+        COOKRESULTKEYNAMES[#COOKRESULTKEYNAMES+1] = k;
+        --print(k,v)
+    end
 COOKSCENARIOLIST:close()
 
 print('cooking system loaded!')
+-----------------------
 
----COOLDOWNS---
+-------COOLDOWNS-------
 _G['ADVCOOLDOWN'] = 3600 -- adventure cooldown 
 _G['DKCOOLDOWN'] = 3600 -- daily key cooldown
 
 print('cooldowns loaded!')
----COMMANDS, old please delete later
-print ('all commands loaded!')
+------------------------
 
-require ('Commands/ping')
-----
-require ('Commands/help')
-----
-require ('Commands/signup')
-----
-require ('Commands/profile')
-----
-require ('Commands/keys')
-----
-require ('Commands/boxes')
-----
-require ('Commands/dailykey')
-----
-require ('Commands/cooldowns')
-----
-require ('Commands/open')
-----
-require ('Commands/collection')
-----
-require ('Commands/collectionshort')
-----
-require ('Commands/adventure')
-----
-require ('Commands/cook')
-
-client:on('ready', function()
+client:on('ready', function() --READY UP
     print('Logged in as '.. client.user.username)
 end)
 
-client:on('messageCreate', function(message) --awaiting for use i dont know how to use this yet
+client:on('messageCreate', function(message) --handles message
     if message.author.bot then
         return
     else
         MessageCheck(message, message.content)
     end
-    
+
 end
 )
 
@@ -136,3 +108,5 @@ client:run('Bot OTYzNzA2NjQwOTk2MTIyNjU0.YlZ_wA.UjoXxszkTIiGUn0Xthv6fk-rdNQ')
 --dofile executes all the code inside a directed file!
 --you can input another variables data in a new variable! ex: apron[foods]
 --using return ends the function
+
+--returns seem to break if you dont give it an end when theres more lines of code after

@@ -1,112 +1,113 @@
-client:on("messageCreate", function(message) --HI WHAT THE FUCK IS THIS COMMAND AGAIN???
-    if message.content == prefix..'collection' or message.content == prefix..'col' then
-        local profileID = message.author.id 
-        local check = io.open(path..profileID..".json","r")
+--artifact collection
 
-        if check then
-            jsonstats = json.decode(io.input(check):read("*a"))
-            iteminventory = jsonstats.inventory
-            
-            --print (KEYNAMES[1])
+local command = {} --Awful command
+function command.run(message)
+    local profileID = message.author.id 
+    local check = io.open(path..profileID..".json","r")
 
-            if #iteminventory == 0 then --if you have nothing
-                message.channel:send{embed = {
-                    color = 0x000000,
-                    title = "It's Empty.",
+    if check then
+        jsonstats = json.decode(io.input(check):read("*a"))
+        iteminv = jsonstats.inv
 
+        --print (KEYNAMES[1])
 
-                    author = {
-                        name = message.author.username.. "'s Artifacts",
-                        icon_url = message.author.avatarURL
-                    },
+        if #iteminv == 0 then --if you have nothing
+            message.channel:send{embed = {
+                color = 0x000000,
+                title = "It's Empty.",
 
-                    description = "You don't own anything!"
-                }}
-
-                check:close()
-                --print("nah")
-            else --do inventory system
-
-                --print("full")
-                local embedList = ""
-               
-                Length = 2
-                local sortedinventory = Collectioninv(iteminventory)
-
-                for entryIndex = (1 - 1) * Length + 1, 1 * Length, 1 do  --actually sets them up for the embed --also its spose be Page - 1 but since all new inv starts at Page 1..
-                    if JSONITEMS[sortedinventory[entryIndex]] == nil then
-                        break
-                    end
-                    embedList = embedList..JSONITEMS[sortedinventory[entryIndex]][1].." "..JSONITEMS[sortedinventory[entryIndex]][2].."\n"
-                    --print(JSONITEMS[tablecloneofinventory[entryIndex]][1])
-                    --print(entryIndex)
-                end
-
-                message.channel:send({ --send collection inventory
-                embed = {
-                    color = 0x000000,
-                    title = "Artifact Progress ["..jsonstats.artifactprogress.."/256]",
-
-
-                    author = {
-                        name = message.author.username.. "'s Artifacts",
-                        icon_url = message.author.avatarURL
-                    },
-
-                    description = embedList,
-                    footer = {
-                        text = "Page 1",
-                    }
-
+                author = {
+                    name = message.author.username.. "'s Artifacts",
+                    icon_url = message.author.avatarURL
                 },
-    
-                --send buttons
-                components = {{ 
-                    type = 1, -- make button container
-                    components = {
-                      {
-                        type = 2, -- make a button
-                        style = 1, -- blurple
-                        label = "<<", -- add text
-                        custom_id = "previouspage",
-                        disabled = "false"
-                      },
-                      {
-                        type = 2, -- make a button
-                        style = 1, -- blurple
-                        label = ">>", -- add text
-                        custom_id = "nextpage",
-                        disabled = "false"
-                      }
-                    }
-                }}
-                })
-            
-                
-                
-                check:close()
+
+                description = "You don't own anything!"
+            }}
+
+            check:close()
+            --print("nah")
+
+        else --do inv system
+
+            --print("full")
+            local embedList = ""
+
+            Length = 1
+            Buttonlimit = math.floor(#iteminv / Length)
+            local sortedinv = Collectioninv(iteminv)
+
+            for entryIndex = (1 - 1) * Length + 1, 1 * Length, 1 do  --sort all the artifacts
+                if JSONITEMS[sortedinv[entryIndex]] == nil then
+                    break
+                end
+                embedList = embedList..JSONITEMS[sortedinv[entryIndex]][1].." "..JSONITEMS[sortedinv[entryIndex]][2].."\n"
+                --print(JSONITEMS[tablecloneofinv[entryIndex]][1])
+                --print(entryIndex)
             end
+
+            message.channel:send({ --send collection inv
+            embed = {
+                color = 0x000000,
+                title = "Artifact Progress ["..jsonstats.artifactprogress.."/256]",
+
+                author = {
+                    name = message.author.username.. "'s Artifacts",
+                    icon_url = message.author.avatarURL
+                },
+
+                description = embedList,
+                footer = {
+                    text = "Page 1",
+                }
+
+            },
+
+            --send buttons
+            components = {{ 
+                type = 1, -- make button container
+                components = {
+                    {
+                    type = 2, -- make a button
+                    style = 1, -- blurple
+                    label = "<<", -- add text
+                    custom_id = "previouspage",
+                    disabled = "false"
+                    },
+                    {
+                    type = 2, -- make a button
+                    style = 1, -- blurple
+                    label = ">>", -- add text
+                    custom_id = "nextpage",
+                    disabled = "false"
+                    }
+                }
+            }}
+            })
+
+            check:close()
         end
-
     end
-end)
+end
 
+--BUG NOTE: bot breaks if you press a button from an embed that existed before the bots startup, fixes itself once a button from an embed created after startup is pressed
 
-client:on("buttonPressed", function(buttonid, member, message) --WHAT THE FUCK ARE YOU
-                
-    if buttonid == "nextpage" then 
+client:on("buttonPressed", function(buttonid, member, message)  -- inv page
+--WHAT THE FUCK ARE YOU
+local embedpage = message.embed.footer.text --BIG note, youre taking objects from the MESSAGE, not the updated one below
+local embednumber = tonumber(string.sub(embedpage, 6)) --6th character of the "Page X", turn it from string into number
+Page = 1 --starting page
+
+    if buttonid == "nextpage" and embednumber < Buttonlimit then
         print(">>")
-        local embedpage = message.embed.footer.text --BIG note, youre taking objects from the MESSAGE, not the updated one below
-        local embednumber = tonumber(string.sub(embedpage, 6)) --6th letter, turn it into number
         Page = embednumber + 1
 
         local embedList = ""
-        local sortedinventory = Collectioninv(iteminventory)
+        local sortedinv = Collectioninv(iteminv)
         for entryIndex = (Page - 1) * Length + 1, Page * Length, 1 do
-            if JSONITEMS[sortedinventory[entryIndex]] == nil then
+            if JSONITEMS[sortedinv[entryIndex]] == nil then
                 break
             end
-            embedList = embedList..JSONITEMS[sortedinventory[entryIndex]][1].." "..JSONITEMS[sortedinventory[entryIndex]][2].."\n"
+            embedList = embedList..JSONITEMS[sortedinv[entryIndex]][1].." "..JSONITEMS[sortedinv[entryIndex]][2].."\n"
         end
 
         message:update({embed = {
@@ -116,7 +117,7 @@ client:on("buttonPressed", function(buttonid, member, message) --WHAT THE FUCK A
 
             author = {
                 name = "Artifacts",
-            
+
             },
 
             description = embedList,
@@ -126,29 +127,24 @@ client:on("buttonPressed", function(buttonid, member, message) --WHAT THE FUCK A
         }})
     end
 
-    if buttonid == "previouspage" then
-        if Page > 1 then
+    if buttonid == "previouspage" and embednumber > 1 then
             print("<<")
-            local embedpage = message.embed.footer.text 
-            local embednumber = tonumber(string.sub(embedpage, 6))
             Page = embednumber - 1
 
             local embedList = ""
-            local sortedinventory = Collectioninv(iteminventory)
+            local sortedinv = Collectioninv(iteminv)
             for entryIndex = (Page - 1) * Length + 1, Page * Length, 1 do --im going to strangle this shit
-                if JSONITEMS[sortedinventory[entryIndex]] == nil then
+                if JSONITEMS[sortedinv[entryIndex]] == nil then
                     break
                 end
-                embedList = embedList..JSONITEMS[sortedinventory[entryIndex]][1].." "..JSONITEMS[sortedinventory[entryIndex]][2].."\n"
+                embedList = embedList..JSONITEMS[sortedinv[entryIndex]][1].." "..JSONITEMS[sortedinv[entryIndex]][2].."\n"
             end
             message:update({embed = {
                 color = 0x000000,
                 title = "Artifact Progress ["..jsonstats.artifactprogress.."/256]",
 
-
                 author = {
                     name = "Artifacts",
-                
                 },
 
                 description = embedList,
@@ -159,26 +155,25 @@ client:on("buttonPressed", function(buttonid, member, message) --WHAT THE FUCK A
 
         end
     end
-end)    
+)
 
+function Collectioninv(iteminv) --sorts artifacts by id
+    local tablecloneofinv = {}
 
-
-function Collectioninv(iteminventory)
-    local tablecloneofinventory = {}
-
-    for index, value in pairs(iteminventory) do -- clones the users inventory
-        tablecloneofinventory[index] = value;
+    for i, v in pairs(iteminv) do -- clones the users inv
+        tablecloneofinv[i] = v;
     end
 
-    table.sort(tablecloneofinventory, function (a, b) -- sorts it by id
+    table.sort(tablecloneofinv, function (a, b) -- sorts it by id
         --print(JSONITEMS[a][1])
         if (JSONITEMS[a][3] < JSONITEMS[b][3]) then
             return (JSONITEMS[a][3] < JSONITEMS[b][3])
         end
     end)
-    --print(tablecloneofinventory[1])
-    --print(tablecloneofinventory[2])
-    print(tablecloneofinventory)
-    return tablecloneofinventory
+    --print(tablecloneofinv[1])
+    --print(tablecloneofinv[2])
+    print(tablecloneofinv)
+    return tablecloneofinv
 end
 
+return command --  
