@@ -1,6 +1,6 @@
 local command = {}
 function command.run(message, arg)
-    print("display")
+    --print("display")
     local profileID = message.author.id 
     local check = io.open(path..profileID..".json","r")
 
@@ -11,28 +11,50 @@ function command.run(message, arg)
 
         favlength = jsonstats.favinvlimit
 
-        if arg then --if theres a number with the command
-            print(arg)
-            selectedarid = tonumber(arg)
-            print(selectedarid)
-            if selectedarid then
-                local ar = 'ar'..selectedarid
-                print (ar)
-                if ar then
-                    --table.insert(jsonstats.displayinv,ar)
+        if arg then 
+            local favid = tonumber(arg)
 
-                    --local modify = io.open(path..profileID..".json","w")
-                    --io.output(modify):write(json.encode(jsonstats)) modify:flush() --update and save
-                    --modify:close() check:close() --close
-
-                else print("you dont have it")
+            if favid ~= nil then --if not nil and is a number
+                for i,v in ipairs (jsonstats.inv) do --loops this command to check inv until it has the item you selected
+                    if v == KEYNAMETABLE[favid] then --if detected!
+                        if_have = true --turn this to true
+                        break
+                    end
+                print(i,v.."inv")
                 end
-            end
 
-        else if #displayinv > 0 then --else if you have a displayinv
-            print("oo!")
-            message.channel:send("a")
-            else message.channel:send(message.author.username..", you do not have any displayed artifacts!")
+                for i,v in ipairs (displayinv) do --loops this command to check favinv until it has a copy of a favorite
+                    if v == KEYNAMETABLE[favid] then --if detected!
+                        if_favhave = true --turn this to true
+                        break
+                    end
+                print(i,v)
+                end
+
+                if if_have == true and if_favhave == false then
+                    table.insert(jsonstats.favinv, KEYNAMETABLE[favid])
+
+                    local modify = io.open(path..profileID..".json","w")
+                    io.output(modify):write(json.encode(jsonstats)) modify:flush() --update and save
+                    modify:close() check:close() --close
+                    if_have = false
+                    if_favhave = false
+
+                    message.channel:send(message.author.username..", you put "..JSONITEMS[KEYNAMETABLE[inspectid]][2].." in display!")
+                    print("displayed!!!!")
+                else
+                    if if_favhave == true then
+                        message.channel:send(message.author.username..", you already have this one displayed!")
+
+                        if_favhave = false
+                    else
+                        if favid < 256 then message.channel:send(message.author.username..", you do not have this artifact!") -- if id of an item you dont have
+                        else if favid > 256 then message.channel:send(message.author.username..", this artifact does not exist!") -- if id is bigger than existing ids
+                        end end
+                    end
+                end
+            else
+                print("boo")
             end
         end
 

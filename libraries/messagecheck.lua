@@ -28,7 +28,7 @@ addcommand('cook','c',Cmd.cook)
 addcommand('collection','col',Cmd.collection)
 addcommand('collectionshort','cols',Cmd.collectionshort)
 addcommand('inspect','i',Cmd.inspect)
---addcommand('display','d',Cmd.display)
+addcommand('display','d',Cmd.display)
 -----------------------
 print("all commands loaded!")
 -----------------------
