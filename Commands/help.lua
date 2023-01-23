@@ -1,12 +1,11 @@
---info--
-
 local command = {}
 function command.run(message)
     print("help")
-    message.channel:send{embed = {
+    --==--
+    message.channel:send{embed = { --(!!)
         color = 0x000000,
             title = "Command Info",
-         
+
             description = (
                 "**h$help**\nBrings you this menu! Displays all commands and their functions.\n\n"
                 .."**h$ping**\nPong!\n\n"

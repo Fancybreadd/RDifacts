@@ -1,18 +1,16 @@
---get goodies--
-
 local command = {}
 function command.run(message)
     local profileID = message.author.id 
     local check = io.open(path..profileID..".json","r")
-
-
+    print("adventure")
+    --==--
     if check then
         local jsonstats = json.decode(io.input(check):read("*a"))
 
         local currenttime = os.time() --30 seconds
         local playercooldown = jsonstats.timers.adventuretimer + ADVCOOLDOWN
-        print(playercooldown)
-
+        --print(playercooldown)
+        -------------------------
         if currenttime > playercooldown then --if current time is more than player cooldown, activate
             --rewards = box,key,marble,material,ingredient
             jsonstats.timers.adventuretimer = os.time()
@@ -33,30 +31,27 @@ function command.run(message)
             jsonstats.wallet.materials = jsonstats.wallet.materials + materialreward
             jsonstats.wallet.ingredients = jsonstats.wallet.ingredients + ingredientreward
 
+            ---
             local rewardtext = ""
-            if capsulereward > 1 then
-                rewardtext = rewardtext.."+"..capsulereward.. " <:treasurebox:974300654946365450> treasure boxes! \n"
-            else if capsulereward > 0 then
-                rewardtext = rewardtext.."+"..capsulereward.. " <:treasurebox:974300654946365450> treasure box! \n"
-            end end
+            if capsulereward > 0 then
+                rewardtext = rewardtext.."+"..capsulereward.. " "..MENUCAPSULE.." Capsule \n"
+            end
             if keyreward > 0 then
-                rewardtext = rewardtext.."+"..keyreward.. " <:boxkey:974300640178221106> keys! \n"
+                rewardtext = rewardtext.."+"..keyreward.. " "..MENUKEY.." Key \n"
             end
             if marblereward > 0 then
-                rewardtext = rewardtext.."+"..marblereward.." <:marble:974315328106549248> marbles! \n"
+                rewardtext = rewardtext.."+"..marblereward.." "..MENUMARBLE.." Marbles \n"
             end
             if materialreward > 0 then
-                rewardtext = rewardtext.."+"..materialreward.." materials! \n"
+                rewardtext = rewardtext.."+"..materialreward.." "..MENUMATERIAL.." Materials \n"
             end
             if ingredientreward > 0 then
-                rewardtext = rewardtext.."+"..ingredientreward.." ingredients! "
+                rewardtext = rewardtext.."+"..ingredientreward.." "..MENUINGREDIENT.." Ingredients "
             end
-            local modify = io.open(path..profileID..".json","w")
+            updatesave(profileID, jsonstats, check) --(S)
+            ---
 
-            io.output(modify):write(json.encode(jsonstats)) modify:flush() --update and save
-            modify:close() check:close()
-
-            message.channel:send{embed = {
+            message.channel:send{embed = { --(!!)
                 color = 0x000000,
                 title = "<:adventuring:974300665436340235> Adventuring.. ",
 
@@ -68,14 +63,15 @@ function command.run(message)
                 description = adventuresummary.."\n\n**"..rewardtext.."**"
 
             }}
+        ------------------------
 
         else
             local remainingtime = playercooldown - currenttime --gets remaining unix time 
-            print(remainingtime)
+            --print(remainingtime)
 
             local readableremainingtime = SecondsToClock(remainingtime)
 
-            message.channel:send{embed = {
+            message.channel:send{embed = { --(!!)
                 color = 0x000000,
                 title = "<:adventuring:974300665436340235> Ough.. ",
 
@@ -89,7 +85,7 @@ function command.run(message)
             }}
             check:close()
         end
-    else noprofile(message)
+    else noprofile(message) --(!!)
     end
 end
 return command --

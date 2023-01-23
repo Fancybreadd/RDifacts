@@ -1,30 +1,35 @@
---artifact collection in emote form--
-
 local command = {}
-function command.run(message)
+function command.run(message, arg)
+    print("collectionshort")
     local profileID = message.author.id 
-    local check = io.open(path..profileID..".json","r")
-
+    --==--
+ 
     if check then
         local jsonstats = json.decode(io.input(check):read("*a"))
         local iteminventory = jsonstats.inv
 
         --print (KEYNAMES[1])
+        if arg then
+            parg = tonumber(arg)
+            print(parg)
+            if parg ~= nil then
+                pagenum = parg
+            end
+        else pagenum = 1 end
 
         if #iteminventory == 0 then 
-            message.channel:send("**[Empty]**")
+            message.channel:send("**[Empty]**") --(!!)
 
             check:close()
             --print("nah")
         else
-             --do embed here
             --print("full")
             local emoteList = ""
 
-            Length = 20
+            Length = 2 --actually 32
             local sortedinventory = Collectioninv(iteminventory)
 
-            for entryIndex = (1 - 1) * Length + 1, 1 * Length, 1 do  --actually sets them up for the embed --also its spose be Page - 1 but since all new inv starts at Page 1..
+            for entryIndex = (pagenum - 1) * Length + 1, pagenum * Length, 1 do  --actually sets them up for the embed --also its spose be Page - 1 but since all new inv starts at Page 1..
                 if JSONITEMS[sortedinventory[entryIndex]] == nil then
                     break
                 end
@@ -32,9 +37,7 @@ function command.run(message)
                 --print(entryIndex)
             end
 
-            local shortinv = message.channel:send(emoteList)
-            shortinv:addReaction("⏪")
-            shortinv:addReaction("⏩") --take care of this
+            local shortinv = message.channel:send(emoteList) --(!!)
             check:close()
 
         end
@@ -42,6 +45,7 @@ function command.run(message)
     end
 end
 
+--------------------------
 function Collectioninv(iteminventory)
     local tablecloneofinventory = {}
 

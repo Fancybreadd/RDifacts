@@ -21,7 +21,7 @@ _G["SecondsToClock"] = function (seconds)
 
 end
 
-print(SecondsToClock(8643660))
-print(SecondsToClock(3660))
-print(SecondsToClock(60))
-print(SecondsToClock(30))
+--print(SecondsToClock(8643660))
+--print(SecondsToClock(3660))
+--print(SecondsToClock(60))
+--print(SecondsToClock(30))

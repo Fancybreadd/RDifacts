@@ -1,10 +1,9 @@
---cooldowns--
-
 local command = {}
 function command.run(message)
     local profileID = message.author.id
     local check = io.open(path..profileID..".json","r")
-
+    print("cooldown")
+    --==--
     if check then
         local jsonstats = json.decode(io.input(check):read("*a"))
 
@@ -30,10 +29,9 @@ function command.run(message)
         else
             advresult = advrealtime
         end
-
         --print(advrealtime)
 
-        message.channel:send(message.author.mentionString..", Your cooldowns are.."
+        message.channel:send(message.author.mentionString..", Your cooldowns are.." --(!!)
         .."\n\n<:boxkey:974300640178221106> **h$dailykey:** ``"..keyresult.."``"
         .."\n<:adventuring:974300665436340235> **h$adventure:** ``"..advresult.."``"
         )

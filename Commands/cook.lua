@@ -1,20 +1,18 @@
---cuts cooldown--
-
 local cookingcost = 20
 
 local command = {}
 function command.run(message)
+    print("cook")
     local profileID = message.author.id 
     local check = io.open(path..profileID..".json","r")
-
-
+    --==--
     if check then
         local jsonstats = json.decode(io.input(check):read("*a"))
 
         local currenttime = os.time()
         local playercooldown = jsonstats.timers.adventuretimer + ADVCOOLDOWN
         print(playercooldown)
-
+        ------------------------------------------o
         if currenttime < playercooldown then
 
             if jsonstats.wallet.ingredients > cookingcost then
@@ -30,14 +28,11 @@ function command.run(message)
 
                 local minutescookvalue = cookvalue/60
 
-                local modify = io.open(path..profileID..".json","w")
-
-                io.output(modify):write(json.encode(jsonstats)) modify:flush() --update and save
-                modify:close() check:close() --close
+                updatesave(profileID, jsonstats, check) --(S)
 
                 message.channel:send{embed = {
                     color = 0x000000,
-                    title = "<:cookingknife:974357840359735296> Cooking.. ",
+                    title = MENUCOOK.." Cooking.. ",
 
                     author = {
                         name = message.author.username,
@@ -50,9 +45,9 @@ function command.run(message)
             else
                 check:close()
 
-                message.channel:send{embed = {
+                message.channel:send{embed = { --(!!)
                     color = 0x000000,
-                    title = "<:cookingknife:974357840359735296> Cooking.. ",
+                    title = MENUCOOK.." Cooking.. ",
 
                     author = {
                         name = message.author.username,
@@ -62,11 +57,12 @@ function command.run(message)
                     description = "You look everywhere, but there just doesn't seem to be anything you can really cook with..."
                 }}
             end
+        ------------------------------------------o
 
         else
-            message.channel:send{embed = {
+            message.channel:send{embed = { --(!!)
                 color = 0x000000,
-                title = "<:cookingknife:974357840359735296> Wait.. ",
+                title = MENUCOOK.." Wait.. ",
 
                 author = {
                     name = message.author.username,
@@ -78,7 +74,7 @@ function command.run(message)
 
             check:close()
         end
-    else noprofile(message)
+    else noprofile(message) --(!!)
     end
 end
 return command --
