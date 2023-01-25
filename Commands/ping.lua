@@ -1,6 +1,8 @@
 local command = {}
 function command.run(message, arg, arg2)
     print("ping")
+    commandid = message.id
+    print(string.split("abby-ogre", "-")[1])
     --==--
     message.channel:send(message.author.mentionString.. " pong!") --!!
     print(message.author.id)
@@ -20,20 +22,24 @@ function command.run(message, arg, arg2)
         }
     return end
     -----------
-    local yesbutton = discordia.Button {type = "button", style = "success", id = "yes", label = "Yes!", disabled = false}
-    local nobutton = discordia.Button {type = "button", style = "danger", id = "no", label = "No!", disabled = false}
+    local yesbutton = discordia.Button {type = "button", style = "success", id = "yesb", label = "Yes!", disabled = false}
+    local nobutton = discordia.Button {type = "button", style = "danger", id = "nob", label = "No!", disabled = false}
 
     local newmessage = message.channel:sendComponents {
-        content = "buttons!!",
         components = discordia.Components {yesbutton, nobutton}
     }
     print(yesbutton)
     local pressed, interaction = newmessage:waitComponent("button", nil, 1000 * 30, function(interaction)
-        return print ("woo!!")
+        return true
     end)
-
     newmessage:update { components = discordia.Components {yesbutton:disable(), nobutton:disable()} } 
-        print("Button timed out")
-    return 
+
+    if interaction.data.custom_id == "yesb" then
+        interaction:reply("test")
+        local msg_id = interaction.getReply()
+        interaction:editReply("test2", msg_id)
+        --how do i edit this interaction:reply afterward
+        --message.channel:send("ooooo")
+    end
 end
 return command --

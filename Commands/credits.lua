@@ -18,8 +18,8 @@ local credimage1 = "https://media.discordapp.net/attachments/944290668086448148/
 local credimage2 = "https://images-ext-2.discordapp.net/external/h4WW2alcIbtyH0yDGL7CParlCowXQiI282GEjDYltbc/https/pbs.twimg.com/media/Fl5W-4laAAA5K8-.jpg?width=522&height=522"
 local credimage3 = "https://media.discordapp.net/attachments/944290668086448148/1061969903738966026/IMG_4840.png?width=530&height=522"
 
-local credprevb = discordia.Button {type = "button", style = "primary", id = "creditsprev", label = "<<", disabled = false}
-local crednextb = discordia.Button {type = "button", style = "primary", id = "creditsnext", label = ">>", disabled = false}
+local credprevb = discordia.Button {type = "button", style = "primary", id = "credits-prev", label = "<<", disabled = false}
+local crednextb = discordia.Button {type = "button", style = "primary", id = "credits-next", label = ">>", disabled = false}
 ----oo[]#[[X]]#[]oo----
 
 local command = {}
@@ -37,7 +37,7 @@ function command.run(message)
             description = credits1,
             image = {url = credimage1},
             footer = {
-                text = "Page 1",
+                text = "Page 1/3",
             }
         },
         components = discordia.Components {credprevb,crednextb}
@@ -45,84 +45,87 @@ function command.run(message)
 end
 
 client:on("interactionCreate", function(interaction) -- look at this later
-    local embedpage = interaction.message.embed.footer.text --BIG note, youre taking objects from the MESSAGE, not the updated one below
-    local embednumber = tonumber(string.sub(embedpage, 6)) --6th character of the "Page X" footer, turn it from string into number
-    Page = 1
+    if string.split(interaction.data.custom_id, "-")[1] == "credits" then
+        local embedpage = interaction.message.embed.footer.text --BIG note, youre taking objects from the MESSAGE, not the updated one below
+        local embednumber = tonumber(string.sub(embedpage, 6)) --6th character of the "Page X" footer, turn it from string into number
+        Page = 1
 
-    if discordia.enums.interactionType.messageComponent then --if a button is pressed..
-        print("a button!")
-        --==oo##oo==--
-        if interaction.data.custom_id == "creditsnext" and embednumber < 3 then -->>
-            print("credits>>")
-            Page = embednumber + 1
-            print(Page)
-            if Page == 2 then
-                interaction:update{embed = {
-                color = 0x000000,
-
-                author = {
-                    name = "~RDifacts Credits~",
-                },
-
-                description = credits2,
-                image = {url = credimage2},
-                footer = {
-                    text = "Page "..Page,
-                },
-                }}
-            else
-                if Page == 3 then
+        if discordia.enums.interactionType.messageComponent then --if a button is pressed..
+            print("a button!")
+            --==oo##oo==--
+            if interaction.data.custom_id == "credits-next" and embednumber < 3 then -->>
+                print("credits>>")
+                Page = embednumber + 1
+                print(Page)
+                if Page == 2 then
                     interaction:update{embed = {
                     color = 0x000000,
 
                     author = {
-                    name = "~RDifacts Credits~",
+                        name = "~RDifacts Credits~",
                     },
 
-                    description = credits3,
-                    image = {url = credimage3},
+                    description = credits2,
+                    image = {url = credimage2},
                     footer = {
-                        text = "Page "..Page,
+                        text = "Page "..Page.."/3",
                     },
                     }}
+                else
+                    if Page == 3 then
+                        interaction:update{embed = {
+                        color = 0x000000,
+
+                        author = {
+                        name = "~RDifacts Credits~",
+                        },
+
+                        description = credits3,
+                        image = {url = credimage3},
+                        footer = {
+                            text = "Page "..Page.."/3",
+                        },
+                        }}
+                    end
                 end
             end
-        end
-    end
 
-    if interaction.data.custom_id == "creditsprev" and embednumber < 3 then --<<
-        print("credits<<")
-        Page = embednumber - 1
-        print(Page)
-        if Page == 2 then
-            interaction:update{embed = {
-            color = 0x000000,
+            if interaction.data.custom_id == "credits-prev" and embednumber < 3 then --<<
+                print("credits<<")
+                Page = embednumber - 1
+                print(Page)
+                if Page == 2 then
+                    interaction:update{embed = {
+                    color = 0x000000,
 
-            author = {
-                name = "~RDifacts Credits~",
-            },
+                    author = {
+                        name = "~RDifacts Credits~",
+                    },
 
-            description = credits2,
-            image = {url = credimage2},
-            footer = {
-                text = "Page "..Page,
-            }
-            }}
-        else
-            if Page == 1 then
-                interaction:update{embed = {
-                color = 0x000000,
+                    description = credits2,
+                    image = {url = credimage2},
+                    footer = {
+                        text = "Page "..Page.."/3",
+                    }
+                    }}
+                else
+                    if Page == 1 then
+                        interaction:update{embed = {
+                        color = 0x000000,
 
-                author = {
-                    name = "~RDifacts Credits~",
-                },
+                        author = {
+                            name = "~RDifacts Credits~",
+                        },
 
-                description = credits1,
-                image = {url = credimage1},
-                footer = {
-                    text = "Page "..Page,
-                }
-                }} end
+                        description = credits1,
+                        image = {url = credimage1},
+                        footer = {
+                            text = "Page "..Page.."/3",
+                        }
+                        }}
+                    end
+                end
+            end
         end
     end
 end)

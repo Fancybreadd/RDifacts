@@ -12,6 +12,8 @@ _G["prefix"] = "h$" --prefix
 _G["scandir"] = function (PATH)
 return fs.readdirSync(PATH) end
 
+discordia.extensions()
+
 _G["Cmd"] = {}
 
 dofile("libraries/secondstoclock.lua")

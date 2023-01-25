@@ -1,3 +1,5 @@
+--OLD VER OF H$OPEN
+
 local command = {}
 function command.run(message)
     print("open")

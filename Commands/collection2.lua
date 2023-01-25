@@ -1,3 +1,4 @@
+--OLD VER OF H$COLLECTION
 local command = {} 
 function command.run(message) --the most horrible one
     print("collection")

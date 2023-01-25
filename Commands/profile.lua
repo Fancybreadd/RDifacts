@@ -7,15 +7,15 @@ function command.run(message)
     --==--
 
     ----------------------------------------o
-    if message.mentionedUsers[1][1] then --switch to pinged user if there is
-        profileID = message.mentionedUsers[1][1]
-        friend = message.guild:getMember(profileID).user
-        pname = friend.username
-        iconurl = friend.avatarURL
-        print (friend)
+    --if message.mentionedUsers then --switch to pinged user if there is
+        --profileID = message.mentionedUsers[1][1]
+        --friend = message.guild:getMember(profileID).user
+        --pname = friend.username
+        --iconurl = friend.avatarURL
+        --print (friend)
         --iconurl = friend.icon_url --Change this later--
-        for i,v in pairs(message.mentionedUsers[1]) do print(i,v) end
-    end
+        --for i,v in pairs(message.mentionedUsers[1]) do print(i,v) end
+    --end
     local check = io.open(path..profileID..".json","r")
     ----------------------------------------o
 
