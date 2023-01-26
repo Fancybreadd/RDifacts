@@ -30,17 +30,26 @@ function command.run(message)
 
                 updatesave(profileID, jsonstats, check) --(S)
 
-                message.channel:send{embed = {
-                    color = 0x000000,
-                    title = MENUCOOK.." Cooking.. ",
+                message.channel:send{
+                    embed = {
+                        color = 0x000000,
+                        author = {
+                            name = message.author.username,
+                            icon_url = message.author.avatarURL
+                        },
 
-                    author = {
-                        name = message.author.username,
-                        icon_url = message.author.avatarURL
-                    },
+                        title = MENUCOOK.." Cooking.. ",
+                        description = cooksummary,
 
-                    description = cooksummary.."\n**-20 Ingredients**\n``-"..minutescookvalue.." Minutes on adventuring cooldown!``"
-                }}
+                        fields = {
+                            {
+                                name = "h$adv cooldown cut by "..minutescookvalue.." minutes!",
+                                value = "ꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥꕥ"
+                            }
+                        },
+                        footer = {text = "-20 Ingredients"}
+                        }
+                }
 
             else
                 check:close()

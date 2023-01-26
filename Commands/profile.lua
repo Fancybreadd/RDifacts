@@ -5,11 +5,11 @@ function command.run(message)
     local pname = message.author.username
     local iconurl = message.author.avatarURL
     --==--
-
     ----------------------------------------o
-    --if message.mentionedUsers then --switch to pinged user if there is
+    --if pingid ~= nil then --switch to pinged user if there is
+        --print("ooh")
         --profileID = message.mentionedUsers[1][1]
-        --friend = message.guild:getMember(profileID).user
+        --local friend = message.guild:getMember(profileID).user
         --pname = friend.username
         --iconurl = friend.avatarURL
         --print (friend)
@@ -22,59 +22,56 @@ function command.run(message)
     if check then
         local jsonstats = json.decode(io.input(check):read("*a"))
 
-        local artifactprogress = jsonstats.artifactprogress
+        local iteminv = jsonstats.inv
+        local artifactprogress = #iteminv
 
-        local marblestat = jsonstats.wallet.marbles
-        local materialstat = jsonstats.wallet.materials
-        local keystat = jsonstats.wallet.keys
-        local capsulestat = jsonstats.wallet.capsules
-        local ingredientstat = jsonstats.wallet.ingredients
+        local keystat = jsonstats.wallet.keys local capsulestat = jsonstats.wallet.capsules local marblestat = jsonstats.wallet.marbles 
+        local materialstat = jsonstats.wallet.materials local ingredientstat = jsonstats.wallet.ingredients
         local emblemstat = jsonstats.wallet.emblems
 
-        message.channel:send{embed = { --(!!)
-            color = 0x000000,
-            title = "Stats",
+        message.channel:send{
+            embed = {
+                color = 0x000000,
+                author = {
+                    name = pname.. "'s Profile",
+                    icon_url = iconurl
+                },
+                title = "Stats",
+                description = "**-- Artifact Progress ["..artifactprogress.."/256] --**",
 
-            author = {
-                name = pname.. "'s Profile",
-                icon_url = iconurl
-            },
-
-            description = "**Artifact Progress ["..artifactprogress.."/256]**",
-
-            fields = {
-                {
-                    name = MENUKEY.." Keys",
-                    value = keystat,
-                    inline = true
-                },
-                {
-                    name = MENUCAPSULE.." Capsules",
-                    value = capsulestat,
-                    inline = true
-                },
-                {
-                    name = MENUMARBLE.." Marbles",
-                    value = marblestat,
-                    inline = true
-                },
-                {
-                    name = " Emblems",
-                    value = emblemstat,
-                    inline = false
-                },
-                {
-                    name = MENUMATERIAL.." Materials",
-                    value = materialstat,
-                    inline = false
-                },
-                {
-                    name = MENUINGREDIENT.." Ingredients",
-                    value = ingredientstat,
-                    inline = true
+                fields = {
+                    {
+                        name = MENUKEY.." Keys",
+                        value = keystat,
+                        inline = true
+                    },
+                    {
+                        name = MENUCAPSULE.." Capsules",
+                        value = capsulestat,
+                        inline = true
+                    },
+                    {
+                        name = MENUMARBLE.." Marbles",
+                        value = marblestat,
+                        inline = true
+                    },
+                    {
+                        name = MENUMATERIAL.." Materials",
+                        value = materialstat,
+                        inline = true
+                    },
+                    {
+                        name = MENUINGREDIENT.." Ingredients",
+                        value = ingredientstat,
+                        inline = true
+                    },
+                    {
+                        name = " Emblems",
+                        value = emblemstat,
+                        inline = false
+                    }
                 }
-            }
-        }}
+            }}
         check:close()
     else noprofile(message)
     end

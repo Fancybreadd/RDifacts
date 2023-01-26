@@ -6,7 +6,6 @@ function command.run(message)
     --==--
     if check then
         local jsonstats = json.decode(io.input(check):read("*a"))
-
         local currenttime = os.time() --30 seconds
         local playercooldown = jsonstats.timers.adventuretimer + ADVCOOLDOWN
         --print(playercooldown)
@@ -60,7 +59,18 @@ function command.run(message)
                     icon_url = message.author.avatarURL
                 },
 
-                description = adventuresummary.."\n\n**"..rewardtext.."**"
+                description = adventuresummary,
+
+                fields = {
+                    {
+                        name = ":sparkles: Rewards:",
+                        value = "**"..rewardtext.."**",
+                    }
+                },
+
+                footer = {
+                    text = message.author.username..", you can explore again in ``TIME``"
+                }
 
             }}
         ------------------------

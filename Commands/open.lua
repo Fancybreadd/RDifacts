@@ -50,8 +50,10 @@ function command.run(message)
         print("press! running..")
         if interaction.data.custom_id == "open-yes" then
             --interaction:reply("insert code here")
-            Jsonstats.wallet.keys = Jsonstats.wallet.keys - 1
-            Jsonstats.wallet.capsules = Jsonstats.wallet.capsules - 1
+            if Jsonstats.wallet.keys or Jsonstats.wallet.capsules < 0 then
+                interaction:reply(message.author.username.." you don't have the required ")
+            return end
+            Jsonstats.wallet.keys = Jsonstats.wallet.keys - 1 Jsonstats.wallet.capsules = Jsonstats.wallet.capsules - 1
 
             local prizeval = math.random(1,4) --
             local if_have = false
@@ -71,13 +73,11 @@ function command.run(message)
                 print(JSONITEMS[KEYNAMETABLE[prizeval]][1]..JSONITEMS[KEYNAMETABLE[prizeval]][3])
 
                 table.insert(Jsonstats.inv, KEYNAMETABLE[prizeval]) --gives you items keyname
-                Jsonstats.artifactprogress = Jsonstats.artifactprogress + 1
-                
+                updatesave(profileID, Jsonstats, check) --(S)
+
                 interaction:reply("Opening capsule...")
                 message.channel:send(MENUCAPSULE.." "..JSONITEMS[KEYNAMETABLE[prizeval]][2].." "..MENUCAPSULE)
                 message.channel:send("You obtained **"..JSONITEMS[KEYNAMETABLE[prizeval]][1].."** !")
-
-                updatesave(profileID, Jsonstats, check) --(S)
 
             return end --end command
 
@@ -89,8 +89,6 @@ function command.run(message)
             message.channel:send(JSONITEMS[KEYNAMETABLE[prizeval]][2])
             message.channel:send("Seems like you got a dupe.. \n**+1 Emblem**")
             --==++==--
-
-
             return
 
         else if interaction.data.custom_id == "open-no" then

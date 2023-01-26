@@ -70,7 +70,7 @@ print("cooking system loaded!")
 
 
 --------------------------------------------------------------------------------------COOLDOWNS-------
-_G["ADVCOOLDOWN"] = 20 -- adventure cooldown (3600)
+_G["ADVCOOLDOWN"] = 120 -- adventure cooldown (3600)
 _G["DKCOOLDOWN"] = 10 -- daily key cooldown (3600)
 _G["GKCOOLDOWN"] = 30 -- gift key cooldown (3600)
 

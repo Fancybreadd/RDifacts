@@ -24,18 +24,17 @@ function command.run(message)
     else --otherwise..
 
         local stats = {
-            wallet = {keys=1,capsules=1,marbles=0,materials=0,ingredients=0,emblems=0},
+            wallet = {keys=1,capsules=1,marbles=0,materials=0,ingredients=0,emblems=0,startonics=0},
             inv = {},
             favinv = {},
             favinvlimit = 3,
-            timers = {adventuretimer=0,keytimer=0,giftkeytimer=0},
-            artifactprogress = 0,
+            timers = {adventuretimer=0,keytimer=0,giftkeytimer=0}
         }
         local jsonstats = json.encode(stats)
 
         profile:write(jsonstats) profile:close() --(S)
 
-        message.channel:send{embed = { --(!!)
+        message.channel:send{embed = {
             color = 0x000000,
             title = "Success!",
 
