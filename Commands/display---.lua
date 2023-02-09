@@ -5,11 +5,10 @@ function command.run(message, arg)
     local check = io.open(path..profileID..".json","r")
     --==--
     if check then
-        jsonstats = json.decode(io.input(check):read("*a"))
-        displayinv = jsonstats.favinv
-        iteminv = jsonstats.inv
-        favlength = jsonstats.favinvlimit
-        ----------------------------------------------------------------------
+        local jsonstats = json.decode(io.input(check):read("*a"))
+        local displayinv = jsonstats.favinv
+        local iteminv = jsonstats.inv
+        local favlength = jsonstats.favinvlimit
         ----------------------------------------------------------------------
         if arg then
             ---------o

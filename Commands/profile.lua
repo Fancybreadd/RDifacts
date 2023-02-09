@@ -4,22 +4,26 @@ function command.run(message)
     local profileID = message.author.id
     local pname = message.author.username
     local iconurl = message.author.avatarURL
-    --==--
-    ----------------------------------------o
-    --if pingid ~= nil then --switch to pinged user if there is
-        --print("ooh")
-        --profileID = message.mentionedUsers[1][1]
-        --local friend = message.guild:getMember(profileID).user
-        --pname = friend.username
-        --iconurl = friend.avatarURL
-        --print (friend)
-        --iconurl = friend.icon_url --Change this later--
-        --for i,v in pairs(message.mentionedUsers[1]) do print(i,v) end
-    --end
     local check = io.open(path..profileID..".json","r")
-    ----------------------------------------o
+    --==--
+    if not message.mentionedUsers[1] then --if pinged friend
+        if not check then
+            local profile = io.open(path..profileID..".json","w")
+            noprofile(message)
+            check = makeprofile(profile, profileID)
+        end
+    else
+        profileID = message.mentionedUsers[1][1]
+        pname = message.guild:getMember(profileID).user.username
+        iconurl = message.guild:getMember(profileID).user.avatarURL
+        check = io.open(path..profileID..".json","r")
+        if not check then
+            print("no profile detected")
+            return
+        end
+    end
+    --==--
 
-    if check then
         local jsonstats = json.decode(io.input(check):read("*a"))
 
         local iteminv = jsonstats.inv
@@ -31,12 +35,11 @@ function command.run(message)
 
         message.channel:send{
             embed = {
-                color = 0x000000,
+                color = 0x000000, title = "Stats",
                 author = {
                     name = pname.. "'s Profile",
                     icon_url = iconurl
                 },
-                title = "Stats",
                 description = "**-- Artifact Progress ["..artifactprogress.."/256] --**",
 
                 fields = {
@@ -71,9 +74,7 @@ function command.run(message)
                         inline = false
                     }
                 }
-            }}
-        check:close()
-    else noprofile(message)
-    end
+        }}
+    check:close()
 end
 return command --

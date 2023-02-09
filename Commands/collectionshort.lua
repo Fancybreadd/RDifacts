@@ -1,68 +1,129 @@
+local prevb = discordia.Button {type = "button", style = "primary", id = "cols-previous", label = "<<", disabled = false}
+local nextb = discordia.Button {type = "button", style = "primary", id = "cols-next", label = ">>", disabled = false}
+----JCI THANK YOU THANK YOU THANK YOU YOURE SO HANDSOME MWUAH MWUAH MWUAH
 local command = {}
-function command.run(message, arg)
+function command.run(message) --lets go again
     print("collectionshort")
-    local profileID = message.author.id 
+    local profileID = message.author.id
+    local check = io.open(path..profileID..".json","r")
     --==--
- 
-    if check then
-        local jsonstats = json.decode(io.input(check):read("*a"))
-        local iteminventory = jsonstats.inv
+    if not message.mentionedUsers[1] then --if pinged friend
+        if not check then
+            local profile = io.open(path..profileID..".json","w")
+            noprofile(message)
+            check = makeprofile(profile, profileID)
+        end
+    else
+        profileID = message.mentionedUsers[1][1]
+        check = io.open(path..profileID..".json","r")
+        if not check then
+            print("no profile detected")
+            return
+        end
+    end
+    --==--
+    local jsonstats = json.decode(io.input(check):read("*a"))
+    local iteminv = jsonstats.inv
 
-        --print (KEYNAMES[1])
-        if arg then
-            parg = tonumber(arg)
-            print(parg)
-            if parg ~= nil then
-                pagenum = parg
-            end
-        else pagenum = 1 end
+    --------------------------------------------------------------------o
+    if #iteminv == 0 then --if you have nothing
+        message.channel:send{
+            content = "**You have... nothing!** \n``Go and find an artifact!``"
+        }
+        check:close()
 
-        if #iteminventory == 0 then 
-            message.channel:send("**[Empty]**") --(!!)
+    --else, do system
+    else ---------------------------------------------------------------o
+        local currentPage = 1
+        local Length = 2 --amount of artifacts shown per page --will be 32
+        local Buttonlimit = math.ceil((#iteminv / Length))
 
-            check:close()
-            --print("nah")
-        else
-            --print("full")
+        --==--
+        local sortedinv = Collectioninv(iteminv)
+        --==--
+
+        local function createMessage()
+            if currentPage == 1 then prevb:disable() else prevb:enable() end
+            if currentPage == Buttonlimit then nextb:disable() else nextb:enable() end
+
+            --[]--
             local emoteList = ""
-
-            Length = 2 --actually 32
-            local sortedinventory = Collectioninv(iteminventory)
-
-            for entryIndex = (pagenum - 1) * Length + 1, pagenum * Length, 1 do  --actually sets them up for the embed --also its spose be Page - 1 but since all new inv starts at Page 1..
-                if JSONITEMS[sortedinventory[entryIndex]] == nil then
+            for entryIndex = (currentPage - 1) * Length + 1, currentPage * Length, 1 do  --sort all the artifacts
+                if JSONITEMS[sortedinv[entryIndex]] == nil then
                     break
                 end
-                emoteList = emoteList..JSONITEMS[sortedinventory[entryIndex]][2]
-                --print(entryIndex)
+                emoteList = emoteList.." "..JSONITEMS[sortedinv[entryIndex]][2]
             end
+            --[]--
 
-            local shortinv = message.channel:send(emoteList) --(!!)
-            check:close()
-
+            --===TEXT===--
+            return {
+                content = emoteList,
+                components = discordia.Components {prevb, nextb}
+            }
         end
-    else noprofile(message)
+
+        local colsmenu = message.channel:sendComponents(createMessage())
+
+-------------------------------------------
+            --BUTTON CODE--
+-------------------------------------------
+
+        while true do
+            local pressed, interaction = colsmenu:waitComponent("button", nil, 1000 * 60 * 30, function(interaction)
+                if interaction.user.id ~= profileID then
+                    interaction:reply("You can't use this button!", true)
+                    return false
+                end
+
+                return true
+            end)
+
+            if pressed then
+                if interaction.data.custom_id == "cols-next" then
+                    currentPage = currentPage + 1
+                elseif interaction.data.custom_id == "cols-previous" then
+                    currentPage = currentPage - 1
+                end
+
+                interaction:update(createMessage())
+            else
+                -- Timeout
+                break
+            end
+        end
+
+        --local pressed, interaction = colmenu:waitComponent("button", nil, 1000 * 10, function(interaction)
+        --end)
+        --colmenu:update { components = discordia.Components { nextb:disable(), prevb:disable() } } return
     end
+    --------------------------------------------------------------------o
 end
 
---------------------------
-function Collectioninv(iteminventory)
-    local tablecloneofinventory = {}
 
-    for index, value in pairs(iteminventory) do -- clones the users inv
-        tablecloneofinventory[index] = value;
-        print (index)
+
+
+
+
+------DO NOT TOUCH THIS------
+function Collectioninv(iteminv) --sorts artifacts by id
+    local tablecloneofinv = {}
+
+    for i, v in pairs(iteminv) do -- clones the users inv
+        tablecloneofinv[i] = v;
     end
 
-    table.sort(tablecloneofinventory, function (a, b) -- sorts it by id
+    table.sort(tablecloneofinv, function (a, b) -- sorts it by id
         --print(JSONITEMS[a][1])
-        if (JSONITEMS[a][3] < JSONITEMS[b][3]) then
-            return (JSONITEMS[a][3] < JSONITEMS[b][3])
+        if (JSONITEMS[a][4] < JSONITEMS[b][4]) then
+            return (JSONITEMS[a][4] < JSONITEMS[b][4])
         end
     end)
-    --print(tablecloneofinventory[1])
-    --print(tablecloneofinventory[2])
-    return tablecloneofinventory
+    --print(tablecloneofinv[1])
+    --print(tablecloneofinv[2])
+    --print(tablecloneofinv)
+    return tablecloneofinv
 end
-return command --
+------DO NOT TOUCH THIS------
 
+return command

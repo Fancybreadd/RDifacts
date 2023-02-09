@@ -3,6 +3,7 @@ local BotPath = "D:/artte/Heartifacts REPOSITORY/Heartifacts/" -- NOTE: PLEASE C
 -----------------------------------------------------------------------------------------LIBS+STUFF---
 _G["discordia"] = require("discordia") require("discordia-components") require("discordia-interactions")--lua discord powers
 _G["Components"] = discordia.Components
+discordia.extensions()
 _G["fs"] = require("fs")
 _G["client"] = discordia.Client()
 _G["json"] = require("libraries/json") --json powers
@@ -12,8 +13,6 @@ _G["prefix"] = "h$" --prefix
 _G["scandir"] = function (PATH)
 return fs.readdirSync(PATH) end
 
-discordia.extensions()
-
 _G["Cmd"] = {}
 
 dofile("libraries/secondstoclock.lua")
@@ -21,7 +20,6 @@ dofile("libraries/messagecheck.lua")
 dofile("libraries/profileshenanigans.lua")
 
 print("essentials loaded!")
-
 ------------------------------------------------------------------------------------ARTIFACT SYSTEM---
 _G["JSONITEMLIST"] = io.open(BotPath.."ITEMLIST.json","r")
 _G["JSONITEMS"] = json.decode(io.input(JSONITEMLIST):read("*a"))
@@ -31,14 +29,14 @@ for k,v in pairs(JSONITEMS) do
     KEYNAMETABLE[#KEYNAMETABLE+1] = k; --lua is NOT 0-indexed, meaning it counts from 1 instead of 0
     --print(k,v)
 end
-table.sort(KEYNAMETABLE, function(a, b) return JSONITEMS[a][3] < JSONITEMS[b][3] end) --numerically sorts the entire jsonitemlist in order by id    
+table.sort(KEYNAMETABLE, function(a, b) return JSONITEMS[a][4] < JSONITEMS[b][4] end) --numerically sorts the entire jsonitemlist in order by id    
 
 JSONITEMLIST:close()
 
 print("artifact system loaded!")
 
 --ex: KEYNAMES["WornDagger":{}]
--- KEYNAMES are just the table full of the artifacts table keynames, they do not contain actual info inside
+-- KEYNAMES is just the table full of the artifacts table keynames, they do not contain actual info inside
 --ex: JSONITEMS[KEYNAMES[1]]["Worn Dagger", <emoji>, id, grade, desc]
 --[1] is the first index number of ITEMLIST, which brings up WornDagger
 
@@ -70,9 +68,9 @@ print("cooking system loaded!")
 
 
 --------------------------------------------------------------------------------------COOLDOWNS-------
-_G["ADVCOOLDOWN"] = 120 -- adventure cooldown (3600)
-_G["DKCOOLDOWN"] = 10 -- daily key cooldown (3600)
-_G["GKCOOLDOWN"] = 30 -- gift key cooldown (3600)
+_G["ADVCOOLDOWN"] = 120 -- adventure cooldown
+_G["DKCOOLDOWN"] = 10 -- daily key cooldown
+_G["GKCOOLDOWN"] = 30 -- gift key cooldown
 
 print("cooldowns loaded!")
 ----------------------------------------------------------------------------------------EMOJIS--------
@@ -110,14 +108,12 @@ client:run("Bot OTYzNzA2NjQwOTk2MTIyNjU0.YlZ_wA.UjoXxszkTIiGUn0Xthv6fk-rdNQ")
 --unix time = a second [1], a minute [60], an hour[3600]
 --if you ever change computers change profile pathing immediately
 
---message.author.mentionstring pings yourself! good to know.
---for empty brackets like function(), you can put any name in the brackets. It just serves as a placeholder for data
 --main.lua is the root. every file within it is able to be reached without being specified of the pathing
 
 --ipairs goes through an indexed table, i stands for iteration, works for tables of data that does not have keys related for each data piece
 --for i, v in ipairs
 
---pairs goes through a non indexed table, works for data that already has kets attached to each data
+--pairs goes through a non indexed table, works for data that already has keys attached to each data piece
 --for k, v in pairs
 
 --dofile executes all the code inside a directed file!

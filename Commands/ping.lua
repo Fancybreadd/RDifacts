@@ -22,24 +22,8 @@ function command.run(message, arg, arg2)
         }
     return end
     -----------
-    local yesbutton = discordia.Button {type = "button", style = "success", id = "yesb", label = "Yes!", disabled = false}
-    local nobutton = discordia.Button {type = "button", style = "danger", id = "nob", label = "No!", disabled = false}
-
-    local newmessage = message.channel:sendComponents {
-        components = discordia.Components {yesbutton, nobutton}
-    }
-    print(yesbutton)
-    local pressed, interaction = newmessage:waitComponent("button", nil, 1000 * 30, function(interaction)
-        return true
-    end)
-    newmessage:update { components = discordia.Components {yesbutton:disable(), nobutton:disable()} } 
-
-    if interaction.data.custom_id == "yesb" then
-        interaction:reply("test")
-        local msg_id = interaction.getReply()
-        interaction:editReply("test2", msg_id)
-        --how do i edit this interaction:reply afterward
-        --message.channel:send("ooooo")
-    end
+    local argvd = math.random(1,4)
+    print(argvd)
+    print(JSONITEMS[KEYNAMETABLE[argvd]][1])
 end
 return command --
