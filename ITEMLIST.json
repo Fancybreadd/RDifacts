@@ -8,22 +8,22 @@
     ], 
 
     "ar2": [
-        "Sunken Anchor",
-        "<:sunkenanchor:964745397404827728>",
-        1,
-        2,
-        "A sunken anchor."
-    ],
-
-    "ar3": [
         "Silver Ring",
         "<:silverring:964745464945721384>",
         1,
-        3,
+        2,
         "Its gem seems to be missing, wonder where'd it go?",
         "not original"
     ],
-    
+
+    "ar3": [
+        "Sunken Anchor",
+        "<:sunkenanchor:964745397404827728>",
+        1,
+        3,
+        "A sunken anchor."
+    ],
+
     "ar4": [
         "Empty Can",
         "<:emptycan:964745485317447681>",

@@ -16,21 +16,21 @@ end
 --S = rewrites and saves data
 --o = multiarg/friend pingable
 ---add commands here---
-addcommand('signup','signup',Cmd.signup)
 addcommand('ping','ping',Cmd.ping)
 addcommand('help','help',Cmd.help)
 addcommand('profile','p',Cmd.profile) --S --o
-addcommand('storage','s',Cmd.storage)
 addcommand('dailykey','dk',Cmd.dailykey) --S
 addcommand('giftkey','gk',Cmd.giftkey) --S --o
 addcommand('open','o',Cmd.open) --S
 addcommand('adventure','adv',Cmd.adventure) --S
 addcommand('cook','c',Cmd.cook) --S
 addcommand('cooldown','cd',Cmd.cooldown)
-addcommand('collection','col',Cmd.collection)
+addcommand('collection','col',Cmd.collection) --o
 addcommand('collectionshort','cols',Cmd.collectionshort) --o
+addcommand('transmute','t',Cmd.transmute) --s
 addcommand('inspect','i',Cmd.inspect) --o
-addcommand('display','d',Cmd.display) --S --o 
+addcommand('museum','mu',Cmd.museum) --S --o
+addcommand('store','s',Cmd.store)
 addcommand('credits','credits',Cmd.credits)
 -----------------------
 print("all commands loaded!")

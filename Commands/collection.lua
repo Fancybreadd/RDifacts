@@ -1,17 +1,19 @@
 local prevb = discordia.Button {type = "button", style = "primary", id = "col-previous", label = "<<", disabled = false}
 local nextb = discordia.Button {type = "button", style = "primary", id = "col-next", label = ">>", disabled = false}
-----JCI THANK YOU THANK YOU THANK YOU YOURE SO HANDSOME MWUAH MWUAH MWUAH
-local command = {}
+
+local command = {} ----JCI THANK YOU THANK YOU THANK YOU YOURE SO HANDSOME MWUAH MWUAH MWUAH
 function command.run(message) --lets go again
     print("collection")
+    --------------------------------------------------------------------FILESELECT
     local profileID = message.author.id
     local pname = message.author.username
     local iconurl = message.author.avatarURL
-    local check = io.open(path..profileID..".json","r")
+    local check = io.open(BotPath.."PROFILES/"..profileID..".json","r")
+
     --==--
     if not message.mentionedUsers[1] then --if pinged friend
         if not check then
-            local profile = io.open(path..profileID..".json","w")
+            local profile = io.open(BotPath.."PROFILES/"..profileID..".json","w")
             noprofile(message)
             check = makeprofile(profile, profileID)
         end
@@ -19,39 +21,40 @@ function command.run(message) --lets go again
         profileID = message.mentionedUsers[1][1]
         pname = message.guild:getMember(profileID).user.username
         iconurl = message.guild:getMember(profileID).user.avatarURL
-        check = io.open(path..profileID..".json","r")
+        check = io.open(BotPath.."PROFILES/"..profileID..".json","r")
         if not check then
+            nofriendprofile(message, pname, iconurl)
             print("no profile detected")
             return
         end
     end
-    --==-- 
+    --==--
+
+    --------------------------------------------------------------------INFO
     local jsonstats = json.decode(io.input(check):read("*a"))
     local iteminv = jsonstats.inv
 
-    --------------------------------------------------------------------o
+    --------------------------------------------------------------------CHECKS
     if #iteminv == 0 then --if you have nothing
         message.channel:send{
             embed = {
-                color = 0x000000, title = "It's Empty.",
+                color = 0xffffff, title = "-- Artifact Progress [0/256] --",
                 author = {
-                    name = pname.. "'s Artifacts",
+                    name = pname.. "'s r$collection",
                     icon_url = iconurl
                 }, --
 
-                description = "You don't have any artifacts!",
+                description = "Nothing but flies and cobwebs...\n\n*Use r$open to open a capsule!*",
                 footer = {
                     text = "Page 0/0"
                 } --
             },
         }
-
         check:close()
-
     return
     end
-    --------------------------------------------------------------------o ELSE
-    --else, do system
+
+    --------------------------------------------------------------------COMMAND
     local currentPage = 1
     local Length = 2 --amount of artifacts shown per page --will be 16
     local Buttonlimit = math.ceil((#iteminv / Length))
@@ -74,12 +77,12 @@ function command.run(message) --lets go again
         end
         --[]--
 
-        --===TEXT===--
+    --------------------------------------------------------------------MESSAGE
         return {
             embed = {
-                color = 0x000000, title = "Artifact Progress ["..(#iteminv).."/256]",
+                color = 0xffffff, title = "-- Artifact Progress ["..(#iteminv).."/256] --",
                 author = {
-                    name = pname.. "'s Artifacts",
+                    name = pname.. "'s r$collection",
                     icon_url = iconurl
                 }, --
 
@@ -91,13 +94,11 @@ function command.run(message) --lets go again
             components = discordia.Components {prevb, nextb}
         }
     end
-
     local colmenu = message.channel:sendComponents(createMessage())
 
--------------------------------------------
-            --BUTTON CODE--
--------------------------------------------
 
+
+    --------------------------------------------------------------------BUTTON CODE
         while true do
             local pressed, interaction = colmenu:waitComponent("button", nil, 1000 * 60 * 5, function(interaction)
                 if interaction.user.id ~= profileID then
@@ -125,7 +126,6 @@ function command.run(message) --lets go again
         --local pressed, interaction = colmenu:waitComponent("button", nil, 1000 * 10, function(interaction)
         --end)
         --colmenu:update { components = discordia.Components { nextb:disable(), prevb:disable() } } return
-    --------------------------------------------------------------------o
 end
 
 

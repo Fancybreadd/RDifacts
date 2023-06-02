@@ -9,13 +9,13 @@ _G["SecondsToClock"] = function (seconds)
     seconds = seconds - minutes * 60
 
     if days ~= 0 then
-        return string.format("%d days, %d hours, %d minutes, %d seconds",days,hours,minutes,seconds)
+        return string.format("%d Days, %d Hours, %d Minutes, %d Seconds",days,hours,minutes,seconds)
     else if hours ~= 0 then
-        return string.format("%d hours, %d minutes, %d seconds",hours,minutes,seconds)
+        return string.format("%d Hours, %d Minutes, %d Seconds",hours,minutes,seconds)
     else if minutes ~=0 then
-        return string.format("%d minutes, %d seconds",minutes,seconds)
+        return string.format("%d Minutes, %d Seconds",minutes,seconds)
     else if seconds ~=0 then
-        return string.format("%d seconds",seconds)
+        return string.format("%d Seconds",seconds)
     end end end end
     --return string.format("%d days, %d hours, %d minutes, %d seconds.",days,hours,minutes,seconds)
 

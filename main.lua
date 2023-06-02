@@ -1,4 +1,4 @@
-local BotPath = "D:/artte/Heartifacts REPOSITORY/Heartifacts/" -- NOTE: PLEASE CHANGE BotPath AND ["path"] WHEN THE BOTS FILE PLACEMENT IS TAMPERED WITH
+_G["BotPath"] = "D:/Creative Stuff/RDifacts/RDifacts BOT/RDifacts/" -- NOTE: PLEASE CHANGE BotPath AND ["path"] WHEN THE BOTS FILE PLACEMENT IS TAMPERED WITH
 
 -----------------------------------------------------------------------------------------LIBS+STUFF---
 _G["discordia"] = require("discordia") require("discordia-components") require("discordia-interactions")--lua discord powers
@@ -7,9 +7,8 @@ discordia.extensions()
 _G["fs"] = require("fs")
 _G["client"] = discordia.Client()
 _G["json"] = require("libraries/json") --json powers
-_G["path"] = "D:/artte/Heartifacts REPOSITORY/Heartifacts/PROFILES/" --file path to savefiles
 _G["imagevips"] = require("deps/vips")
-_G["prefix"] = "h$" --prefix
+_G["prefix"] = "r$" --prefix
 _G["scandir"] = function (PATH)
 return fs.readdirSync(PATH) end
 
@@ -35,55 +34,44 @@ JSONITEMLIST:close()
 
 print("artifact system loaded!")
 
---ex: KEYNAMES["WornDagger":{}]
 -- KEYNAMES is just the table full of the artifacts table keynames, they do not contain actual info inside
 --ex: JSONITEMS[KEYNAMES[1]]["Worn Dagger", <emoji>, id, grade, desc]
 --[1] is the first index number of ITEMLIST, which brings up WornDagger
 
----------------------------------------------------------------------------------ADVENTURING SYSTEM---
-_G["SCENARIOLIST"] = io.open(BotPath.."AdventureSummary.json","r")
-_G["SCENARIOS"] = json.decode(io.input(SCENARIOLIST):read("*a"))
-_G["SCENARIOKEYNAMES"] = {}
-
-    for k,v in pairs(SCENARIOS) do
-        SCENARIOKEYNAMES[#SCENARIOKEYNAMES+1] = k;
-        --print(k,v)
-    end
-SCENARIOLIST:close()
-
-print("adventuring system loaded!")
-
------------------------------------------------------------------------------------COOKING SYSTEM-----
-_G["COOKSCENARIOLIST"] = io.open(BotPath.."CookingSummary.json","r")
-_G["COOKRESULTS"] = json.decode(io.input(COOKSCENARIOLIST):read("*a"))
-_G["COOKRESULTKEYNAMES"] = {}
-
-    for k,v in pairs(COOKRESULTS) do
-        COOKRESULTKEYNAMES[#COOKRESULTKEYNAMES+1] = k;
-        --print(k,v)
-    end
-COOKSCENARIOLIST:close()
-
-print("cooking system loaded!")
-
-
 --------------------------------------------------------------------------------------COOLDOWNS-------
-_G["ADVCOOLDOWN"] = 120 -- adventure cooldown
-_G["DKCOOLDOWN"] = 10 -- daily key cooldown
+_G["ADVCOOLDOWN"] = 1000 -- adventure cooldown
+_G["DKCOOLDOWN"] = 60 -- daily key cooldown
 _G["GKCOOLDOWN"] = 30 -- gift key cooldown
 
 print("cooldowns loaded!")
 ----------------------------------------------------------------------------------------EMOJIS--------
-
-_G["MENUCAPSULE"] = "<:test:1029983264997376031>"
-_G["MENUKEY"] = "<:boxkey:974300640178221106>"
-_G["MENUMARBLE"] = "<:marble:974315328106549248>"
-_G["MENUMATERIAL"] = "n"
-_G["MENUINGREDIENT"] = "n"
-_G["MENUADV"] = "<:adventuring:974300665436340235>"
-_G["MENUCOOK"] = "<:cookingknife:974357840359735296>"
-
-client:on("ready", function() --READY UP
+--stats
+_G["MenuCAPSULE"] = "<:Capsule:1099963484004950046>"
+_G["MenuKEY"] = "<:Key:1099963487125520414>"
+_G["MenuEMBLEM"] = "<:Emblem:1099963488908103760>"
+_G["MenuMARBLE"] = "<:Marble:1099963706114330705>"
+_G["MenuMATERIAL"] = "<:Material:1099963709364903956>"
+_G["MenuINGREDIENT"] = "<:Ingredient:1099963711298482288>"
+_G["MenuSTARTONIC"] = "<:StarTonic:1099964149972353034>"
+_G["MenuGIFTKEY"] = "<:GiftKey:1099964153382326272>"
+--actions
+_G["MenuC"] = "<:Cook:1099964254880288781>"
+_G["MenuADV"] = "<:Adventure:1099964256801263628>"
+_G["MenuI"] = "<:Inspect:1099964689829593099>"
+_G["MenuMINE"] = "<:Mine:1099964693734494308>"
+_G["MenuCD"] = "<:Cooldowns:1099964695466745947>"
+_G["MenuM"] = "<:Museum:1099964724151582750>"
+_G["MenuHELP"] = "<:Help:1099964727725142078>"
+_G["MenuSH"] = "<:Shop:1099964730673729599>"
+_G["MenuTALK"] = "<:Talk:1099964785669439528>"
+--origin
+_G["MenuOr1"] = "<:OriginalOrigin:1099964838853214268>"
+_G["MenuOr2"] = "<:CustomLevelOrigin:1099964958814511114>"
+_G["MenuOr3"] = "<:GameOrigin:1099964791155605554>"
+_G["MenuOr4"] = "<:MemoryOrigin:1099964834851868742>"
+_G["MenuOr5"] = "<:MediaOrigin:1099964840602259477>"
+----------------------------------------------------------------------------------------READY---------
+client:on("ready", function() 
     print("Logged in as ".. client.user.username)
 end)
 
@@ -101,7 +89,8 @@ local testimage = imagevips.Image.text("Hello <i>World!</i>", { dpi = 300 })
 print("writing to test.png ...")
 testimage:write_to_file("test.png")
 -----------------------------------------------------------------------------
-client:run("Bot OTYzNzA2NjQwOTk2MTIyNjU0.YlZ_wA.UjoXxszkTIiGUn0Xthv6fk-rdNQ")
+print("running!!!!")
+client:run("Bot OTYzNzA2NjQwOTk2MTIyNjU0.GsYDjs.EPtWkBP2XfHuwT1w_6PU40P-6xM4lbKZccw2BI")
 -----------------------------------------------------------------------------
 
 --guilds are servers, nothing else.
@@ -123,4 +112,4 @@ client:run("Bot OTYzNzA2NjQwOTk2MTIyNjU0.YlZ_wA.UjoXxszkTIiGUn0Xthv6fk-rdNQ")
 --returns seem to break if you dont give it an end when theres more lines of code after
 
 --discordia button styles = 
--- 1 = blue 2 = gray 3 = green 4 = red 5 = link 6 = emoji
+-- primary = blue, secondary = gray, success = green, danger = red, 5 = link, 6 = emoji

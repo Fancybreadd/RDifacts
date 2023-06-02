@@ -1,0 +1,20 @@
+{
+    "inv":[],
+    "favinv":[-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],
+    "wallet":{
+        "capsules":0,
+        "marbles":0,
+        "keys":0,
+        "ingredients":0,
+        "materials":0,
+        "emblems":0,
+        "startonics":0
+    },
+    "timers":{
+        "keytimer":0,
+        "giftkeytimer":0,
+        "adventuretimer":0
+    },
+    "unlocks":{"museum":false},
+    "version":"1a"
+}
