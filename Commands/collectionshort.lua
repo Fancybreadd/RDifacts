@@ -5,45 +5,52 @@ local command = {} ----JCI THANK YOU THANK YOU THANK YOU YOURE SO HANDSOME MWUAH
 function command.run(message) --lets go again
     print("collectionshort")
     --------------------------------------------------------------------FILESELECT
+    --hookshot
     local profileID = message.author.id
     local check = io.open(BotPath.."PROFILES/"..profileID..".json","r")
+    local username
+    local iconurl
 
     --==--
     if not message.mentionedUsers[1] then --if pinged friend
+
         if not check then
-            local profile = io.open(BotPath.."PROFILES/"..profileID..".json","w")
+            check = makeprofile(profileID)
             noprofile(message)
-            check = makeprofile(profile, profileID)
         end
+        username = message.author.username
+        iconurl = message.author.avatarURL
+
     else
+
         profileID = message.mentionedUsers[1][1]
-        local pname = message.guild:getMember(profileID).user.username
-        local iconurl = message.guild:getMember(profileID).user.avatarURL
         check = io.open(BotPath.."PROFILES/"..profileID..".json","r")
+        username = message.guild:getMember(profileID).user.username
+        iconurl = message.guild:getMember(profileID).user.avatarURL
         if not check then
-            nofriendprofile(message, pname, iconurl)
+            nofriendprofile(message, username, iconurl)
             print("no profile detected")
             return
         end
+
     end
+    local jsonstats = json.decode(io.input(check):read("*a"))
     --==--
 
     --------------------------------------------------------------------INFO
-    local jsonstats = json.decode(io.input(check):read("*a"))
     local iteminv = jsonstats.inv
 
     --------------------------------------------------------------------CHECKS
     if #iteminv == 0 then --if you have nothing
-        message.channel:send{
-            content = "**You have... nothing!** \n``Go and find an artifact!``"
-        }
         check:close()
-
+        message.channel:send{
+            content = "Empty... Use r$open to open a capsule!"
+        }
     return end
 
     --------------------------------------------------------------------COMMAND
     local currentPage = 1
-    local Length = 2 --amount of artifacts shown per page --will be 32
+    local Length = 16 --amount of artifacts shown per page --will be 32
     local Buttonlimit = math.ceil((#iteminv / Length))
 
     --==--
@@ -54,7 +61,7 @@ function command.run(message) --lets go again
         if currentPage == 1 then prevb:disable() else prevb:enable() end
         if currentPage == Buttonlimit then nextb:disable() else nextb:enable() end
 
-        --
+        --[]--
         local emoteList = ""
         for entryIndex = (currentPage - 1) * Length + 1, currentPage * Length, 1 do  --sort all the artifacts
             if JSONITEMS[sortedinv[entryIndex]] == nil then
@@ -62,7 +69,8 @@ function command.run(message) --lets go again
             end
             emoteList = emoteList.." "..JSONITEMS[sortedinv[entryIndex]][2]
         end
-        --
+        --[]--
+
     --------------------------------------------------------------------MESSAGE
         return {
             content = emoteList,

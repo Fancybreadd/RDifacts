@@ -2,18 +2,19 @@ local command = {}
 function command.run(message)
     print("cooldown")
     --------------------------------------------------------------------FILESELECT
-    local profileID = message.author.id
+    --single
+    local profileID = message.author.id 
     local check = io.open(BotPath.."PROFILES/"..profileID..".json","r")
+    local username = message.author.username
+    local iconurl = message.author.avatarURL
 
     --==--
     if not check then
-        local profile = io.open(BotPath.."PROFILES/"..profileID..".json","w")
+        check = makeprofile(profileID)
         noprofile(message)
-        check = makeprofile(profile, profileID)
     end
     --==--
 
-    --------------------------------------------------------------------INFO
     local jsonstats = json.decode(io.input(check):read("*a"))
 
     --------------------------------------------------------------------COMMAND
@@ -38,21 +39,21 @@ function command.run(message)
         embed = {
             color = 0x177dff, title = "Cooldowns",
             author = {
-                name = message.author.username.."'s r$cooldown",
-                icon_url = message.author.avatarURL
+                name = username.."'s r$cooldown",
+                icon_url = iconurl
             },
 
             fields = {
                 {
-                    name = MenuKEY.." h$dailykey [h$dk]",
+                    name = MenuKEY.."  r$dailykey [r$dk]",
                     value = "``"..keyresult.."``"
                 },
                 {
-                    name = MenuGIFTKEY.." h$giftkey [h$gk]",
+                    name = MenuGIFTKEY.."  r$giftkey [r$gk]",
                     value = "``"..gkeyresult.."``"
                 },
                 {
-                    name = MenuADV.."h$adventure [h$adv]",
+                    name = MenuADV.."  r$adventure [r$adv]",
                     value = "``"..advresult.."``"
                 }
             }

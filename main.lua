@@ -9,12 +9,16 @@ _G["client"] = discordia.Client()
 _G["json"] = require("libraries/json") --json powers
 _G["imagevips"] = require("deps/vips")
 _G["prefix"] = "r$" --prefix
+
+local template = io.open(BotPath.."PROFILES/TEMPLATE.json","r")
+_G["tempstats"] = json.decode(template:read("a*"))
+template:close()
+
 _G["scandir"] = function (PATH)
 return fs.readdirSync(PATH) end
 
 _G["Cmd"] = {}
 
-dofile("libraries/secondstoclock.lua")
 dofile("libraries/messagecheck.lua")
 dofile("libraries/profileshenanigans.lua")
 

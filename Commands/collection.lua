@@ -5,52 +5,64 @@ local command = {} ----JCI THANK YOU THANK YOU THANK YOU YOURE SO HANDSOME MWUAH
 function command.run(message) --lets go again
     print("collection")
     --------------------------------------------------------------------FILESELECT
+    --hookshot
     local profileID = message.author.id
-    local pname = message.author.username
-    local iconurl = message.author.avatarURL
     local check = io.open(BotPath.."PROFILES/"..profileID..".json","r")
+    local username
+    local iconurl
 
     --==--
     if not message.mentionedUsers[1] then --if pinged friend
+
         if not check then
-            local profile = io.open(BotPath.."PROFILES/"..profileID..".json","w")
+            check = makeprofile(profileID)
             noprofile(message)
-            check = makeprofile(profile, profileID)
         end
+        username = message.author.username
+        iconurl = message.author.avatarURL
+
     else
+
         profileID = message.mentionedUsers[1][1]
-        pname = message.guild:getMember(profileID).user.username
-        iconurl = message.guild:getMember(profileID).user.avatarURL
         check = io.open(BotPath.."PROFILES/"..profileID..".json","r")
+        username = message.guild:getMember(profileID).user.username
+        iconurl = message.guild:getMember(profileID).user.avatarURL
         if not check then
-            nofriendprofile(message, pname, iconurl)
+            nofriendprofile(message, username, iconurl)
             print("no profile detected")
             return
         end
+
     end
+    local jsonstats = json.decode(io.input(check):read("*a"))
     --==--
 
     --------------------------------------------------------------------INFO
-    local jsonstats = json.decode(io.input(check):read("*a"))
     local iteminv = jsonstats.inv
 
     --------------------------------------------------------------------CHECKS
     if #iteminv == 0 then --if you have nothing
+        check:close()
         message.channel:send{
             embed = {
                 color = 0xffffff, title = "-- Artifact Progress [0/256] --",
                 author = {
-                    name = pname.. "'s r$collection",
+                    name = username.. "'s r$collection",
                     icon_url = iconurl
                 }, --
 
-                description = "Nothing but flies and cobwebs...\n\n*Use r$open to open a capsule!*",
+                description = "Nothing but flies and cobwebs...",
+                fields = {
+                    {
+                        name = "Use r$open to open a capsule!",
+                        value = ""
+                    }
+                },
                 footer = {
                     text = "Page 0/0"
                 } --
             },
         }
-        check:close()
     return
     end
 
@@ -82,7 +94,7 @@ function command.run(message) --lets go again
             embed = {
                 color = 0xffffff, title = "-- Artifact Progress ["..(#iteminv).."/256] --",
                 author = {
-                    name = pname.. "'s r$collection",
+                    name = username.. "'s r$collection",
                     icon_url = iconurl
                 }, --
 
@@ -95,8 +107,6 @@ function command.run(message) --lets go again
         }
     end
     local colmenu = message.channel:sendComponents(createMessage())
-
-
 
     --------------------------------------------------------------------BUTTON CODE
         while true do

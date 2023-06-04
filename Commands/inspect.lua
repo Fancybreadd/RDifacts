@@ -2,23 +2,41 @@ local command = {}
 function command.run(message, arg, arg2)
     print("inspect")
     --------------------------------------------------------------------FILESELECT
+    --single
     local profileID = message.author.id 
     local check = io.open(BotPath.."PROFILES/"..profileID..".json","r")
+    local username = message.author.username
+    local iconurl = message.author.avatarURL
 
     --==--
     if not check then
-        local profile = io.open(BotPath.."PROFILES/"..profileID..".json","w")
+        check = makeprofile(profileID)
         noprofile(message)
-        check = makeprofile(profile, profileID)
     end
     --==--
 
-    local jsonstats = json.decode(io.input(check):read("*a")) --print("check!")
+    local jsonstats = json.decode(io.input(check):read("*a"))
 
     --------------------------------------------------------------------CHECKS
     if arg == nil then --|if no argument
         --print(arg)
-        message.channel:send(message.author.username..", please input an id number of an artifact! ``ex: h$inspect "..math.random(1,256).."``")
+        check:close()
+        message.channel:send{
+            embed = {
+                color = 0x535353, title = "Inspecting artifact...?",
+                author = {
+                    name = username.."'s r$inspect",
+                    icon_url = iconurl
+                },
+
+                description = "The Index doesn't respond...",
+                fields = {
+                    name = "No Input! Insert a number corresponding to an Artifact ID to use this command.",
+                    value = ""
+                },
+                footer = {text = "ex: r$inspect "..math.random(1,256)}
+            }
+        }
         return
     end
 
@@ -28,11 +46,43 @@ function command.run(message, arg, arg2)
     ---o
 
     if inspectid == nil then --|if argument is not a number
-        message.channel:send(message.author.username..", did you input an artifacts id correctly? ``ex: h$inspect "..math.random(1,256).."``")
+        check:close()
+        message.channel:send{
+            embed = {
+                color = 0x535353, title = "Inspecting artifact...?",
+                author = {
+                    name = username.."'s r$inspect",
+                    icon_url = iconurl
+                },
+
+                description = "The Index is confused on what you're looking for...",
+                fields = {
+                    name = "Input isn't a number!",
+                    value = ""
+                },
+                footer = {text = "ex: r$inspect "..math.random(1,256)}
+            }
+        }
         return
 
     elseif inspectid > 256 then --|if argument number is bigger than amount of existing artifacts
-        message.channel:send(message.author.username..", this artifact does not exist!")
+        check:close()
+        message.channel:send{
+            embed = {
+                color = 0x535353, title = "Inspecting artifact...?",
+                author = {
+                    name = username.."'s r$inspect",
+                    icon_url = iconurl
+                },
+
+                description = "The Index is confused on what you're looking for...",
+                fields = {
+                    name = "Artifact doesn't exist!",
+                    value = ""
+                },
+                footer = {text = "Current highest ID is 256."}
+            }
+        }
         return
 
     end
@@ -46,7 +96,23 @@ function command.run(message, arg, arg2)
     end
 
     if if_have == false then --|if you dont have the artifact
-        message.channel:send(message.author.username..", you do not have this artifact!")
+        check:close()
+        message.channel:send{
+            embed = {
+                color = 0x535353, title = "Inspecting artifact...?",
+                author = {
+                    name = username.."'s r$inspect",
+                    icon_url = iconurl
+                },
+
+                description = "The Index understands, but it can't tell you anything you can't bestow it...",
+                fields = {
+                    name = "You don't have this artifact yet!",
+                    value = ""
+                },
+                footer = {text = "Use r$inspect on artifacts you own!"}
+            }
+        }
         return
     end
 
@@ -61,31 +127,33 @@ function command.run(message, arg, arg2)
 
 
     --------------------------------------------------------------------MESSAGE
-    message.channel:send{embed = {
-        color = 0x000000, title = arname.." "..aremote,
-        author = {
-            name = "Inspecting artifact...",
-        },
+    message.channel:send{
+        embed = {
+            color = 0x535353, title = "Inspecting artifact "..aremote,
+            author = {
+                name = username.."'s r$inspect",
+                icon_url = iconurl
+            },
 
-        description = ardesc,
-        fields = {
-            {
-                name = "Grade",
-                value = argrade,
-                inline = true
-            },
-            {
-                name = "ID",
-                value = arID,
-                inline = true
-            },
-            {
-                name = "Origin",
-                value = aroig
+            description = "# "..arname.."\n"..ardesc,
+            fields = {
+                {
+                    name = "Grade",
+                    value = argrade,
+                    inline = true
+                },
+                {
+                    name = "ID",
+                    value = arID,
+                    inline = true
+                },
+                {
+                    name = "Origin",
+                    value = aroig
+                }
             }
-
-         }
-    }}
+        }
+    }
 end
 return command --
 

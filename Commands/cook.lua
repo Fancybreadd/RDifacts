@@ -4,55 +4,69 @@ local command = {}
 function command.run(message)
     print("cook")
     --------------------------------------------------------------------FILESELECT
+    --single
     local profileID = message.author.id 
     local check = io.open(BotPath.."PROFILES/"..profileID..".json","r")
+    local username = message.author.username
+    local iconurl = message.author.avatarURL
 
     --==--
     if not check then
-        local profile = io.open(BotPath.."PROFILES/"..profileID..".json","w")
+        check = makeprofile(profileID)
         noprofile(message)
-        check = makeprofile(profile, profileID)
     end
     --==--
 
-    --------------------------------------------------------------------INFO
     local jsonstats = json.decode(io.input(check):read("*a"))
+
+    --------------------------------------------------------------------INFO
     local currenttime = os.time()
     local playercooldown = jsonstats.timers.adventuretimer + ADVCOOLDOWN --print(playercooldown)
 
     --------------------------------------------------------------------CHECKS
-    if currenttime > playercooldown then
-        check:close()
-
-        message.channel:send{embed = {
-            color = 0xce3131, title = "No thanks!",
-            author = {
-                name = message.author.username.."'s r$cook",
-                icon_url = message.author.avatarURL
-            },
-
-            description = "You're ready for an adventure! No time for cooking!"
-        }}
-        return
-    end
-
-    if jsonstats.wallet.ingredients < cookingcost then
+    if currenttime > playercooldown then --|command not ready
         check:close()
 
         message.channel:send{embed = {
             color = 0xce3131, title = "Cooking...?",
             author = {
-                name = message.author.username.."'s r$cook",
-                icon_url = message.author.avatarURL
+                name = username.."'s r$cook",
+                icon_url = iconurl
+            },
+            description = "You're ready for an adventure! No time for cooking!",
+            fields = {
+                {
+                    name = "r$adventure is ready!",
+                    value = ""
+                }
+            },
+        }}
+        return
+    end
+
+    if jsonstats.wallet.ingredients < cookingcost then --|not enough food
+        check:close()
+
+        message.channel:send{embed = {
+            color = 0xce3131, title = "Cooking...?",
+            author = {
+                name = username.."'s r$cook",
+                icon_url = iconurl
             },
 
-            description = "You look everywhere, but there just doesn't seem to be anything you can really cook with..."
+            description = "You look everywhere, but there just doesn't seem to be anything you can really cook with...",
+            fields = {
+                {
+                    name = "Not enough Ingredients "..MenuINGREDIENT.." ! (15 Required)",
+                    value = ""
+                }
+            },
         }}
         return
     end
 
     --------------------------------------------------------------------COMMAND
-    local CKchance = math.random() local CKBchance = math.random() 
+    local CKchance = math.random() local CKBchance = math.random()
     local CKtext = "" 
     local CKmin = 0 local CKbonus = 0
 
@@ -77,22 +91,24 @@ function command.run(message)
         "***Wow... You cooked up the BEST dish you've ever made today. You're absolutely stuffed!***"
     end
 
-    local cookvalue = CKmin*60 
-    local advRT = ""
+    local cookvalue = CKmin*60
+    local advRT
 
     -------BONUS-------
     local bonusembed = {}
-    if CKBchance < 1 then  --30% --calculate bonus
-        CKbonus = math.random(5,10)
-        bonusembed = {embed = {
-            color = 0xce3131, title = "Lucky!",
-            author = {
-                name = message.author.username,
-                icon_url = message.author.avatarURL
-            },
-
-            description = "Bonustext"
-        }}
+    if CKBchance < .3 then  --30% --calculate bonus
+        CKbonus = math.random(3,10)
+        bonusembed = {
+            embed = {
+                color = 0xce3131, title = "Lucky!",
+                author = {
+                    name = username,
+                    icon_url = iconurl
+                },
+                description = "Seems like your efficiency in cooking made you use a little less **Ingredients** "..MenuINGREDIENT.." !"
+                .."\n- You saved "..CKbonus.." **Ingredients** "..MenuINGREDIENT.." !",
+            }
+        }
     end
 
     jsonstats.wallet.ingredients = jsonstats.wallet.ingredients - cookingcost + CKbonus
@@ -101,28 +117,29 @@ function command.run(message)
 
     local advR = jsonstats.timers.adventuretimer + ADVCOOLDOWN - os.time() 
     if advR > 0 then
-        advRT = SecondsToClock(advR)
+        advRT = SecondsToClock(advR).."."
     else
         advRT = "Ready!"
     end
 
     --------------------------------------------------------------------MESSAGE
-    message.channel:send{embed = {
-        color = 0xce3131, title = "Cooking...",
-        author = {
-            name = message.author.username.."'s r$cook",
-            icon_url = message.author.avatarURL
-        },
+    message.channel:send{
+        embed = {
+            color = 0xce3131, title = "Cooking...",
+            author = {
+                name = username.." 's r$cook",
+                icon_url = iconurl
+            },
 
-        description = "**You grab your cooking utensils and try making some food.**\n\n"..CKtext,
-        fields = {
-            {
-                name = "-25 Ingredients "..MenuINGREDIENT,
-                value = "r$adventure cut by **"..CKmin.."** minutes!"
-            }
-        },
-        footer = {text = "Cooldown is now: "..advRT}
-    },
+            description = "**You grab your cooking utensils and try making some food.**\n- "..CKtext,
+            fields = {
+                {
+                    name = "-25 Ingredients "..MenuINGREDIENT,
+                    value = "r$adventure cut by **"..CKmin.."** minutes!"
+                }
+            },
+            footer = {text = "Cooldown is now "..advRT},
+        }
     }
 
     if bonusembed ~= {} then message.channel:send(bonusembed) end

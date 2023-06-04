@@ -1,42 +1,47 @@
 local command = {}
 function command.run(message)
     print("profile")
-    --------------------------------------------------------------------FILECHECK
+    --------------------------------------------------------------------FILESELETCT
+    --hookshot
     local profileID = message.author.id
-    local pname = message.author.username
-    local iconurl = message.author.avatarURL
     local check = io.open(BotPath.."PROFILES/"..profileID..".json","r")
+    local username
+    local iconurl
 
     --==--
     if not message.mentionedUsers[1] then --if pinged friend
+
         if not check then
-            local profile = io.open(BotPath.."PROFILES/"..profileID..".json","w")
+            check = makeprofile(profileID)
             noprofile(message)
-            check = makeprofile(profile, profileID)
         end
+        username = message.author.username
+        iconurl = message.author.avatarURL
+
     else
+
         profileID = message.mentionedUsers[1][1]
-        pname = message.guild:getMember(profileID).user.username
-        iconurl = message.guild:getMember(profileID).user.avatarURL
         check = io.open(BotPath.."PROFILES/"..profileID..".json","r")
+        username = message.guild:getMember(profileID).user.username
+        iconurl = message.guild:getMember(profileID).user.avatarURL
         if not check then
-            nofriendprofile(message, pname, iconurl)
+            nofriendprofile(message, username, iconurl)
             print("no profile detected")
             return
         end
+
     end
+    local jsonstats = json.decode(check):read("*a")
     --==--
 
     --------------------------------------------------------------------INFO
-    local jsonstats = json.decode(io.input(check):read("r"))
-
     local iteminv = jsonstats.inv
     local artifactprogress = #iteminv
 
     local keystat = jsonstats.wallet.keys
     local capsulestat = jsonstats.wallet.capsules
     local marblestat = jsonstats.wallet.marbles
-    local materialstat = jsonstats.wallet.materials
+    --local materialstat = jsonstats.wallet.materials
     local ingredientstat = jsonstats.wallet.ingredients
     local emblemstat = jsonstats.wallet.emblems
 
@@ -45,7 +50,7 @@ function command.run(message)
         embed = {
             color = 0xffffff, title = "Stats",
             author = {
-                name = pname.. "'s Profile",
+                name = username.. "'s Profile",
                 icon_url = iconurl
             },
             description = "**-- Artifact Progress ["..artifactprogress.."/256] --**",
@@ -72,7 +77,7 @@ function command.run(message)
                     value = ingredientstat, inline = true
                 },
                 {
-                    name = " Emblems",
+                    name = MenuEMBLEM.." Emblems",
                     value = emblemstat, inline = true
                 }
             }

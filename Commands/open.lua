@@ -1,4 +1,3 @@
-
 local yesopen = discordia.Button {type = "button", style = "success", id = "open-yes", label = "Yes", disabled = true}
 local noopen = discordia.Button {type = "button", style = "danger", id = "open-no", label = "No", disabled = true}
 
@@ -6,25 +5,28 @@ local command = {}
 function command.run(message)
     print("open")
     --------------------------------------------------------------------FILESELECT
+    --single
     local profileID = message.author.id 
     local check = io.open(BotPath.."PROFILES/"..profileID..".json","r")
+    local username = message.author.username
+    local iconurl = message.author.avatarURL
 
     --==--
     if not check then
-        local profile = io.open(BotPath.."PROFILES/"..profileID..".json","w")
+        check = makeprofile(profileID)
         noprofile(message)
-        check = makeprofile(profile, profileID)
     end
     --==--
 
-    --------------------------------------------------------------------INFO
     local jsonstats = json.decode(io.input(check):read("*a"))
+
+    --------------------------------------------------------------------INFO
     local keys = jsonstats.wallet.keys
     local capsules = jsonstats.wallet.capsules
     local opentext = "You don't have enough to open a capsule."
 
     --------------------------------------------------------------------CHECKS
-    if keys >= 1 and capsules >= 1 then
+    if keys >= 1 and capsules >= 1 then --|if ENOUGH keys and capsules
         yesopen:enable() noopen:enable()
         opentext = "Open a capsule?"
     end
@@ -58,7 +60,7 @@ function command.run(message)
 
     if not pressed then
         print("h$open timed out")
-        return
+        check:close() return
     end
 
     --------------------------------------------------------------------BUTTON CODE
@@ -79,7 +81,7 @@ function command.run(message)
             if v == KEYNAMETABLE[prizeval] then --if copy
                 if_have = true --turn this to true
                 break
-            end --print(i,v)
+            end
         end
 
         --IF NEW
@@ -90,8 +92,8 @@ function command.run(message)
             interaction:reply("Opening capsule...")
             message.channel:send(MenuCAPSULE.." "..JSONITEMS[KEYNAMETABLE[prizeval]][2].." "..MenuCAPSULE)
             message.channel:send("You obtained **"..JSONITEMS[KEYNAMETABLE[prizeval]][1].."** !")
-
-        return end --end command
+            return
+        end
 
         --IF COPY
         jsonstats.wallet.emblems = jsonstats.wallet.emblems + 1
@@ -103,9 +105,11 @@ function command.run(message)
         return
 
     elseif interaction.data.custom_id == "open-no" then --|if you press no
-        interaction:reply(message.author.name..", You changed your mind.")
-        return
+        interaction:reply(username..", You changed your mind.")
+        check:close() return
+
     else --|if you pressed yes but dont have the requirements
+        check:close()
         message.channel:send("no")
     end
 end

@@ -2,19 +2,22 @@ local command = {}
 function command.run(message)
     print("adventure")
     --------------------------------------------------------------------FILESELECT
-    local profileID = message.author.id
+    --single
+    local profileID = message.author.id 
     local check = io.open(BotPath.."PROFILES/"..profileID..".json","r")
+    local username = message.author.username
+    local iconurl = message.author.avatarURL
 
     --==--
     if not check then
-        local profile = io.open(BotPath.."PROFILES/"..profileID..".json","w")
+        check = makeprofile(profileID)
         noprofile(message)
-        check = makeprofile(profile, profileID)
     end
     --==--
 
-    --------------------------------------------------------------------INFO
     local jsonstats = json.decode(io.input(check):read("*a"))
+
+    --------------------------------------------------------------------INFO
     local currenttime = os.time() --30 seconds
     local playercooldown = jsonstats.timers.adventuretimer + ADVCOOLDOWN --print(playercooldown)
     local remainingtime = playercooldown - currenttime --gets remaining unix time --print(remainingtime)
@@ -22,7 +25,27 @@ function command.run(message)
 
     --------------------------------------------------------------------CHECKS
     if currenttime < playercooldown then --|if cooldown isnt ready
-        print ("no ex")
+        print ("no adv")
+        message.channel:send{
+            embed = {
+                color = 0xff7e27, title = "Adventuring...?",
+                author = {
+                    name = username.."'s r$adventure",
+                    icon_url = iconurl
+                },
+
+                description = "You're too tired to go on another adventure right now...",
+                fields = {
+                    {
+                        name = "Command isn't ready!",
+                        value = ""
+                    }
+                },
+                footer = {text = "You can r$adventure again in "..readableremainingtime.."."}
+            }
+
+        }
+        check:close()
         return
     end
 
@@ -31,32 +54,33 @@ function command.run(message)
     local Cchance = math.random (1,2) --capsule
     local Ichance = math.random() --ingredients
     local Mchance = math.random() --marbles
-    local Rtext = "" local Ctext = "" local Mtext = "" local Itext = "" local Ireward = 0 local Mreward = 0
+    local Rtext = "" local Ctext = "" local Mtext = "" local Itext = ""
+    local Ireward = 0 local Mreward = 0
 
     if Cchance == 2 then  --calculate capsule reward
         jsonstats.wallet.capsules = jsonstats.wallet.capsules + 1
-        Ctext = "Your expedition was a success. You remark in your newly obtained capsule!"
+        Ctext = "Success ꕥ\n- ***Your expedition was a success. You remark in your newly obtained capsule!***"
         Rtext = "**+ 1 Capsule** "..MenuCAPSULE.."\n"
         print ("success")
     else
-        Ctext = "Your expedition didn't end up as planned... You walked back to the village square empty handed."
+        Ctext = "Failed ꕥ\n- *Your expedition didn't end up as planned... You walked back to the town square empty handed.*"
         print ("fail")
     end
 
     if Ichance < 0.40 then --40% --calculate ingredient
-        Ireward = math.random(5,10) Itext =
+        Ireward = math.random(1,5) Itext =
         "*On the way, you couldn't forage much...*"
 
     elseif Ichance < 0.70 then --30%
-        Ireward = math.random(10,20) Itext =
+        Ireward = math.random(7,14) Itext =
         "*On the way, you foraged something worthwhile.*"
 
     elseif Ichance < 0.87 then --17%
-        Ireward = math.random(25,35) Itext =
+        Ireward = math.random(17,25) Itext =
         "*On the way, you gathered some pretty nice stuff!*"
 
     elseif Ichance < 0.97 then --10%
-        Ireward = math.random(40,50) Itext =
+        Ireward = math.random(30,50) Itext =
         "*On the way, you found a lot of really good foraging spots!*"
 
     elseif Ichance < 1 then --3%
@@ -87,20 +111,22 @@ function command.run(message)
 
     print(Ichance.." , "..Mchance)
     Rtext = Rtext.."**+ "..Ireward.." Ingredients** "..MenuINGREDIENT.."\n**+ "..Mreward.." Marbles** "..MenuMARBLE
-    
-    jsonstats.wallet.ingredients = jsonstats.wallet.ingredients + Ireward jsonstats.wallet.marbles = jsonstats.wallet.marbles + Mreward
-    jsonstats.timers.adventuretimer = os.time() updatesave(profileID, jsonstats, check)
+
+    jsonstats.wallet.ingredients = jsonstats.wallet.ingredients + Ireward
+    jsonstats.wallet.marbles = jsonstats.wallet.marbles + Mreward
+    jsonstats.timers.adventuretimer = os.time()
+    updatesave(profileID, jsonstats, check)
 
     --------------------------------------------------------------------MESSAGE
     message.channel:send{
         embed = {
             color = 0xff7e27, title = "Adventuring...",
             author = {
-                name = message.author.username.."'s r$adventure",
-                icon_url = message.author.avatarURL
+                name = username.."'s r$adventure",
+                icon_url = iconurl
             },
 
-            description = "**ꕥ "..Ctext.."**\n\n- "..Itext.."\n\n- "..Mtext,
+            description = "# ꕥ "..Ctext.."\n- "..Itext.."\n- "..Mtext,
             fields = {
                 {
                     name = ":sparkles: Rewards:",

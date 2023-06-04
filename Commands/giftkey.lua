@@ -2,61 +2,150 @@ local command = {}
 function command.run(message)
     print("giftkey")
     --------------------------------------------------------------------FILESELECT
+    --boomerang
     local profileID = message.author.id
     local check = io.open(BotPath.."PROFILES/"..profileID..".json","r")
+    local jsonstats
+    --
+    local FprofileID
+    local Fcheck
+    local Fjsonstats
+    local Fuser
+    local Fname
 
-    --==--
-    if not check then
-        local profile = io.open(BotPath.."PROFILES/"..profileID..".json","w")
-        noprofile(message)
-        check = makeprofile(profile, profileID)
+    --==-- BOOMERANG
+    if not message.mentionedUsers[1] then --If theres no user pinged
+
+        if not check then --if you no profile
+            check = makeprofile(profileID)
+            noprofile(message)
+        end
+
+    else --if there is a user pinged
+        FprofileID = message.mentionedUsers[1][1]
+        Fcheck = io.open(BotPath.."PROFILES/"..FprofileID..".json","r")
+        Fuser = message.guild:getMember(FprofileID).user
+        Fname = Fuser.username
+
+        if not Fcheck then --if no user profile
+            nofriendprofile(message)
+            print("no profile detected")
+            return
+
+        else Fjsonstats = json.decode(io.input(Fcheck):read("*a"))
+        end
+
     end
+    jsonstats = json.decode(io.input(check):read("*a"))
     --==--
 
     --------------------------------------------------------------------INFO
-    local jsonstats = json.decode(io.input(check):read("*a"))
     local currenttime = os.time()
     local playergkcooldown = jsonstats.timers.giftkeytimer + GKCOOLDOWN --giftkey cooldown
 
     --------------------------------------------------------------------CHECKS
     if currenttime < playergkcooldown then --|if cooldown is not ready
+        check:close() Fcheck:close()
         print("not ready")
-        check:close()
+
         local remainingtime = playergkcooldown - currenttime --gets remaining unix time 
-        --print(remainingtime)
         local readableremainingtime = SecondsToClock(remainingtime)
 
-        message.channel:send(message.author.username..", "..readableremainingtime)
+        message.channel:send{
+            embed = {
+                color = 0x8f27ff, title = "Gift Key...?",
+
+                author = {
+                    name = message.author.username.."'s r$giftkey",
+                    icon_url = message.author.avatarURL
+                }, --
+
+                description = "",
+                fields = {
+                    {
+                        name = "Command isn't ready!",
+                        value = ""
+                    }
+                },
+                footer = {text = "You can r$giftkey in "..readableremainingtime.."."}
+            }
+        }
     end
 
     if not message.mentionedUsers[1] then --|if no users mentioned
         check:close()
-        print("no ping detected") 
-    return end
+        print("no ping detected")
 
-    local FprofileID = message.mentionedUsers[1][1]
-    local Fcheck = io.open(BotPath.."PROFILES/"..FprofileID..".json","r")
+        message.channel:send{
+            embed = {
+                color = 0x8f27ff, title = "Gift Key...?",
 
-    if not Fcheck then --|if user has no profile
-        check:close()
-        print("no account")
+                author = {
+                    name = message.author.username.."'s r$giftkey",
+                    icon_url = message.author.avatarURL
+                }, --
+
+                description = "You clutch the **Gift Key** "..MenuGIFTKEY.." in your hands... The key doesn't go anywhere though.",
+                fields = {
+                    {
+                        name = "No user detected. Ping a user to send them a **Gift Key** "..MenuGIFTKEY.." !",
+                        value = ""
+                    }
+                },
+                footer = {text = "ex: r$giftkey @RDifacts"}
+            }
+        }
         return
-    elseif FprofileID == profileID then --|if user id is the same
+    end
+
+    if FprofileID == profileID then --|if user id is the same
         check:close()
         print("dupe acc")
+
+        message.channel:send{
+            embed = {
+                color = 0x8f27ff, title = "Gift Key...?",
+
+                author = {
+                    name = message.author.username.."'s r$giftkey",
+                    icon_url = message.author.avatarURL
+                }, --
+
+                description = "You clutch the **Gift Key** "..MenuGIFTKEY.."in your hands and focus on thinking of yourself... The key doesn't go anywhere though.",
+                fields = {
+                    {
+                        name = "Can't give yourself a **Gift Key** "..MenuGIFTKEY.." , dummy!",
+                        value = ""
+                    }
+                },
+                footer = {text = "Something says you should give the key to someone..."}
+            }
+        }
         return
     end
 
     --------------------------------------------------------------------COMMAND
-    local Fjsonstats = json.decode(io.input(Fcheck):read("*a"))
-    local Friend = message.guild:getMember(FprofileID).user
-    local Fname = Friend.username
-
     if currenttime > playergkcooldown then --|if cooldown
         jsonstats.timers.giftkeytimer = os.time()
-        Fjsonstats.wallet.keys = Fjsonstats.wallet.keys + 1 updatesave(profileID, jsonstats, check) updatesave(FprofileID, Fjsonstats, Fcheck) --(S)
+        Fjsonstats.wallet.keys = Fjsonstats.wallet.keys + 1
+        updatesave(profileID, jsonstats, check) updatesave(FprofileID, Fjsonstats, Fcheck) --(S)
 
-        message.channel:send(message.author.username..", you gifted a "..MenuGIFTKEY.." **Key** to "..Fname.."!")
+        message.channel:send{
+            embed = {
+                color = 0x8f27ff, title = "Gift Key!",
+
+                author = {
+                    name = message.author.username.."'s r$giftkey",
+                    icon_url = message.author.avatarURL
+                }, --
+
+                description = "You clutch the **Gift Key** "..MenuGIFTKEY.." in your hands and focus on thinking of the person in question... The key disappears in a ray of light!"
+                .."\n\n **Gift Key** "..MenuGIFTKEY.." successfully sent to "..Fname.."!",
+                footer = {text = "you can r$giftkey again in 32 hours."}
+            }
+        }
+
+        --message.author.username..", you gifted a "..MenuGIFTKEY.." **Key** to "..Fname.."!")
         return
     end
 end
