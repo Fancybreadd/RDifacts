@@ -26,12 +26,16 @@ addcommand('adventure','adv',Cmd.adventure) --S
 addcommand('cook','c',Cmd.cook) --S
 addcommand('cooldown','cd',Cmd.cooldown)
 addcommand('collection','col',Cmd.collection) --o
-addcommand('collectionshort','cols',Cmd.collectionshort) --o
+addcommand('shortcollection','scol',Cmd.shortcollection) --o
 addcommand('transmute','t',Cmd.transmute) --s
 addcommand('inspect','i',Cmd.inspect) --o
-addcommand('museum','mu',Cmd.museum) --S --o
+addcommand('museum','m',Cmd.museum) --S --o
 addcommand('store','s',Cmd.store)
 addcommand('credits','credits',Cmd.credits)
+addcommand('devemoji','deve',Cmd.DEVemoji)
+addcommand('devupload','devu',Cmd.DEVupload)
+addcommand('devwipe','devw',Cmd.DEVwipe)
+addcommand('devtest','devt',Cmd.DEVtest)
 -----------------------
 print("all commands loaded!")
 -----------------------
@@ -41,7 +45,7 @@ A = function (message, content)
       local tablecontent = {}
       --message.channel:send("hi!!")
 
-      if string.sub(content, 1, #prefix) == prefix then --detects prefix in the first word
+      if string.sub(content, 1, #Prefix) == Prefix then --detects prefix in the first word
          --message.channel:send("yoo!!")
          --print('prefix detected')
 
@@ -51,7 +55,7 @@ A = function (message, content)
           --print(i)
           end
 
-         local Commandname = string.sub(tablecontent[1], #prefix + 1) --searches command name to compare it to the same lua file, cuts +1 after h$
+         local Commandname = string.sub(tablecontent[1], #Prefix + 1) --searches command name to compare it to the same lua file, cuts +1 after h$
          --print(Commandname)
          table.remove(tablecontent, 1)
 

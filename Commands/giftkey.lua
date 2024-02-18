@@ -3,149 +3,98 @@ function command.run(message)
     print("giftkey")
     --------------------------------------------------------------------FILESELECT
     --boomerang
-    local profileID = message.author.id
-    local check = io.open(BotPath.."PROFILES/"..profileID..".json","r")
-    local jsonstats
-    --
-    local FprofileID
-    local Fcheck
-    local Fjsonstats
-    local Fuser
-    local Fname
+    local SaveData1, DiscordUsername1, DiscordPFP1, SaveData2, DiscordUsername2, DiscordPFP2, ID2 = ReturnUserData(message, message.mentionedUsers[1], "Boomerang")
 
-    --==-- BOOMERANG
-    if not message.mentionedUsers[1] then --If theres no user pinged
-
-        if not check then --if you no profile
-            check = makeprofile(profileID)
-            noprofile(message)
-        end
-
-    else --if there is a user pinged
-        FprofileID = message.mentionedUsers[1][1]
-        Fcheck = io.open(BotPath.."PROFILES/"..FprofileID..".json","r")
-        Fuser = message.guild:getMember(FprofileID).user
-        Fname = Fuser.username
-
-        if not Fcheck then --if no user profile
-            nofriendprofile(message)
-            print("no profile detected")
-            return
-
-        else Fjsonstats = json.decode(io.input(Fcheck):read("*a"))
-        end
-
-    end
-    jsonstats = json.decode(io.input(check):read("*a"))
-    --==--
-
-    --------------------------------------------------------------------INFO
-    local currenttime = os.time()
-    local playergkcooldown = jsonstats.timers.giftkeytimer + GKCOOLDOWN --giftkey cooldown
-
-    --------------------------------------------------------------------CHECKS
-    if currenttime < playergkcooldown then --|if cooldown is not ready
-        check:close() Fcheck:close()
-        print("not ready")
-
-        local remainingtime = playergkcooldown - currenttime --gets remaining unix time 
-        local readableremainingtime = SecondsToClock(remainingtime)
-
-        message.channel:send{
-            embed = {
-                color = 0x8f27ff, title = "Gift Key...?",
-
-                author = {
-                    name = message.author.username.."'s r$giftkey",
-                    icon_url = message.author.avatarURL
-                }, --
-
-                description = "",
-                fields = {
-                    {
-                        name = "Command isn't ready!",
-                        value = ""
-                    }
-                },
-                footer = {text = "You can r$giftkey in "..readableremainingtime.."."}
-            }
-        }
-    end
-
-    if not message.mentionedUsers[1] then --|if no users mentioned
-        check:close()
-        print("no ping detected")
-
-        message.channel:send{
-            embed = {
-                color = 0x8f27ff, title = "Gift Key...?",
-
-                author = {
-                    name = message.author.username.."'s r$giftkey",
-                    icon_url = message.author.avatarURL
-                }, --
-
-                description = "You clutch the **Gift Key** "..MenuGIFTKEY.." in your hands... The key doesn't go anywhere though.",
-                fields = {
-                    {
-                        name = "No user detected. Ping a user to send them a **Gift Key** "..MenuGIFTKEY.." !",
-                        value = ""
-                    }
-                },
-                footer = {text = "ex: r$giftkey @RDifacts"}
-            }
-        }
+    
+    if SaveData1 == nil then
         return
     end
 
-    if FprofileID == profileID then --|if user id is the same
-        check:close()
-        print("dupe acc")
+    --------------------------------------------------------------------INFO
+    local CurrentTime = os.time()
+    local PlayerCooldown = SaveData1.timers.giftkeytimer + GiftKeyCOOLDOWN --giftkey cooldown
 
-        message.channel:send{
-            embed = {
-                color = 0x8f27ff, title = "Gift Key...?",
+    --------------------------------------------------------------------CHECKS
+    if  SaveData1 == "NoFriend" then
+        print("no friend for giftkey")
 
-                author = {
-                    name = message.author.username.."'s r$giftkey",
-                    icon_url = message.author.avatarURL
-                }, --
+        ErrorEmbedder(
+            message, 
+            "Gift Key..?",
+            message.author.username,
+            message.author.avatarURL,
+            "You clutch the **Gift Key** "..MenuGIFTKEY.." in your hands... The key doesn't go anywhere though.",
+            "No user detected. Ping a user to send them a **Gift Key** "..MenuGIFTKEY.." !",
+            MenuGKEMB,
+            "example: r$giftkey @RDifacts",
+            0x8f27ff
+        )
 
-                description = "You clutch the **Gift Key** "..MenuGIFTKEY.."in your hands and focus on thinking of yourself... The key doesn't go anywhere though.",
-                fields = {
-                    {
-                        name = "Can't give yourself a **Gift Key** "..MenuGIFTKEY.." , dummy!",
-                        value = ""
-                    }
-                },
-                footer = {text = "Something says you should give the key to someone..."}
-            }
-        }
+        return
+    end
+
+    if CurrentTime < PlayerCooldown then --|if cooldown is not ready
+        print("not ready")
+
+        local RemainingCooldown = PlayerCooldown - CurrentTime --gets remaining unix time 
+        local FormattedCooldown = SecondsToClock(RemainingCooldown)
+
+        ErrorEmbedder(
+            message, 
+            "Gift Key..?",
+            message.author.username,
+            message.author.avatarURL,
+            "You don't think you have a gift key anywhere...",
+            "Command isn't ready!",
+            MenuGKEMB,
+            "r$giftkey will be available in "..FormattedCooldown..".",
+            0x8f27ff
+        )
+        return
+    end
+
+    if ID2 == message.author.id then --|if user id is the same
+        print("dupe gk acc")
+
+        ErrorEmbedder(
+            message, 
+            "Gift Key..?",
+            message.author.username,
+            message.author.avatarURL,
+            "You clutch the **Gift Key** "..MenuGIFTKEY.."in your hands and focus on thinking of yourself... The key doesn't go anywhere though.",
+            "You can't give yourself a **Gift Key** "..MenuGIFTKEY.." , dummy!",
+            MenuGKEMB,
+            "",
+            0x8f27ff
+        )
         return
     end
 
     --------------------------------------------------------------------COMMAND
-    if currenttime > playergkcooldown then --|if cooldown
-        jsonstats.timers.giftkeytimer = os.time()
-        Fjsonstats.wallet.keys = Fjsonstats.wallet.keys + 1
-        updatesave(profileID, jsonstats, check) updatesave(FprofileID, Fjsonstats, Fcheck) --(S)
+    if CurrentTime > PlayerCooldown then --|if cooldown
+        SaveData1.timers.giftkeytimer = os.time()
+        SaveData2.wallet.keys = SaveData2.wallet.keys + 1
+
+        UpdateSave(message.author.id, SaveData1) UpdateSave(ID2, SaveData2) --(S)
 
         message.channel:send{
             embed = {
                 color = 0x8f27ff, title = "Gift Key!",
-
                 author = {
-                    name = message.author.username.."'s r$giftkey",
-                    icon_url = message.author.avatarURL
+                    name = DiscordUsername1,
+                    icon_url = DiscordPFP1
                 }, --
 
                 description = "You clutch the **Gift Key** "..MenuGIFTKEY.." in your hands and focus on thinking of the person in question... The key disappears in a ray of light!"
-                .."\n\n **Gift Key** "..MenuGIFTKEY.." successfully sent to "..Fname.."!",
+                .."\n\n **Gift Key** "..MenuGIFTKEY.." successfully sent to "..DiscordUsername2.."!",
+                thumbnail = {
+                    url = MenuGKEMB
+                },
                 footer = {text = "you can r$giftkey again in 32 hours."}
             }
         }
 
-        --message.author.username..", you gifted a "..MenuGIFTKEY.." **Key** to "..Fname.."!")
+        --message.author.username..", you gifted a "..MenuGIFTKEY.." **Key** to "..FriendUsername.."!")
         return
     end
 end

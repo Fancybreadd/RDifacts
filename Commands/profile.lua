@@ -3,86 +3,70 @@ function command.run(message)
     print("profile")
     --------------------------------------------------------------------FILESELETCT
     --hookshot
-    local profileID = message.author.id
-    local check = io.open(BotPath.."PROFILES/"..profileID..".json","r")
-    local username
-    local iconurl
+    local SaveData, DiscordUsername, DiscordPFP = ReturnUserData(message, message.mentionedUsers[1], "Hookshot")
 
-    --==--
-    if not message.mentionedUsers[1] then --if pinged friend
-
-        if not check then
-            check = makeprofile(profileID)
-            noprofile(message)
-        end
-        username = message.author.username
-        iconurl = message.author.avatarURL
-
-    else
-
-        profileID = message.mentionedUsers[1][1]
-        check = io.open(BotPath.."PROFILES/"..profileID..".json","r")
-        username = message.guild:getMember(profileID).user.username
-        iconurl = message.guild:getMember(profileID).user.avatarURL
-        if not check then
-            nofriendprofile(message, username, iconurl)
-            print("no profile detected")
-            return
-        end
-
+    if SaveData == nil then
+        return
     end
-    local jsonstats = json.decode(check):read("*a")
-    --==--
 
     --------------------------------------------------------------------INFO
-    local iteminv = jsonstats.inv
-    local artifactprogress = #iteminv
+    local Inventory = SaveData.inv
+    local GiftKeyText = "Ready!"
 
-    local keystat = jsonstats.wallet.keys
-    local capsulestat = jsonstats.wallet.capsules
-    local marblestat = jsonstats.wallet.marbles
-    --local materialstat = jsonstats.wallet.materials
-    local ingredientstat = jsonstats.wallet.ingredients
-    local emblemstat = jsonstats.wallet.emblems
+    local GiftKeyCheck, GiftKeyTime = os.time() > SaveData.timers.giftkeytimer + GiftKeyCOOLDOWN, SecondsToClock(SaveData.timers.giftkeytimer + GiftKeyCOOLDOWN - os.time())
+    if GiftKeyCheck == false then
+        GiftKeyText = GiftKeyTime
+    end
+    
+    
+    local Keys = SaveData.wallet.keys
+    local Capsules = SaveData.wallet.capsules
+    --local Marbles = SaveData.wallet.marbles
+    --local materialstat = SaveData.wallet.materials
+    local Ingredients = SaveData.wallet.ingredients
+    local Emblems = SaveData.wallet.emblems
 
     --------------------------------------------------------------------MESSAGE
     message.channel:send{
         embed = {
             color = 0xffffff, title = "Stats",
             author = {
-                name = username.. "'s Profile",
-                icon_url = iconurl
+                name = DiscordUsername.. "'s Profile",
+                icon_url = DiscordPFP
             },
-            description = "**-- Artifact Progress ["..artifactprogress.."/256] --**",
+            description = "**-- Artifact Progress ["..#Inventory.."/256] --**",
 
             fields = {
                 {
+                    name = MenuGIFTKEY.." Gift Key",
+                    value = GiftKeyText, inline = false
+                },
+                {
                     name = MenuKEY.." Keys",
-                    value = keystat, inline = true
+                    value = Keys, inline = true
                 },
                 {
                     name = MenuCAPSULE.." Capsules",
-                    value = capsulestat, inline = true
+                    value = Capsules, inline = true
                 },
-                {
-                    name = MenuMARBLE.." Marbles",
-                    value = marblestat, inline = true
-                },
+                --{
+                    --name = MenuMARBLE.." Marbles",
+                    --value = Marbles, inline = true
+                --},
                 --{
                     --name = MenuMATERIAL.." Materials",
                     --value = materialstat, inline = true
                 --},
                 {
                     name = MenuINGREDIENT.." Ingredients",
-                    value = ingredientstat, inline = true
+                    value = Ingredients, inline = true
                 },
                 {
                     name = MenuEMBLEM.." Emblems",
-                    value = emblemstat, inline = true
+                    value = Emblems, inline = true
                 }
             }
         }
     }
-    check:close()
 end
 return command --

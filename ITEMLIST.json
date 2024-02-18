@@ -1,34 +1,2308 @@
 {
-    "ar1": [
-        "Worn Dagger",
-        "<:worndagger:962702025114677329>",
-        1,
-        1,
-        "A simple steel dagger capable of doing slight damage to anything it touches. \n\n Its blade is dull and seems worn down."
-    ], 
-
-    "ar2": [
-        "Silver Ring",
-        "<:silverring:964745464945721384>",
-        1,
-        2,
-        "Its gem seems to be missing, wonder where'd it go?",
-        "not original"
-    ],
-
-    "ar3": [
-        "Sunken Anchor",
-        "<:sunkenanchor:964745397404827728>",
-        1,
-        3,
-        "A sunken anchor."
-    ],
-
-    "ar4": [
-        "Empty Can",
-        "<:emptycan:964745485317447681>",
-        1,
-        4,
-        "Nothing valuable about it, but it's always good to pick up litter! \n\n Dispose trash properly, kids!"
-    ]
+  "Artifacts":[
+    {
+      "ID": 1,
+      "Name": "Worn Dagger",
+      "Description": "A simple steel dagger capable of doing slight damage to anything it touches. Its blade is dull and seems worn down.\n\nThere's nothing out of the ordinary about it other than your unprofessional attempts at swinging the thing.",
+      "Emoji": "<:Artifact1:1183137755040059522>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 2,
+      "Name": "Silver Ring",
+      "Description": "Its gem seems to be missing, wonder where'd it go?\n\nIt probably feels better to wear if there wasn't an empty socket on it.",
+      "Emoji": "<:Artifact2:1183137758588440672>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 3,
+      "Name": "Unused Anchor",
+      "Description": "A big, steel blue anchor. Commonly used for helping boats and sea vessels stay in place.\n... \n\nHow.... do you carry this?",
+      "Emoji": "<:Artifact3:1183137762522714153>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 4,
+      "Name": "Tree Branch",
+      "Description": "A peculiarly formed branch. If you wave it around, it feels like a wand!",
+      "Emoji": "<:Artifact4:1183137766016557207>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 5,
+      "Name": "Old Book",
+      "Description": "The brimming youth of this book has been long faded by time, yet it really seems like it doesn't have any stories to tell regardless.",
+      "Emoji": "<:Artifact5:1183137769527201982>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 6,
+      "Name": "Bitten Apple",
+      "Description": "A previously fresh apple, now bitten and left behind by some wasteful adventurer.",
+      "Emoji": "<:Artifact6:1183137772966522970>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 7,
+      "Name": "Shattered Lightbulb",
+      "Description": "Shattered beyond use with no ability to provide any light... Quite the poker though.",
+      "Emoji": "<:Artifact7:1183137776296800319>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 8,
+      "Name": "Leather Belt",
+      "Description": "Usually meant to tighten one's pants if they're too big.\n\nIf used right, it can be quite the defensive weapon!",
+      "Emoji": "<:Artifact8:1183137779815829504>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 9,
+      "Name": "Soda Can",
+      "Description": "Nothing valuable about it, but it's always good to pick up litter! \n\nDispose trash properly, kids!",
+      "Emoji": "<:Artifact9:1183137783393562634>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 10,
+      "Name": "Old Boot",
+      "Description": "Its other pair has been missing for years, perhaps concluded to never meet one another again...\n\nIt also kinda smells funny?",
+      "Emoji": "<:Artifact10:1183137787143278612>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 11,
+      "Name": "Paper Sheet",
+      "Description": "The beginning of all that is wonderous! A singular sheet capable of harnessing all the worlds creativity in one page! The possibilities sure are endless! \n\n...Other than that, it's just a piece of paper though.",
+      "Emoji": "<:Artifact11:1183137790406443068>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 12,
+      "Name": "Bone",
+      "Description": "Calcium...",
+      "Emoji": "<:Artifact12:1183137794130985102>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 13,
+      "Name": "Coal",
+      "Description": "Used commonly for fuel or heat, it also makes a mess when you rub it between your hands.",
+      "Emoji": "<:Artifact13:1183137798065233972>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 14,
+      "Name": "Glass Mug",
+      "Description": "While aged, it seems to have never been used at all. Waiting to hold your desired liquid of choice...",
+      "Emoji": "<:Artifact14:1183137801542320138>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 15,
+      "Name": "Empty Bottle",
+      "Description": "An empty glass bottle. You feel like putting a message in it and throwing it out to sea.\n\nYou... suppose that'd count as ocean dumping though.",
+      "Emoji": "<:Artifact15:1183137804570591375>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 16,
+      "Name": "Gold Nugget",
+      "Description": "A tiny gold nugget! It's kinda shiny, but not exactly refined enough to have any value these days.",
+      "Emoji": "<:Artifact16:1183137808513257522>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 17,
+      "Name": "Unbreakable Ladder",
+      "Description": "This ladder feels unbreakable! Its ancient wood is of spotless quality and is incredibly durable.\n\nNow you have unlimited but limited elevation control within your own hands! Or... feet you should say.",
+      "Emoji": "<:Artifact17:1183137811965165598>",
+      "Origin Type": 2,
+      "Origin": "Ladder",
+      "RDCreator": "Bunner"
+    },
+    {
+      "ID": 18,
+      "Name": "Gamer Cap",
+      "Description": "It emanates the souls of many gamers, enhancing your performance in playing video games.\n\nFor some odd reason, playing RPGs give the exact opposite effect when this cap is worn...",
+      "Emoji": "<:Artifact18:1183137815140253696>",
+      "Origin Type": 2,
+      "Origin": "Why dont you play them",
+      "RDCreator": "GDColon"
+    },
+    {
+      "ID": 19,
+      "Name": "Potato!",
+      "Description": "A strange specimen identical to your common tuber. When near any electronics, they are able to activated within its range.\n\nYou... start to have strange fascinations for potatoes whenever you hold it for too long.",
+      "Emoji": "<:Artifact19:1183137818311143564>",
+      "Origin Type": 2,
+      "Origin": "A mind bending discovery",
+      "RDCreator": "Poppers"
+    },
+    {
+      "ID": 20,
+      "Name": "Twisted Tablet",
+      "Description": "A stone tablet with a history of having been engulfed in dark magic; Its power seems to have greatly dimmed throughout the eons.\n\nHolding it, you feel slightly uneasy.",
+      "Emoji": "<:Artifact20:1183137821528178728>",
+      "Origin Type": 2,
+      "Origin": "Disperagioia",
+      "RDCreator": "Samario"
+    },
+    {
+      "ID": 21,
+      "Name": "Sky Tambourine",
+      "Description": "Created by unknown tribes. Capable of connecting the hearts of many into one for ritualistic purposes.\n\nPlaying it makes your heart beat the same rhythm as itself, though it seems to only work if the rhythm is played consistently.",
+      "Emoji": "<:Artifact21:1183137824980086845>",
+      "Origin Type": 2,
+      "Origin": "Bytheway dance",
+      "RDCreator": "Auth"
+    },
+    {
+      "ID": 22,
+      "Name": "A Really Rad Skateboard",
+      "Description": "A skateboard of which has an empowering aura within.\n\nTraversing with it allows you to do practically every skating trick with ease! Now do a kickflip!",
+      "Emoji": "<:Artifact22:1183137828117426217>",
+      "Origin Type": 2,
+      "Origin": "Bird on the wing",
+      "RDCreator": "FirecatFG"
+    },
+    {
+      "ID": 23,
+      "Name": "Lovely Purse",
+      "Description": "Capable of holding plenty of things with convenience, seems like this red purse allows much more room than it looks.\n\nAny facial product you put in it seems to disappear overnight though...",
+      "Emoji": "<:Artifact23:1183137831636443147>",
+      "Origin Type": 2,
+      "Origin": "A lovely Night",
+      "RDCreator": "Fartiliumstation"
+    },
+    {
+      "ID": 24,
+      "Name": "Banana!",
+      "Description": "Preserved under unknown means, this fruit embodies the spirits of many banana ritualists..\n\nMadness seems to flow within, having sent people into mania from potassium enriched obsession.",
+      "Emoji": "<:Artifact24:1183137835822370909>",
+      "Origin Type": 2,
+      "Origin": "Banana man",
+      "RDCreator": "MarioMak967"
+    },
+    {
+      "ID": 25,
+      "Name": "Conspicuous Ruler",
+      "Description": "Able to measure just about anything with molecule accurate precision, if only it wasn't in the form of a school ruler...\n\nSomething about it makes you more uncomfortable the longer you inspect it... You feel like taking a shower.",
+      "Emoji": "<:Artifact25:1183137839207157841>",
+      "Origin Type": 2,
+      "Origin": "You're Mine",
+      "RDCreator": "9thCore"
+    },
+    {
+      "ID": 26,
+      "Name": "Raisin Toast",
+      "Description": "Toasted to perfection, its yeast risen with embedded raisins grown under immaculate condition.\n\nIts warm aroma almost trips you into motion sickness.. Woah there!",
+      "Emoji": "<:Artifact26:1183137842499690647>",
+      "Origin Type": 2,
+      "Origin": "Raisins in my toast",
+      "RDCreator": "Klyzx"
+    },
+    {
+      "ID": 27,
+      "Name": "Bamboo Piece",
+      "Description": "An otherworldy plant favored for its extensive versatility in making lots of useful things.\n\nIt can be used to help make foods, construction, and many more! Wow!",
+      "Emoji": "<:Artifact27:1183137845670596648>",
+      "Origin Type": 2,
+      "Origin": "竹",
+      "RDCreator": "吾夜犹明"
+    },
+    {
+      "ID": 28,
+      "Name": "Wooden Token",
+      "Description": "Finely carved out of wood, having a leaf engraving in the middle.\n\nInfamous in being used back in the day for distinguishing rankings between fellow adventurer members.",
+      "Emoji": "<:Artifact28:1183137849323831416>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 29,
+      "Name": "Simple Bow",
+      "Description": "Crafted out of fine wood and string, it's simplicity encouraging its flexibility.\n\nYou're able to shoot arrows reliaby with little issue, a proper weapon!",
+      "Emoji": "<:Artifact29:1183137852746387526>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 30,
+      "Name": "Golden Hairpin",
+      "Description": "Made out of gold, it will shine and glisten beautifully on your hair! Now you can feel like a proper queen.",
+      "Emoji": "<:Artifact30:1183137855493644391>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 31,
+      "Name": "Mana Tincture",
+      "Description": "A primitive aid medium containing a bright blue blend, able to reinvigorate your body.\n\nNowadays, such simplistic methods are less utilized, replaced throughout the times by more effective methods.",
+      "Emoji": "<:Artifact31:1183137859247542292>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 32,
+      "Name": "Tamer's Horseshoe",
+      "Description": "Struck and casted with such eternal love that even joy and passion seems to radiate through its metal...\n\nEven the most ruthless of stallions can be tamed when adorned with this dazzling horsewear!",
+      "Emoji": "<:Artifact32:1183137862749786132>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 33,
+      "Name": "Shady Package",
+      "Description": "Unknown contraband rests inside. Whispers of the past leaving stories of people fueled with violent destructive insanity from the sight of its contents.\n\nYou lift the lid a little bit while closing your eyes... then close it back shut. You decide that you still have a life to live.",
+      "Emoji": "<:Artifact33:1183137866000384000>",
+      "Origin Type": 2,
+      "Origin": "Special delivery",
+      "RDCreator": "CV35W"
+    },
+    {
+      "ID": 34,
+      "Name": "Lifetrapper",
+      "Description": "Able to catch troublesome swimmers even in the most chaotic of situations, enchanted with the ability to numb limbs.\n\nYour arms seem to just fall asleep immediately whenever someone puts it on you... Uh, is this really supposed to be for saving people?",
+      "Emoji": "<:Artifact34:1183137869083197522>",
+      "Origin Type": 2,
+      "Origin": "Sugar boats",
+      "RDCreator": "Noche, NotDonte"
+    },
+    {
+      "ID": 35,
+      "Name": "Haunted Clock Hand",
+      "Description": "A piece from a haunted grandfather clock. It points to six by itself whenever attached to any other clock.",
+      "Emoji": "<:Artifact35:1183137872140845067>",
+      "Origin Type": 2,
+      "Origin": "Hide and seek",
+      "RDCreator": "MarioMak967"
+    },
+    {
+      "ID": 36,
+      "Name": "Moonlight Cellphone",
+      "Description": "Assembled from pure moonlight itself! A phone capable of staving off slumber from even the most sleepiest of people for as long as they use it.\n\nIt stops its function wherever sunlight reaches it, and returns its form once the moonlight returns again.",
+      "Emoji": "<:Artifact36:1183137875055890562>",
+      "Origin Type": 2,
+      "Origin": "4 AM",
+      "RDCreator": "CrazedJack, Kin"
+    },
+    {
+      "ID": 37,
+      "Name": "Cyborg Shirt",
+      "Description": "Originally manufactured for cyborgwear; This shirt has been tailored to last against rough machine parts and threaded together with non-tearing properties.\n\nYou feel very funky wearing it!",
+      "Emoji": "<:Artifact37:1183137878180642887>",
+      "Origin Type": 2,
+      "Origin": "Galvanise (Beat juggle)",
+      "RDCreator": "CV35W"
+    },
+    {
+      "ID": 38,
+      "Name": "Reverse Dentist's Mallet",
+      "Description": "Usually a tool for dentists that was accidentally struck by kindergarten magic.\n\nAny surface this mallet hits embeds the spot with a tooth, akin to hammering a nail.\n\nMay want to keep away from hitting distance...",
+      "Emoji": "<:Artifact38:1183137881112461413>",
+      "Origin Type": 2,
+      "Origin": "Super strong cavity reconstructor drill chu",
+      "RDCreator": "Thefinals"
+    },
+    {
+      "ID": 39,
+      "Name": "Dwarven Pickaxe",
+      "Description": "A pickaxe forged by the mountain dwarves of old; a hardy tool that were used to mine minerals deep within the heart of their mountains.\n\nIt is quite pristine, even the toughest of rocks you smack crack in half with ease!",
+      "Emoji": "<:Artifact39:1183137883868102827>",
+      "Origin Type": 2,
+      "Origin": "Diggy diggy hole",
+      "RDCreator": "Szprycha"
+    },
+    {
+      "ID": 40,
+      "Name": "Cursed Canvas",
+      "Description": "It writes and beckons on itself as if it is trying to escape, marking itself with mysterious scriptures.\n\nSometimes.. you feel like it's writing to you.",
+      "Emoji": "<:Artifact40:1183137887395520553>",
+      "Origin Type": 2,
+      "Origin": "Kids Klan",
+      "RDCreator": "Mr.Oct"
+    },
+    {
+      "ID": 41,
+      "Name": "Meaty Sawblade",
+      "Description": "It bleeds with a gruesome sting, chunks and pieces of eternal meat covering some of the blades edges from ruthless destruction.\n\nHolding in your hands fuels you with unbridled rage, the thousands that were taken from it screaming through your rising voice!",
+      "Emoji": "<:Artifact41:1183137890675470448>",
+      "Origin Type": 3,
+      "Origin": "Super Meat Boy",
+      "RDCreator": ""
+    },
+    {
+      "ID": 42,
+      "Name": "Puff Spore",
+      "Description": "A fluffy spore constantly hovering on your hands; toying around with it only proves less results, following rules you can't understand...",
+      "Emoji": "<:Artifact42:1183137894064472126>",
+      "Origin Type": 3,
+      "Origin": "Baba Is You",
+      "RDCreator": ""
+    },
+    {
+      "ID": 43,
+      "Name": "Jakes Spray Can",
+      "Description": "Quite the dastardly device, this spray can is able to ruin anyone's day for as long as anyone dares to. \n\nMake sure you're prepared to run away after using!",
+      "Emoji": "<:Artifact43:1183137897377960108>",
+      "Origin Type": 3,
+      "Origin": "Subway Surfers",
+      "RDCreator": ""
+    },
+    {
+      "ID": 44,
+      "Name": "Sandvich",
+      "Description": "Made with bioengineered ingredients of lettuce, tomatoes, Swiss cheese, and slices of ham and bologna. Quite filling! \n\nQuite the unorthodox form for a power food, as it invokes unnatural regenerative capabilities.",
+      "Emoji": "<:Artifact44:1183137900645330944>",
+      "Origin Type": 3,
+      "Origin": "Team Fortress 2",
+      "RDCreator": ""
+    },
+    {
+      "ID": 45,
+      "Name": "Gold Necklace",
+      "Description": "A pretty golden necklace... It sparkles on your neck beautifully!",
+      "Emoji": "<:Artifact45:1183152184616038440>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 46,
+      "Name": "Bronze Battleaxe",
+      "Description": "Forged from bronze and adorned with a purple ribbon. \n\nOnce held by the archipelago vikings, notorious for marking everything they conquer and own with... You guessed it, purple ribbons!",
+      "Emoji": "<:Artifact46:1183152191847010367>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 47,
+      "Name": "Mildew Torch",
+      "Description": "Mildew trees are renowned for their capability to maintain some growth even after separated from its roots. Thus, people of the past had often crafted torches out of them, given their ability to last longer than most timber.",
+      "Emoji": "<:Artifact47:1183152198893441095>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 48,
+      "Name": "Gold Chalice",
+      "Description": "A shiny golden chalice! Anyone who drinks from it will always feel like royalty.\n\nThat or... assassination by poison, whichever works.",
+      "Emoji": "<:Artifact48:1183152204908081152>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 49,
+      "Name": "Equilibrium Headphones",
+      "Description": "The pitch white color of these headphones pierce through most light that tries to affect it...\n\nManufacturing history is unknown. It's capable of picking up even the lightest noise in perfect quality.",
+      "Emoji": "<:Artifact49:1183152211128242176>",
+      "Origin Type": 2,
+      "Origin": "Jazz maze",
+      "RDCreator": "Xeno"
+    },
+    {
+      "ID": 50,
+      "Name": "Psychosomatic Violin",
+      "Description": "An instrument which plays music incomparable when against any other violin... However, its morbidly perfect tune only comes with a dire cost,",
+      "Emoji": "<:Artifact50:1183152218011095161>",
+      "Origin Type": 2,
+      "Origin": "Phsychosomatic",
+      "RDCreator": "Provolone"
+    },
+    {
+      "ID": 51,
+      "Name": "World Tour Speaker",
+      "Description": "Once traded and shared between many producers, having visited almost every part of the world through sheer use. It may as well grow a beard and tell you stories!",
+      "Emoji": "<:Artifact51:1183237393948618752>",
+      "Origin Type": 2,
+      "Origin": "Off to see the world",
+      "RDCreator": "Symphony"
+    },
+    {
+      "ID": 52,
+      "Name": "Webbed Yarn Ball",
+      "Description": "Yarn made out of finely processed spider web, regarded with many tales of the skillful weaving and tailoring of a giant spider-like person.\n\nYou try imagining how it was made... and begin to decide that you had enough imagining for one day.",
+      "Emoji": "<:Artifact52:1183237398113558570>",
+      "Origin Type": 2,
+      "Origin": "Momotaro",
+      "RDCreator": "CV35W"
+    },
+    {
+      "ID": 53,
+      "Name": "Pirate Rum",
+      "Description": "An ancient aged alcohol made out of distilled sugarcane liquor. Once very widespread as a common ration for pirates who sailed treacherous seas. Yo ho ho!",
+      "Emoji": "<:Artifact53:1183237401989107782>",
+      "Origin Type": 2,
+      "Origin": "Raise the black flag",
+      "RDCreator": "Mimiworld"
+    },
+    {
+      "ID": 54,
+      "Name": "Styrofoam Hand",
+      "Description": "Eternally waving a peace sign, this hand is always ready to liven up even the mildest of parties!",
+      "Emoji": "<:Artifact54:1183237406313414666>",
+      "Origin Type": 2,
+      "Origin": "Oneshot Twoshot",
+      "RDCreator": "Vincentw, Xeno"
+    },
+    {
+      "ID": 55,
+      "Name": "Broken Heart",
+      "Description": "Sculpted with the soul of the heartbroken, resembling a heart that had shattered and split into separate chunks, the whole thing still looks to be somehow intact despite this.\n\nHolding it, you feel a sense of longing.",
+      "Emoji": "<:Artifact55:1183237410792943677>",
+      "Origin Type": 2,
+      "Origin": "Heartbreak headlines",
+      "RDCreator": "Kneeckoh"
+    },
+    {
+      "ID": 56,
+      "Name": "Bust Hat",
+      "Description": "Woven out of straw, commonly used for farmers as easy shade while working.\n\nThere's... an otherworldly dread you can't describe when you put this one on though.",
+      "Emoji": "<:Artifact56:1183237415331168296>",
+      "Origin Type": 2,
+      "Origin": "Bust this bust that",
+      "RDCreator": "Morphious89"
+    },
+    {
+      "ID": 57,
+      "Name": "Cupid's Milkshake",
+      "Description": "A concoction mixed with the purpose to fulfill and intertwine one's heart with another for eternity. Gifted very rarely to couples who have proven their strong unbreakable bonds.",
+      "Emoji": "<:Artifact57:1183237419676487851>",
+      "Origin Type": 2,
+      "Origin": "Kids no return",
+      "RDCreator": "Het"
+    },
+    {
+      "ID": 58,
+      "Name": "Goo Ball",
+      "Description": "This odd living creature seems to be able to stick to any surface you place it on, mostly composing out of an unknown goo.\n\nIt makes weird high pitched noises when you squish it lightly!",
+      "Emoji": "<:Artifact58:1183237423031931023>",
+      "Origin Type": 3,
+      "Origin": "World of Goo",
+      "RDCreator": ""
+    },
+    {
+      "ID": 59,
+      "Name": "Tomorrow Stamp",
+      "Description": "A collectors stamp used for buying toys via magazines as a corporation advertisement campaign, once giving joy to children in a world of endless winter.",
+      "Emoji": "<:Artifact59:1183237427301711953>",
+      "Origin Type": 3,
+      "Origin": "Little Inferno",
+      "RDCreator": ""
+    },
+    {
+      "ID": 60,
+      "Name": "Winter Melon",
+      "Description": "An novel fruit capable of flash freezing anything it touches.\n\nIts juices are packed full with a natural freezing agent; quick exposure to heat will quickly lower its temperature to flash freeze into frozen ice.\n\nWhen carefully cut though, it makes for a fantastic refreshing fruit in sunny days!",
+      "Emoji": "<:Artifact60:1183237431319867474>",
+      "Origin Type": 3,
+      "Origin": "Plants VS Zombies",
+      "RDCreator": ""
+    },
+    {
+      "ID": 61,
+      "Name": "Rejuvenation Mixture",
+      "Description": "Brewed to aid in harsh injuries, providing general regenerative capabilities for aiding in the healing of any wound. \n\nA note is taped to the bottom: Some bone or cell structure might regenerate improperly in the healing process, contact a cleric if this is the case.",
+      "Emoji": "<:Artifact61:1183237434641743972>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 62,
+      "Name": "Ruby Ring",
+      "Description": "Shining in gold and topped with a ruby gem. Your finger has never felt so proud and pretty!",
+      "Emoji": "<:Artifact62:1183237438701830205>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 63,
+      "Name": "Magic Index",
+      "Description": "A tome full of essential magic spells and incantations for beginners in the field. \n\nIf you flip to page 42, there's a section full of neat party tricks you can do with magic!",
+      "Emoji": "<:Artifact63:1183237442074058858>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 64,
+      "Name": "Necklace of The Fox",
+      "Description": "Once handed down as an heirloom within a family of kitsunes, a tradition to commemorate the reminder of their heritage, blessed with the power of a quick and nimble fox.\n\nYou feel super fast and nimble wearing it! Look at you go!",
+      "Emoji": "<:Artifact64:1183237445773443072>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 65,
+      "Name": "Warped Battery",
+      "Description": "What's left of a battery, corrupted and warped by unknown means.\n\nIt's exterior has been heavily distorted, and contorts into a weird undescribeable texture... You almost feel like it's pulsing...",
+      "Emoji": "<:Artifact65:1183237453281239142>",
+      "Origin Type": 2,
+      "Origin": "Reckless battery burns",
+      "RDCreator": "MarioMak967"
+    },
+    {
+      "ID": 66,
+      "Name": "Chocolate Cream Puff",
+      "Description": "Baked to a soft golden hue, filled with delicious cream, and topped with the richest of chocolates, then glazed in magical ingredients to forever persist in heavenly taste...\n\nIt's almost too hard not to eat it!",
+      "Emoji": "<:Artifact66:1183237456548593726>",
+      "Origin Type": 2,
+      "Origin": "Choux à la crème",
+      "RDCreator": "Dr. Jazz, Xeno"
+    },
+    {
+      "ID": 67,
+      "Name": "Paper Currency",
+      "Description": "Wealth of the most common kind from a long time ago, it smells very weird.\n\nThere's not much use to it these days other than being a piece of economic history.",
+      "Emoji": "<:Artifact67:1183237459723698178>",
+      "Origin Type": 2,
+      "Origin": "Money",
+      "RDCreator": "Saladplainzone"
+    },
+    {
+      "ID": 68,
+      "Name": "Lovesick",
+      "Description": "It speaks the hands of a hopeless romantic...\n\nIts strength derives from your own heart, harnessing your fluttering emotions into energy and empowering itself depending on your feelings of attraction.\n\nWho would that be for you, if any?",
+      "Emoji": "<:Artifact68:1183237465411174532>",
+      "Origin Type": 2,
+      "Origin": "Punch drunk destiny",
+      "RDCreator": "CV, Salerj, Xeno"
+    },
+    {
+      "ID": 69,
+      "Name": "Robot Cog",
+      "Description": "A fragment of a powerful robot. Able to withstand the toughest of stress and turn even the most complicated of gear structures. Use wisely...",
+      "Emoji": "<:Artifact69:1183237469668384809>",
+      "Origin Type": 2,
+      "Origin": "Up in my jam",
+      "RDCreator": "CrazedJack, Thefinals, MarioMak967, Xen't"
+    },
+    {
+      "ID": 70,
+      "Name": "Fukusei",
+      "Description": "An ornamental piece from Tokyo with strange duplicative properties. Every night, there always seems to be more... \n\nContrary to popular belief, it wasn't used often as convenient decoration, but rather sought prosperity in it's disposability.",
+      "Emoji": "<:Artifact70:1183237474059829329>",
+      "Origin Type": 2,
+      "Origin": "Ghost city tokyo",
+      "RDCreator": "GDColon, Netba, Tepid,"
+    },
+    {
+      "ID": 71,
+      "Name": "Blood Fig",
+      "Description": "An equivalent of the normal fig that has been soaked in blood, letting it seep through the fruits flesh; it's often used as offerings for ritualistic purposes.\n\nWell, a demons gotta eat you suppose.",
+      "Emoji": "<:Artifact71:1183237478270910484>",
+      "Origin Type": 2,
+      "Origin": "Amnehilesie",
+      "RDCreator": "Daming"
+    },
+    {
+      "ID": 72,
+      "Name": "Jolly Candy Cane",
+      "Description": "Santa's special kind of your common candy cane; it's often saved for emergencies, providing their elves with enough pep for toymaking.\n\nOther than being much, much bigger than average, this sweet confection greatly boosts your morale and christmas spirit!",
+      "Emoji": "<:Artifact72:1183237486198128650>",
+      "Origin Type": 2,
+      "Origin": "Candy cane lane",
+      "RDCreator": "Xeno"
+    },
+    {
+      "ID": 73,
+      "Name": "Brass Trumpet",
+      "Description": "Loud as it is uncanny. This instrument has a plethora of very silly sounds it can make.\n\nDrunkedness fills your movements as your ears witness its wobbly play...",
+      "Emoji": "<:Artifact73:1183237489532600362>",
+      "Origin Type": 2,
+      "Origin": "Which cookie",
+      "RDCreator": "Kneeckoh"
+    },
+    {
+      "ID": 74,
+      "Name": "Discontinued Ticket",
+      "Description": "An ancient currency once circulated around the world, usually given in limited amounts for free every day to the commonwealth. \n\nThe use of these tickets began being discontinued after a point, and thus have stopped production since then.",
+      "Emoji": "<:Artifact74:1183237493559140462>",
+      "Origin Type": 3,
+      "Origin": "Roblox",
+      "RDCreator": ""
+    },
+    {
+      "ID": 75,
+      "Name": "Mummy Hand",
+      "Description": "Still seemingly alive and twitching with energy. You feel almost restless while you hold it in your hand...\n\nIt pulses and moves more frantically whenever your heart races...",
+      "Emoji": "<:Artifact75:1183237497891856535>",
+      "Origin Type": 3,
+      "Origin": "Slay the Spire",
+      "RDCreator": ""
+    },
+    {
+      "ID": 76,
+      "Name": "Book of Darkness",
+      "Description": "Full of defensive incantations for protection. Magic for encasing you with protective seals to avoid harm coming your way!",
+      "Emoji": "<:Artifact76:1183237501427658832>",
+      "Origin Type": 3,
+      "Origin": "Binding of Isaac",
+      "RDCreator": ""
+    },
+    {
+      "ID": 77,
+      "Name": "Gilded Snake Necklace",
+      "Description": "Two gilded snakes coil around the middle cane, dazzling with gold and mana. Usually worn by druids to ward off evil spirits.",
+      "Emoji": "<:Artifact77:1183237505177362512>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 78,
+      "Name": "Magewood Staff",
+      "Description": "Fashioned out of gumble wood and infused with a little liquid magic, able to cast simple yet significant spells.",
+      "Emoji": "<:Artifact78:1183237508318896210>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 79,
+      "Name": "Mildew Robe",
+      "Description": "Threads of silken mildew that were sewn together into a wonderful robe for early acolytes and shamans, worn with the purpose of getting one's heart closer to earth and mother nature.",
+      "Emoji": "<:Artifact79:1183237513591132182>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 80,
+      "Name": "Golden Chamberstick",
+      "Description": "The staple of any late sleeper, providing a source of light through the darkness of your home without the hassle of a lantern... \n\nPerhaps you could use it for your midnight trip to the fridge before bed.",
+      "Emoji": "<:Artifact80:1183237517068226630>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 81,
+      "Name": "Alternate Plushie",
+      "Description": "A soft, cartoony derivative of an incredibly dangerous entity, ones that possess the capability to mimic and trick beings. \n\nMany unknown deaths were caused due to their presence, and has thus became a global cultural phenomenon.",
+      "Emoji": "<:Artifact81:1183237520574644265>",
+      "Origin Type": 2,
+      "Origin": "Gift",
+      "RDCreator": "Willow"
+    },
+    {
+      "ID": 82,
+      "Name": "Sugar Supplement",
+      "Description": "Once used by many to aid in the soothing of illnesses within the medication process.\n\nIts effects are dubious, and provide little to no concrete benefits. Many cases of overdose stricken throughout its history...",
+      "Emoji": "<:Artifact82:1183237526027255828>",
+      "Origin Type": 2,
+      "Origin": "Sugar pills",
+      "RDCreator": "DPS2004, Xeno"
+    },
+    {
+      "ID": 83,
+      "Name": "Scroll of The 7th Note",
+      "Description": "A scroll once held by the Beatmaster, fully inscribed with telltales of pure rhythm and sound; it owns an influence powerful enough to encase entire villages with dark curses. \n\nThere are many stories of its magic and the evils that want to manipulate it, tales of such having been made into many plays and films throughout its time.",
+      "Emoji": "<:Artifact83:1183237531630846052>",
+      "Origin Type": 2,
+      "Origin": "I like beats",
+      "RDCreator": "Kin"
+    },
+    {
+      "ID": 84,
+      "Name": "Alien Glasses",
+      "Description": "Once worn by a young lovestruck alien, drifting through the cosmos in hopes of finding their one true love...\n\nWearing it, you feel like dancing!",
+      "Emoji": "<:Artifact84:1183237535166627840>",
+      "Origin Type": 2,
+      "Origin": "Alien alien",
+      "RDCreator": "Fartiliumstation"
+    },
+    {
+      "ID": 85,
+      "Name": "Glitched Keycard",
+      "Description": "Origins and purpose are unknown, broken beyond repair and now without purpose.\n\nStrangely, swiping it through any card reader permanently breaks one.",
+      "Emoji": "<:Artifact85:1183237538480144466>",
+      "Origin Type": 2,
+      "Origin": "?",
+      "RDCreator": "Prodzpod"
+    },
+    {
+      "ID": 86,
+      "Name": "Leek!",
+      "Description": "Looks perfectly identical to your average leek, having the property of inducing panic and stress within unassuming holders.\n\nDo you want to constantly feel as if you're about to be trampled by a falling bulldozer? Because if you hold this, you somehow can!",
+      "Emoji": "<:Artifact86:1183237541713948785>",
+      "Origin Type": 2,
+      "Origin": "Leekspin",
+      "RDCreator": "Kneeckoh"
+    },
+    {
+      "ID": 87,
+      "Name": "Pain Hourglass",
+      "Description": "You feel slightly disturbed by the thought of this apparatus; the trickling sands flowing through its glass throat somehow suffocates any other sounds you can hear.\n\nEvery grain is pleading for your attention...\n\nAnd all of them wants to say sorry.",
+      "Emoji": "<:Artifact87:1183237545056796753>",
+      "Origin Type": 2,
+      "Origin": "After pain",
+      "RDCreator": "Thefinals"
+    },
+    {
+      "ID": 88,
+      "Name": "Ancient Monitor",
+      "Description": "An ancient device meant for displaying visual components like monitors of today.\n\nIt is highly ancient and heavy, you can feel your fingers buzzing when you bring them close to its screen.",
+      "Emoji": "<:Artifact88:1183237548462587954>",
+      "Origin Type": 2,
+      "Origin": "Internet overdose",
+      "RDCreator": "Thefinals"
+    },
+    {
+      "ID": 89,
+      "Name": "Spinning Medpack",
+      "Description": "Endlessly rotating constantly, there looks to be no sign of a proper source for its momentum...\n\nInside, it just contains regular medical aid supplies.",
+      "Emoji": "<:Artifact89:1183237552099041300>",
+      "Origin Type": 2,
+      "Origin": "Soldier of dance",
+      "RDCreator": "TatonSlice"
+    },
+    {
+      "ID": 90,
+      "Name": "Matter Manipulator",
+      "Description": "A multi-use tool given to space cadets for exploring and conquering planets, having an in-built laser that can break apart hard material for easy survival and industrial applications. \n\nDue to its age, it's kind of slow at doing this though.",
+      "Emoji": "<:Artifact90:1183237555836157992>",
+      "Origin Type": 3,
+      "Origin": "Starbound",
+      "RDCreator": ""
+    },
+    {
+      "ID": 91,
+      "Name": "Dreamer's Shirt",
+      "Description": "The comfy shirt of a true dreamer, harnessing the restlessness of your mind to explore and bend your dreams to your liking with excruciating detail, opening layers within layers of the memorial psyche.\n\nIf your dreams were controllable within the palms of your hands, what would you dream of?",
+      "Emoji": "<:Artifact91:1183237558881222687>",
+      "Origin Type": 3,
+      "Origin": "Yume Nikki",
+      "RDCreator": ""
+    },
+    {
+      "ID": 92,
+      "Name": "Casey",
+      "Description": "A beautiful weapon tinkered from within the depths of a treacherous dungeon. It resembles a shotgun shell, having a swing powerful enough to deflect any projectile without effort... If you're able to bat them away, that is.  \n\nYou feel a suffocating curse looming over you when give it a swing...",
+      "Emoji": "<:Artifact92:1183237562513494028>",
+      "Origin Type": 3,
+      "Origin": "Enter The Gungeon",
+      "RDCreator": ""
+    },
+    {
+      "ID": 93,
+      "Name": "Bio Charm",
+      "Description": "Mysterious life matter bubbles and stews inside its core...\n\nIts substance is created from liquifying rare minerals and flora, often said to enhance elemental potency.",
+      "Emoji": "<:Artifact93:1183237566057685095>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 94,
+      "Name": "Plantexa Algricultum",
+      "Description": "A book containing many pages about plants and plant life, how to take care of them, and how to magically grow or summon them.",
+      "Emoji": "<:Artifact94:1183237571778723931>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 95,
+      "Name": "Ruby Earrings",
+      "Description": "Bedazzling with glamour. Made out of solid gold with adorned rubies! Your ears will look as if they only allow the finest of soundwaves to enter in.",
+      "Emoji": "<:Artifact95:1183237576367280180>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 96,
+      "Name": "Amber Pendant",
+      "Description": "Simple and adorned with a big chunk of cut amber. Worn by many users in the magic arts to channel auras and spells.",
+      "Emoji": "<:Artifact96:1183237581933138030>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 97,
+      "Name": "Panic Siren",
+      "Description": "Reacts when touching with your fingers; anyone caught in its ray of red light immediately induces high concentrations of adrenaline.",
+      "Emoji": "<:Artifact97:1183237585112420402>",
+      "Origin Type": 2,
+      "Origin": "My level",
+      "RDCreator": "Auth"
+    },
+    {
+      "ID": 98,
+      "Name": "Moai Sculpture",
+      "Description": "Quite attractive, don't you think? There's something about its oversized and goofy nose that would strike anyones heart...\n\n...Who are you kidding? At least it makes for a good, albeit heavy, hat holder.",
+      "Emoji": "<:Artifact98:1183237588258127972>",
+      "Origin Type": 2,
+      "Origin": "Moai",
+      "RDCreator": "DDRR0077"
+    },
+    {
+      "ID": 99,
+      "Name": "Focus Band",
+      "Description": "Induces a heightened sense of concentration for the wearer, effective with keeping you on track.\n\nSuch a specialty can become a curse, however... Holding focus arcana so powerful that concentration can twist into spiraling compulsion...",
+      "Emoji": "<:Artifact99:1183237592246919339>",
+      "Origin Type": 2,
+      "Origin": "Float",
+      "RDCreator": "TNTz"
+    },
+    {
+      "ID": 100,
+      "Name": "Artist Lemon",
+      "Description": "There's a strange colorful juice leaking out of it... You can feel as if it's bleeding, like it's a part of someone...\n\nRegardless, Let's find out how it tastes!",
+      "Emoji": "<:Artifact100:1183237596084699266>",
+      "Origin Type": 2,
+      "Origin": "Artist lemonade",
+      "RDCreator": "04_1008 (Den), Healion123"
+    },
+    {
+      "ID": 101,
+      "Name": "Miniature Circus Tent",
+      "Description": "A small cutely sized circus tent able to be lifted with a single hand. Just throw it on the ground and it will expand! Clownful convenience!",
+      "Emoji": "<:Artifact101:1183237885093236798>",
+      "Origin Type": 2,
+      "Origin": "Welcome to the circus",
+      "RDCreator": "MarioMak967"
+    },
+    {
+      "ID": 102,
+      "Name": "Preacher Tea",
+      "Description": "A herbal mixture of special petals and leaves able to soothe you of all your worries. \n\nUsually brewed by meditators to achieve a better understanding of their emotional problems.",
+      "Emoji": "<:Artifact102:1183237888943587389>",
+      "Origin Type": 2,
+      "Origin": "Rest easy",
+      "RDCreator": "Kin"
+    },
+    {
+      "ID": 103,
+      "Name": "Winter Jacket",
+      "Description": "Quite comfy and protective of the snowy weather. Its wool and fibres are perfectly threaded to make any cold day a fun day!\n\nPutting it on, you feel the compulsion to rap somehow...",
+      "Emoji": "<:Artifact103:1183237897713893509>",
+      "Origin Type": 2,
+      "Origin": "Sno",
+      "RDCreator": "3xp0"
+    },
+    {
+      "ID": 104,
+      "Name": "Hexagonal Stethoscope",
+      "Description": "Worn by a doctor who was particularly intrigued with the shape of the hexagon. Even so far as to convince his fellow managers to reconstruct his place to include as many hexagon shaped structures as possible. \n\nThe drum of this stethoscope is also hexagon shaped!",
+      "Emoji": "<:Artifact104:1183237901367132190>",
+      "Origin Type": 2,
+      "Origin": "Doctor hexagon",
+      "RDCreator": "Hexakon"
+    },
+    {
+      "ID": 105,
+      "Name": "Cherry Crackler",
+      "Description": "Sparks and crackles when thrown; a popular toy for young tricksters.\n\nDespite taking the form of a small bomb, it contains no gunpowder. Infact, its whole body is not hollow, but fully infused with kinetic responsive mana that combusts to friction.",
+      "Emoji": "<:Artifact105:1183237904621899796>",
+      "Origin Type": 2,
+      "Origin": "Bombs over brooklyn",
+      "RDCreator": "Some J Name"
+    },
+    {
+      "ID": 106,
+      "Name": "Blade of Generations",
+      "Description": "Bestowed onto generation after generation of warriors, many having lived and died in the effort to strike a rampaging evil with its blade.",
+      "Emoji": "<:Artifact106:1183237908635865098>",
+      "Origin Type": 3,
+      "Origin": "Rogue Legacy 2",
+      "RDCreator": ""
+    },
+    {
+      "ID": 107,
+      "Name": "Bag o' Bells",
+      "Description": "Full of expired minted coins called \"bells\". \n\nApparently replaced due to problematic economy crashes from... Selling turnips? Huh?",
+      "Emoji": "<:Artifact107:1183237912037429310>",
+      "Origin Type": 3,
+      "Origin": "Animal Crossing",
+      "RDCreator": ""
+    },
+    {
+      "ID": 108,
+      "Name": "Teleportation Device",
+      "Description": "A fabled gadget used by the most notorious of thieves, teleporting anywhere with the ease of pressing a button! Though giving very... unstable results.\n\nYou... now realize why most of those notorious thieves went missing after some point.",
+      "Emoji": "<:Artifact108:1183237917070594079>",
+      "Origin Type": 3,
+      "Origin": "The Henry Stickmin Collection",
+      "RDCreator": ""
+    },
+    {
+      "ID": 109,
+      "Name": "Silver Token",
+      "Description": "A token given to guild members of high order and notoriety. Holders of these are considered to be deserving of respect for their deeds.\n\nA tradition was upheld for anyone who met a guild member possessing one, betting on flipping this token to decide if a good deed would be done that day.",
+      "Emoji": "<:Artifact109:1183237921906626593>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 110,
+      "Name": "Emberdew Robe",
+      "Description": "Emberdew robes are tailored only for the most powerful of fire shamans. It's material is weaved so finely and elegantly with purpose, as it is needed to channel the emberdews properties to properly repel the fire and lava of their lands.",
+      "Emoji": "<:Artifact110:1183237926478422118>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 111,
+      "Name": "Candy Pop Ring",
+      "Description": "A sweet, neverending sucrose packed candy ring irresistible to any confectionarist. It's energy packed gem boosts a lot of pep, with the payment of taking all of your attention...\n\nMust... lick... CANDY!",
+      "Emoji": "<:Artifact111:1183237929900986399>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 112,
+      "Name": "Rune Pouch",
+      "Description": "Full of colorful runes... Or so you think! This pouch has a knot so magically sealed and reinforced that you can't open it at all even with brute force! \n\nYou can hear lots of rocks clinking in there though, so you expect that it's full of runes.",
+      "Emoji": "<:Artifact112:1183237933168345169>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 113,
+      "Name": "Nebula Glass",
+      "Description": "Finely molded out of lunarium glass. Its surface glows and permeates cosmic light.\n\nIt seems to make no sound at all even with liquid poured within, yet somehow it feels like it desperately wants to scream.",
+      "Emoji": "<:Artifact113:1183237936834154528>",
+      "Origin Type": 2,
+      "Origin": "Quiet room",
+      "RDCreator": "Delta, Xeno"
+    },
+    {
+      "ID": 114,
+      "Name": "Red Die",
+      "Description": "Confused with the choices of daily life? Need a handy tool to abstract your daily options into 6 sides of dots for simpler decision making? Just throw this little guy up into the air and watch it roll! Your fate has never been more horribly automated!\n\nAlso useful for monetarily ambiguous gambling or rounds of fun fantasy board games... How versatile!",
+      "Emoji": "<:Artifact114:1183237940273487882>",
+      "Origin Type": 2,
+      "Origin": "Daniel dice",
+      "RDCreator": "Xeno"
+    },
+    {
+      "ID": 115,
+      "Name": "Ying Yang Katanas",
+      "Description": "Once gifted to a young pair of swordsmen. Rumored that together they could control the balance of chaos and harmony that was stricken throughout the world. \n\nHolding them both, you feel one with your placing in this universe... That and they look pretty cool.",
+      "Emoji": "<:Artifact115:1183237943624744990>",
+      "Origin Type": 2,
+      "Origin": "Duo blade against",
+      "RDCreator": "Thefinals"
+    },
+    {
+      "ID": 116,
+      "Name": "Droopy Clock",
+      "Description": "Seems to be in a state of permanent melting, making it easily moldable like dough. Regardless, it still stays intact, its core image as a clock unable to deteriorate.\n\nThe hands tick, still telling the time of day with ease, contorting and morphing itself to whatever the melted shape twists.",
+      "Emoji": "<:Artifact116:1183237947370250250>",
+      "Origin Type": 2,
+      "Origin": "Salvador",
+      "RDCreator": "InfectiousStepocity"
+    },
+    {
+      "ID": 117,
+      "Name": "Actor Mask",
+      "Description": "Lunacy within, in its most infamous forms.\n\nOld fashioned and nostalgic, albeit creepy to some. Used for partaking in dark magic or as an infamous icon for plays and theatres of all kinds!",
+      "Emoji": "<:Artifact117:1183237950767644763>",
+      "Origin Type": 2,
+      "Origin": "Toy capriccio",
+      "RDCreator": "DPS2004, Het, Samario, Some_J_Name"
+    },
+    {
+      "ID": 118,
+      "Name": "Lemonleaf Bonsai",
+      "Description": "Popular for its odd lemon flavored leaves. Herbalists usually take years to carefully tend and grow these for convenience.\n\nThey make for great tea as well!",
+      "Emoji": "<:Artifact118:1183237954731266058>",
+      "Origin Type": 2,
+      "Origin": "I wanna slam my head against the wall",
+      "RDCreator": "Tripizza"
+    },
+    {
+      "ID": 119,
+      "Name": "Whispering Mirror",
+      "Description": "Gleaming silver with an otherwordly flawless reflection. It stares back straight through your consciousness, clawing for your deepest fears...\n\nYou feel as if your own eyes can pierce your own concept of self.",
+      "Emoji": "<:Artifact119:1183237957876994128>",
+      "Origin Type": 2,
+      "Origin": "Voices",
+      "RDCreator": "Okamii"
+    },
+    {
+      "ID": 120,
+      "Name": "Stardust Axe",
+      "Description": "A proud weapon for holy guardians, able to summon rays of light that can pierce through almost anything. \n\nThe clouds of the skies shape and form as you aim it to the air.",
+      "Emoji": "<:Artifact120:1183237961836400661>",
+      "Origin Type": 2,
+      "Origin": "Stardust",
+      "RDCreator": "Thefinals"
+    },
+    {
+      "ID": 121,
+      "Name": "Royal Sceptre",
+      "Description": "The illusion of royalty casted onto a stick. It is capable of summoning parades, legions of knights, and dangerous traps under your rule. \n\nWhile not being held, the sceptre slowly floats and spins around in place. Waiting for a willing royal power.",
+      "Emoji": "<:Artifact121:1183237965401563147>",
+      "Origin Type": 2,
+      "Origin": "In the halls of usurper",
+      "RDCreator": "CrazedJack, Kin"
+    },
+    {
+      "ID": 122,
+      "Name": "Titan's Bow",
+      "Description": "Fashioned along with only a single worthy shot. Thus, its singular arrow has been infused with the power to recall itself back to its owners hands. \n\nMany titans across old lands have perished with its one devastating blow.",
+      "Emoji": "<:Artifact122:1183237968761212998>",
+      "Origin Type": 3,
+      "Origin": "Titan Souls",
+      "RDCreator": ""
+    },
+    {
+      "ID": 123,
+      "Name": "Blade of the Buster",
+      "Description": "A gargantuan broadsword as heavy as carrying boulders. Trademarked as an iconic sword for heavy and strong style rushing. All eloquently piercing edge from tip to hilt!",
+      "Emoji": "<:Artifact123:1183237972049543188>",
+      "Origin Type": 3,
+      "Origin": "Final Fantasy",
+      "RDCreator": ""
+    },
+    {
+      "ID": 124,
+      "Name": "Holy Hand Grenade",
+      "Description": "With an explosion capable of tearing apart multiple buildings like wheat crackers, this weapon can shake the very ground itself with its sin purifying blast!\n\nA chorus of angels awaits its detonation...",
+      "Emoji": "<:Artifact124:1183237974863917150>",
+      "Origin Type": 3,
+      "Origin": "Worms",
+      "RDCreator": ""
+    },
+    {
+      "ID": 125,
+      "Name": "Fish Token",
+      "Description": "Wealth in the strangest form. Once traded by mysterious salesmen, offering the most fantastical pieces of furniture for these tokens!",
+      "Emoji": "<:Artifact125:1183237978550714388>",
+      "Origin Type": 3,
+      "Origin": "Pet Society",
+      "RDCreator": ""
+    },
+    {
+      "ID": 126,
+      "Name": "Blossom Ring",
+      "Description": "One of the many sets of craftsmanship by the dryads. Adorned with long petal bands and a blooming flower bud carefully grown with dryadic magic.",
+      "Emoji": "<:Artifact126:1183237982002610266>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 127,
+      "Name": "Quartz Complex",
+      "Description": "A journal with an extensive catalog of crystals and minerals every miner and geologist have documented. Every page is filled with information, adorned with pictures of pretty looking rocks down to the fine print.",
+      "Emoji": "<:Artifact127:1183237985517457599>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 128,
+      "Name": "Golden Ankh",
+      "Description": "The pinnacle of egyptian treasure and an honor to any and all kinds of pharaohs who are gifted this valuable reward; its pure gold beauty only heightened by its shiny ruby gem core...",
+      "Emoji": "<:Artifact128:1183237990911332473>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 129,
+      "Name": "Neon Traffic Cone",
+      "Description": "Originated from a mysterious dark city. Made so jarringly flashy in hopes of mitigating its massive car crash problem at the time.\n\nThe multiple bright stripes on its exterior brightly glows and changes color. Kinda works as an emergency disco ball!",
+      "Emoji": "<:Artifact129:1183237994249998427>",
+      "Origin Type": 2,
+      "Origin": "Traffic jam",
+      "RDCreator": "Delta, Okamii, Pseuu, Xeno"
+    },
+    {
+      "ID": 130,
+      "Name": "Protection Medal",
+      "Description": "This medallion glows of safety, incarnated to ward off the instability of the fragile mind; it's often given to troubled ones who seeks internal peace. \n\nYou feel a lot calmer wearing it.",
+      "Emoji": "<:Artifact130:1183237997601247314>",
+      "Origin Type": 2,
+      "Origin": "Voices",
+      "RDCreator": "MarioMak967"
+    },
+    {
+      "ID": 131,
+      "Name": "Emotion Pipe",
+      "Description": "This apparatus is able to pour out liquid emotions like a tap! Just attach it on any head of your choice, and watch as your feelings flow... Be sure to catch it!\n\nProlonged use can cause emotional detachment. Be careful!",
+      "Emoji": "<:Artifact131:1183238001350938644>",
+      "Origin Type": 2,
+      "Origin": "Emotions",
+      "RDCreator": "Het"
+    },
+    {
+      "ID": 132,
+      "Name": "A Really Cool Bird",
+      "Description": "A chirpy round bird of unknown origin, occasionally doing tricks using whatever things it can skate on. \n\nIt's almost impossible to take your eyes off of its rad fluffy coolness. All in one tiny package!",
+      "Emoji": "<:Artifact132:1183238004899336265>",
+      "Origin Type": 2,
+      "Origin": "Theme of really cool bird",
+      "RDCreator": "DPS2004"
+    },
+    {
+      "ID": 133,
+      "Name": "Nightmare Journal",
+      "Description": "The covers are made out of pure solidified nightmare fuel. Written by dreamwalkers to aid nightmares during sleep, absorbing them into written pages within.\n\nOpening through, you can read the many nightmares of past dreamers in minute unsettling detail.",
+      "Emoji": "<:Artifact133:1183238009643077743>",
+      "Origin Type": 2,
+      "Origin": "5 O",
+      "RDCreator": "Not Xeno"
+    },
+    {
+      "ID": 134,
+      "Name": "Red Velvet Cake",
+      "Description": "Lovely and assorted with tasty dollops of cream, baked with the special trait of being able to fuse itself back together if split apart!\n\nYou try taking off a piece, only for it to slowly pull itself back into the cake slice.",
+      "Emoji": "<:Artifact134:1183238013266964563>",
+      "Origin Type": 2,
+      "Origin": "Drunkenstein",
+      "RDCreator": "MarioMak967"
+    },
+    {
+      "ID": 135,
+      "Name": "Shiitake Spore",
+      "Description": "Be careful! The spores of this ancient mushroom spread quickly and violently, capable of eating any kind of live matter all only for its approaching hivemind.\n\nThankfully, the ancient nature of this growth has turned it fully docile. Unable to release any of its spores after being dormant for thousands of eons.",
+      "Emoji": "<:Artifact135:1183238016798572685>",
+      "Origin Type": 2,
+      "Origin": "Fruiting bodies",
+      "RDCreator": "Nocallia, Symphony"
+    },
+    {
+      "ID": 136,
+      "Name": "Devil's Card",
+      "Description": "An unnerving card held by cultists to lure unfortunate bystanders to partake in their deals in exchange for ludicrous wealth.\n\nIt emanates dark energy corruptible to the mind, best if you don't directly hold it for too long.",
+      "Emoji": "<:Artifact136:1183238020527296612>",
+      "Origin Type": 2,
+      "Origin": "H E X",
+      "RDCreator": "吾夜犹明, 3qu4"
+    },
+    {
+      "ID": 137,
+      "Name": "TOOL",
+      "Description": "A strange artifact with an odd shape. It is brightly pink.\n\nNot much is known about its history or use, yet you feel conflicted when holding it.",
+      "Emoji": "<:Artifact137:1183238025250087094>",
+      "Origin Type": 3,
+      "Origin": "Petscop",
+      "RDCreator": ""
+    },
+    {
+      "ID": 138,
+      "Name": "The Nail",
+      "Description": "Pristine craftsmanship and sharp to the touch, first forged by renowned nailsmiths from within a decaying city. \n\nIts slice is strong enough to even harness its whiplash, releasing energy in the form of kinetic thrust!",
+      "Emoji": "<:Artifact138:1183238029092065340>",
+      "Origin Type": 3,
+      "Origin": "Hollow Knight",
+      "RDCreator": ""
+    },
+    {
+      "ID": 139,
+      "Name": "Knight's Shovel Blade",
+      "Description": "The worthy companion to a proper shovel knight, determined to dig through ground and grain of any toughness... for glory!",
+      "Emoji": "<:Artifact139:1183238032820805723>",
+      "Origin Type": 3,
+      "Origin": "Shovel Knight",
+      "RDCreator": ""
+    },
+    {
+      "ID": 140,
+      "Name": "Dimensional Trinket",
+      "Description": "Brought from a crumbling unstable dimension, flickering and glowing forever with an unknown purpose.\n\nIt is very warm to the touch, and creates a strange humming noise.",
+      "Emoji": "<:Artifact140:1183238036570509393>",
+      "Origin Type": 3,
+      "Origin": "VVVVVV",
+      "RDCreator": ""
+    },
+    {
+      "ID": 141,
+      "Name": "Rhythm Razor",
+      "Description": "Commissioned by a young duelist to create a weapon with the potential to rip sound itself.\n\nThe blades special alloy charges up towards any loud noise or rhythm, thus its efficiency and performance is dependant on the sound it reacts to.",
+      "Emoji": "<:Artifact141:1183238039904981103>",
+      "Origin Type": 5,
+      "Origin": "Zak",
+      "RDCreator": "Fancybread"
+    },
+    {
+      "ID": 142,
+      "Name": "Moon Elixir",
+      "Description": "Did you know the moon tastes great? Now you do!\n\nHarvested and distilled from collected moondew drops, this tonic will make your taste buds fly into the night sky!",
+      "Emoji": "<:Artifact142:1183238042937458749>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 143,
+      "Name": "Golden Pocket Watch",
+      "Description": "Holding it in your hand makes you feel like a true ace detective. Why tell the time normally when you can do it in style?\n\nThe contrast of its black surface glistens each golden hand ever further. Striking each minute and hour with a dazzling shine!",
+      "Emoji": "<:Artifact143:1183238046724919378>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 144,
+      "Name": "Blossom Necklace",
+      "Description": "One of the many sets of craftsmanship by the dryads; this necklace was once made as gifts to many acolytes who partake in their stories and culture.",
+      "Emoji": "<:Artifact144:1183238049824518145>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 145,
+      "Name": "Polygon Badge",
+      "Description": "A badge depicting a violet hexagon, a commemoration for the people to fun and whimsy, and making a voice for oneself regardless of fame.",
+      "Emoji": "<:Artifact145:1183238053544874054>",
+      "Origin Type": 2,
+      "Origin": "Vista",
+      "RDCreator": "Shareoff"
+    },
+    {
+      "ID": 146,
+      "Name": "Arcade Controller",
+      "Description": "Salvaged from a lone machine in an abandoned arcade. Strangely... dried blood has been found near where this piece was taken.\n\nSomehow, you have a gut feeling that those wires look different than regular wires..",
+      "Emoji": "<:Artifact146:1183238056984195084>",
+      "Origin Type": 2,
+      "Origin": "Cabinet Man",
+      "RDCreator": "DeadlySprinklez"
+    },
+    {
+      "ID": 147,
+      "Name": "Transformation Ring",
+      "Description": "Adventurers adorned these to modify parts of their body into whatever form they desire. Popular at the time for people who were looking for utility in their adventures, or just seeking a wider variety of visual flair.\n\nThis one's magic was never truly attuned though, and thus can only work temporarily and with non-integral changes.",
+      "Emoji": "<:Artifact147:1183238061132365956>",
+      "Origin Type": 2,
+      "Origin": "Metamorphosis",
+      "RDCreator": "Okamii"
+    },
+    {
+      "ID": 148,
+      "Name": "Funky Disco Ball",
+      "Description": "A peculiar mirrored sphere shaped a bit larger than your head; its two halves are colored respectively in blue and red.\n\nIt scatters beams of light in all directions, a party fit for any rowdy crowd!",
+      "Emoji": "<:Artifact148:1183238064575893545>",
+      "Origin Type": 2,
+      "Origin": "Retro funky",
+      "RDCreator": "MarioMak967"
+    },
+    {
+      "ID": 149,
+      "Name": "Letter Token",
+      "Description": "A piece from a set of 26 tokens! Seems like this one is the only one that's left of it.",
+      "Emoji": "<:Artifact149:1183238068031991868>",
+      "Origin Type": 2,
+      "Origin": "WoRDle",
+      "RDCreator": "9thCore"
+    },
+    {
+      "ID": 150,
+      "Name": "Citrine Bloom",
+      "Description": "Having a distinct orange scent and representing melancholic memories. This flower was once given to friends who wanted to reconnect and reminisce after long days of separation and change.",
+      "Emoji": "<:Artifact150:1183238071500677170>",
+      "Origin Type": 2,
+      "Origin": "Melancholic",
+      "RDCreator": "Delta, Xeno"
+    },
+    {
+      "ID": 151,
+      "Name": "Adapto Music-Inator",
+      "Description": "An apparatus with the capability to play any and all types of music fitting to your needs, harnessing the most expensive of technological prowess at the time.\n\nIt's capable of understanding situational context, and plays the designated music thats fitting for the job, algorithmically picked from your online playlists!",
+      "Emoji": "<:Artifact151:1183238198273527919>",
+      "Origin Type": 2,
+      "Origin": "The amazing adapto music inator",
+      "RDCreator": "Dee"
+    },
+    {
+      "ID": 152,
+      "Name": "Traveller's Rose",
+      "Description": "Bright and full of kind memories, you can feel a caring and watchful spirit residing within...\n\nAt nights, it calls for a name you don't recall.",
+      "Emoji": "<:Artifact152:1183238201410846830>",
+      "Origin Type": 2,
+      "Origin": "Dear fellow traveller",
+      "RDCreator": "Timeshark"
+    },
+    {
+      "ID": 153,
+      "Name": "Infected Mushroom",
+      "Description": "A sickly shroom stricken with an infection that targets toadstools like this one.\n\nThere have been several cases with such an infection possessing the capability to infect and turn living beings mentally mad, but that's an incredibly slim chance... Right?\n\n...Maybe it's best if you don't play around with it.",
+      "Emoji": "<:Artifact153:1183238208859938979>",
+      "Origin Type": 2,
+      "Origin": "Yesman",
+      "RDCreator": "Jams, Starry Skies"
+    },
+    {
+      "ID": 154,
+      "Name": "Mortem Curio",
+      "Description": "A hauntingly unsettling pocketwatch capable of telling you the moment of death of any decayed life you choose to see.\n\nThe thought of mortality and painful tragedies crawl in your mind... Maybe you shouldn't use this.",
+      "Emoji": "<:Artifact154:1183238212353798265>",
+      "Origin Type": 3,
+      "Origin": "Return of the Obra Dinn",
+      "RDCreator": ""
+    },
+    {
+      "ID": 155,
+      "Name": "Surgical Button",
+      "Description": "A mini quick access defibrillator used for long distance heart treatment. Programmed by a famous doctor in an attempt to cut medical maintenance costs.\n\nWith a single press, this button gives any connected defibrillator a hearty zap!",
+      "Emoji": "<:Artifact155:1183238216246099978>",
+      "Origin Type": 3,
+      "Origin": "Rhythm Doctor",
+      "RDCreator": ""
+    },
+    {
+      "ID": 156,
+      "Name": "Hylian Shield",
+      "Description": "Passed down from generations of a royal family. And a symbol of many stories about defending against countless of evil forces.\n\nYou can feel the might of a heroic soul course through you as you lift it up into the sky!",
+      "Emoji": "<:Artifact156:1183238219429597266>",
+      "Origin Type": 3,
+      "Origin": "The Legend of Zelda",
+      "RDCreator": ""
+    },
+    {
+      "ID": 157,
+      "Name": "Ocean Sceptre",
+      "Description": "Carved out of polished fossilized coral and adorned with a gem from an underwater metropolis. Intended for controlling strong and dangerous oceans for safer means of sailing and fishing. \n\nWhen fallen into the wrong hands, the tides can and will destroy everything in its path.",
+      "Emoji": "<:Artifact157:1183238222923440189>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 158,
+      "Name": "A... Turtle!?",
+      "Description": "Woa! How did this little fella get in here...?\n\nIt... kinda likes your company!",
+      "Emoji": "<:Artifact158:1183238226526339102>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 159,
+      "Name": "Pollenori",
+      "Description": "Fined out of endless honey essence with a customly grown flower hilt by the bee community guild, harnessing a slice sharp enough to cut limbs, and with excess honey to help treat your own wounds! \n\nAlso a good provider of a mid-adventure sweet treat!",
+      "Emoji": "<:Artifact159:1183238230397698098>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 160,
+      "Name": "Amethyst Cleaver",
+      "Description": "A hiltless greatsword out of crude amethyst once held by the mountain dwarves. While lacking in versatility, it makes up for in sheer brute pierce and force.",
+      "Emoji": "<:Artifact160:1183238235397300285>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 161,
+      "Name": "Christmas Tree Sapling",
+      "Description": "Ever wanted to grow a natural bonafide christmas tree? With this, you can now grow and harvest natural christmas baubles!\n\nVariations and shapes differ from season to season, able to produce many types of pretty and strange baubles depending on its growing conditions.",
+      "Emoji": "<:Artifact161:1183238239084097537>",
+      "Origin Type": 2,
+      "Origin": "Love! Snow! really magic",
+      "RDCreator": "Vincentw"
+    },
+    {
+      "ID": 162,
+      "Name": "Indulgence",
+      "Description": "A delicately sweet treat with frosting that delightly cools and melts in your mouth. Despite this, you feel as if darkness resides within... \n\nThe true nature of its taste reveals depending on ones greed for material wealth, becoming fatally depriving for the selfish.",
+      "Emoji": "<:Artifact162:1183238242682802205>",
+      "Origin Type": 2,
+      "Origin": "Perfectly sweet",
+      "RDCreator": "Nocallia"
+    },
+    {
+      "ID": 163,
+      "Name": "Skyfarer",
+      "Description": "Holy smokes! The limited edition skyfarer aeroplane toy... Modeled after the plane of the famous stormchaser duo's story itself!\n\nPffssheeeeeewwwwwwwww... Nyyyooooooooooooom!!",
+      "Emoji": "<:Artifact163:1183238245652369480>",
+      "Origin Type": 2,
+      "Origin": "By day by night",
+      "RDCreator": "3T"
+    },
+    {
+      "ID": 164,
+      "Name": "Mental Shard",
+      "Description": "The concentrated culmination of festering phsycic trauma that slowly fossilized; its compressed screams and distraught cries for help come from a time of excruciating agony, hoping desperately to find peace.\n\nSometimes, to be free is to gaze into mental death.",
+      "Emoji": "<:Artifact164:1183238249200767026>",
+      "Origin Type": 2,
+      "Origin": "Crystalline",
+      "RDCreator": "Noche"
+    },
+    {
+      "ID": 165,
+      "Name": "Forgotten Knife",
+      "Description": "A knife emanating the soul of a long lost friend; you can feel despair and loneliness crawling out from within you at every moment with this knife in your grasp...",
+      "Emoji": "<:Artifact165:1183238252447150100>",
+      "Origin Type": 2,
+      "Origin": "Kagerou days",
+      "RDCreator": "CrazedJack"
+    },
+    {
+      "ID": 166,
+      "Name": "As Above",
+      "Description": "A necklace with a faintly glimmering gemstone that holds arcane potential. \n\nIt emits a reassuring aura, but tales have also told otherwise, calling notice to crimson cracks on the gem that were never often seen... \n\nStories tell of a hero that used its power to manipulate magic, but something tells you there's more than meets the eye...",
+      "Emoji": "<:Artifact166:1183238255529967696>",
+      "Origin Type": 2,
+      "Origin": "Lower",
+      "RDCreator": "Lrial, Starry Skies"
+    },
+    {
+      "ID": 167,
+      "Name": "Vaporwave Freshener",
+      "Description": "Aesthetically pleasing! This will sure fill the air of any vehicle with the scent of impractical but cool looking technology!",
+      "Emoji": "<:Artifact167:1183238258373697539>",
+      "Origin Type": 2,
+      "Origin": "Ouais ouais",
+      "RDCreator": "Fancybread"
+    },
+    {
+      "ID": 168,
+      "Name": "VIP Movie Ticket",
+      "Description": "Title reads \"Rhythm Cinema: Superhero Jagganath\". \n\nSeems like this ticket was for an old award winning internationally famous movie back in the day!",
+      "Emoji": "<:Artifact168:1183238262224076811>",
+      "Origin Type": 2,
+      "Origin": "Superhero jagganath",
+      "RDCreator": "Auburnsummer"
+    },
+    {
+      "ID": 169,
+      "Name": "Shadow Samurai Gnome",
+      "Description": "Its pitch black surface emphasises its only visible facial features. You can't really see any other textural distinction...\n\nThe gnome seems to have a liking for yards, mysteriously moving when nobody watches.",
+      "Emoji": "<:Artifact169:1183238265168474235>",
+      "Origin Type": 2,
+      "Origin": "You want gnomes",
+      "RDCreator": "NoranOmicron"
+    },
+    {
+      "ID": 170,
+      "Name": "Slime Plort",
+      "Description": "A firm excretion of produce from a slime creature, collected and harvested by many skilled ranchers for its time due to its quite high demand.\n\nIts many uses have since then been lost to time, now only becoming a shiny fragment of a past.",
+      "Emoji": "<:Artifact170:1183238270738505828>",
+      "Origin Type": 3,
+      "Origin": "Slime Rancher",
+      "RDCreator": ""
+    },
+    {
+      "ID": 171,
+      "Name": "Purification Bat",
+      "Description": "Pitch white and screaming with purity, posessing a swing thats able to eradicate anything deemed corrupt in its path.\n\nApparitions call for help to no avail.",
+      "Emoji": "<:Artifact171:1183238273901019237>",
+      "Origin Type": 3,
+      "Origin": "OFF",
+      "RDCreator": ""
+    },
+    {
+      "ID": 172,
+      "Name": "Power Shroom",
+      "Description": "Iconic for its regenerative properties. Besides improving ones height and size, it also improves quality of health!\n\nExtremely recommended to be taken in small bites due to strong increase in healthy cell growth. So no, clerics don't recommend you consuming this for mischievous reasons.",
+      "Emoji": "<:Artifact172:1183238276975431800>",
+      "Origin Type": 3,
+      "Origin": "Super Mario",
+      "RDCreator": ""
+    },
+    {
+      "ID": 173,
+      "Name": "Sun Pendant",
+      "Description": "The avians always commemorated the daily cycles of time, giving respect to the warm comforting heat of the rising day, and the beautiful goodbyes of a sunset.\n\nFor gratitude to the balance of the lands that allow time to ebb and flow, this pendant was made for the occassion.",
+      "Emoji": "<:Artifact173:1183238280079233064>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 174,
+      "Name": "Moon Pendant",
+      "Description": "The avians always commemorated the nightly cycles of time, giving respect to the soothing winds of the night, and the resonant wonder of cosmic stars.\n\nFor gratitude to the balance of the lands that allow time to ebb and flow, this pendant was made for the occassion.",
+      "Emoji": "<:Artifact174:1183238282893594656>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 175,
+      "Name": "Firefly Staff",
+      "Description": "Grown with wrappings of intertwined long vines and lit up with groups of fireflies commanded together via dryadic mana. These staves were conjured by dryads as sources of light to adorn their homes and hidden villages.\n\nNew fireflies seem to always join the swarm of light as you wave the staff around.",
+      "Emoji": "<:Artifact175:1183238286391652463>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 176,
+      "Name": "Living Emberdew",
+      "Description": "Because of its extremely specific environment choice and super hot growing conditions, emberdew has gotten very difficult to cultivate and grow naturally, becoming a rare sight to see one live.\n\nToday's geology has only been getting colder externally, having less hot surfaces that hold continuous flowing lava for emberdew to grow.",
+      "Emoji": "<:Artifact176:1183238289587716176>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 177,
+      "Name": "Hue Treaty Seal",
+      "Description": "After a long grueling battle stopped by a neighbouring clan, this very seal was cast as a symbol of peace between the two factions, regarding as a memorial for the ones lost along the path to harmony.",
+      "Emoji": "<:Artifact177:1183238293165461545>",
+      "Origin Type": 2,
+      "Origin": "Clash",
+      "RDCreator": "Noche"
+    },
+    {
+      "ID": 178,
+      "Name": "Ottotablet",
+      "Description": "The finest of technology all within one tiny rectangle! Has downloadable apps and contains digital storage huge enough to entice you for decades! \n\nNow with the new OttotapSBG chip, along with 77 Tetrablips of RAM!",
+      "Emoji": "<:Artifact178:1183238297481383976>",
+      "Origin Type": 2,
+      "Origin": "YY",
+      "RDCreator": "DPS2004, Het, Samario, Some_J_Name"
+    },
+    {
+      "ID": 179,
+      "Name": "Nightsteel Knife",
+      "Description": "Nightsteel is usually reserved for combat applications, but apparently somebody wanted to make a less than usual weapon out of it this time.\n\nIt's cutting edge is lined and sharpened with vibrite, and is best used when cutting in rhythm.",
+      "Emoji": "<:Artifact179:1183238300811665469>",
+      "Origin Type": 2,
+      "Origin": "Rhythm Kitchen",
+      "RDCreator": "TatonSlice"
+    },
+    {
+      "ID": 180,
+      "Name": "Plus Badge",
+      "Description": "A badge depicting a neon green plus, resembling nimbleness and the energy of repetition.\n\nRefrain from looking deeply in, lest you may find something familiar.",
+      "Emoji": "<:Artifact180:1183238306289418250>",
+      "Origin Type": 2,
+      "Origin": "Streak",
+      "RDCreator": "Vincentw"
+    },
+    {
+      "ID": 181,
+      "Name": "So Below",
+      "Description": "Its purple jewel oozes a dreadful aura as its shades twist, with engravings suggesting a connection to another recorded artifact...\n\nAncient writings and rumors speak of its owner, cursed to be chained to dark energy, with some also detailing a sacrifice that was made for \"The One Above\".\n\nYou ponder what these ancient writings entail...",
+      "Emoji": "<:Artifact181:1183238310190137426>",
+      "Origin Type": 2,
+      "Origin": "Airhead",
+      "RDCreator": "Lrial"
+    },
+    {
+      "ID": 182,
+      "Name": "Brimstone Chains",
+      "Description": "You'll never want to meet any person chained under these, as only the most deprived and anguished wail eternally within their capture.\n\nYou can only wonder the depths a conscious mind can drown to to be helplessly contained like this.",
+      "Emoji": "<:Artifact182:1183238313520414801>",
+      "Origin Type": 2,
+      "Origin": "Severing the chains of fate",
+      "RDCreator": "Arriator, Lunaduskjr"
+    },
+    {
+      "ID": 183,
+      "Name": "Beast Eye",
+      "Description": "Taken apart from a magical beast that had risen from the depths, summoned by ritualistic cultists.\n\nThe eye is still alive and aware of its surroundings, though now with not much of a history left to remember.\n\nIt sometimes rolls itself at your questions.",
+      "Emoji": "<:Artifact183:1183238317165269033>",
+      "Origin Type": 2,
+      "Origin": "The storm",
+      "RDCreator": "Mimiworld"
+    },
+    {
+      "ID": 184,
+      "Name": "SM-RAD1200",
+      "Description": "This baby is powered with the directed blast of 120 rems of radiation! History tells of its past prosperity originating from trade, often being smuggled around by shady backstreet vendors and supposedly outlawed in every country from its time.\n\nYou can even hear the buzzing of the light as you beam it onto the ground!",
+      "Emoji": "<:Artifact184:1183238320277438474>",
+      "Origin Type": 2,
+      "Origin": "Sneakman",
+      "RDCreator": "Xeno, Zack101155"
+    },
+    {
+      "ID": 185,
+      "Name": "Lunaria",
+      "Description": "Carved from a fallen piece of a moon, emanating strong lunar magic as it empowers the night brightly.\n\nIts potential is strongest when it is channeled with the open night.",
+      "Emoji": "<:Artifact185:1183238323368628264>",
+      "Origin Type": 2,
+      "Origin": "The moon will sing",
+      "RDCreator": "1257Plays, Timeshark"
+    },
+    {
+      "ID": 186,
+      "Name": "Mini Angel",
+      "Description": "Accidental creations from deities sometimes goes unchecked, and is kept to live and wander aimlessly with only a fraction of their neverending faith.\n\nIt seems to follow you around, and is curious about your existence...",
+      "Emoji": "<:Artifact186:1183238326476611624>",
+      "Origin Type": 2,
+      "Origin": "Time Traveler",
+      "RDCreator": "3T, Diagamma"
+    },
+    {
+      "ID": 187,
+      "Name": "Tiny Gup",
+      "Description": "Smells like an assortment of fruits and is very viscous in texture... It seems to be complacent with you! \n\nYou dip your finger in its gel and give it a taste...\n\n(It... tastes super bitter!! yheuck!!!!!)",
+      "Emoji": "<:Artifact187:1183238329676869714>",
+      "Origin Type": 3,
+      "Origin": "Risk of Rain 2",
+      "RDCreator": ""
+    },
+    {
+      "ID": 188,
+      "Name": "Clover Journal",
+      "Description": "Mostly filled with empty pages and unknown pictures of familiar feeling places. Written with undocumented stories of an author who desperately tried to save the world...\n\nA lot of the written pages have faded into unreadability, but you can still somehow sense a feeling of melancholy.",
+      "Emoji": "<:Artifact188:1183238332998766734>",
+      "Origin Type": 3,
+      "Origin": "Oneshot",
+      "RDCreator": ""
+    },
+    {
+      "ID": 189,
+      "Name": "Arrow Badge",
+      "Description": "To some, it is a powerful symbol of guidance, connecting ones life closer towards prosperity with each step. Don't trip!",
+      "Emoji": "<:Artifact189:1183238337163698186>",
+      "Origin Type": 3,
+      "Origin": "In The Groove",
+      "RDCreator": ""
+    },
+    {
+      "ID": 190,
+      "Name": "Friendship Band",
+      "Description": "A lovely armband with a ruby heart. Jeweled to symbolize a bond of connection.\n\nWearing it, you can hear a puppy howl!",
+      "Emoji": "<:Artifact190:1183238340493979768>",
+      "Origin Type": 5,
+      "Origin": "Andrea",
+      "RDCreator": "Okamii"
+    },
+    {
+      "ID": 191,
+      "Name": "Aloe Ring",
+      "Description": "A pretty shiny ring with a jewel made out of solidified cactistone aloe, said to bring youth and energy to their wearers.\n\nIt also makes you smell really good and fresh!",
+      "Emoji": "<:Artifact191:1183238344004620389>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 192,
+      "Name": "Taltaro Scale",
+      "Description": "Legends tell of a dragon that lived in the mines of the mountain dwarves. Giant, and with gem-like scales as shiny as the clearest stars...\n\nThey took care of it well, and in return the dwarves were gifted plentifully with these scales as the beast shed them, always being repurposed into jewelry and beautifully carved stones.",
+      "Emoji": "<:Artifact192:1183238347326488686>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 193,
+      "Name": "Square Ring",
+      "Description": "Abstraction magic had seemed to bend this ring beyond normal comprehension, morphing it into a square shape. It originated from a patient with a strange troubling illness.\n\nWhile uncomfortable to wear, its unique enough to look nicely on your finger!",
+      "Emoji": "<:Artifact193:1183238350686134303>",
+      "Origin Type": 2,
+      "Origin": "Square",
+      "RDCreator": "Kneeckoh"
+    },
+    {
+      "ID": 194,
+      "Name": "Spear of The Dancing Petals",
+      "Description": "Carved from the toughest of sakura forests by nymphs and bestowed to the most diligent protectors of their territory.\n\nIts strikes impale as quick as you can blink, and its swiftness lets you flow undetected by even the most perceptive of enemies. In the right hands, wind and flower shall dance harmoniously with anyone nimble enough to master it.",
+      "Emoji": "<:Artifact194:1183238353919938611>",
+      "Origin Type": 2,
+      "Origin": "Luminescence",
+      "RDCreator": "Not Xeno"
+    },
+    {
+      "ID": 195,
+      "Name": "Channeled Solidarity",
+      "Description": "The culmination of three strongly bonded souls infused together. You can feel them harnessing power as one, beating like a fully intertwined heart.",
+      "Emoji": "<:Artifact195:1183238357636108358>",
+      "Origin Type": 2,
+      "Origin": "Longings for four channels",
+      "RDCreator": "Xeno"
+    },
+    {
+      "ID": 196,
+      "Name": "Noise Scythe",
+      "Description": "Swings of static that leaves nothing but a senseless drone of faded colors; the blade crackles dangerously as if it's shrieking at you.\n\nYou can't lie though, what's cooler than a scythe completely made out of pure noise?",
+      "Emoji": "<:Artifact196:1183238361041866832>",
+      "Origin Type": 2,
+      "Origin": "Holography",
+      "RDCreator": "Myself"
+    },
+    {
+      "ID": 197,
+      "Name": "Twin Moons",
+      "Description": "This small pair of miniature superheated rock has been bound to stay forever by eachothers side, eternally revolving around eachother.",
+      "Emoji": "<:Artifact197:1183238364275687515>",
+      "Origin Type": 2,
+      "Origin": "Two moons",
+      "RDCreator": "Megaminerzero"
+    },
+    {
+      "ID": 198,
+      "Name": "Heartbasher",
+      "Description": "A reliable shield with the force of a knockout punch! This buckler strikes energy right into the chest, an attack so harsh that it spikes the heart rate of anyone who dares stand in its way.",
+      "Emoji": "<:Artifact198:1183238368348340234>",
+      "Origin Type": 2,
+      "Origin": 996,
+      "RDCreator": "NekoRaita"
+    },
+    {
+      "ID": 199,
+      "Name": "Crimson Lord Skull",
+      "Description": "The daunting skull of the Crimson Lord, once ruling over a land of scorching acid and hot red earth.\n\nHellfire energy still resides in its remains, concentrated enough to charge and shoot deadly destructive rays!",
+      "Emoji": "<:Artifact199:1183238371942867065>",
+      "Origin Type": 2,
+      "Origin": "D.E.A.L",
+      "RDCreator": "Mimiworld"
+    },
+    {
+      "ID": 200,
+      "Name": "Bulb Pot",
+      "Description": "Remnants of living essence have been sensed within this unnatural pot, of which once housed a grown sentient plant originating from the botany ward of a hospital. \n\nFrom the looks of it, it's previous owner seems to have left since who knows how long ago... Having a little sprout taking its place!",
+      "Emoji": "<:Artifact200:1183238375449313330>",
+      "Origin Type": 2,
+      "Origin": "Pixel plantation",
+      "RDCreator": "Kin"
+    },
+    {
+      "ID": 201,
+      "Name": "Golden Macaron",
+      "Description": "Taken from an ancient temple within a moon made entirely out of macarons! Only formed inside the planets tasty crust after years of undisturbed growth. \n\nA shiny recreation of a classic sweet treat, casting off light with pride on its non-edible cookies.",
+      "Emoji": "<:Artifact201:1183238533129961564>",
+      "Origin Type": 2,
+      "Origin": "Macaron Moon",
+      "RDCreator": "LargahBlarga"
+    },
+    {
+      "ID": 202,
+      "Name": "Crystallized Snowflake",
+      "Description": "Not only does each strand of microscopic ice need to constantly keep growing for these to be of optimal size, it also needs to survive long enough to finish the crystallization process, turning a tiny frozen speck of water into a shiny marvel!",
+      "Emoji": "<:Artifact202:1183238536984530984>",
+      "Origin Type": 2,
+      "Origin": "Unmelting",
+      "RDCreator": "Shareoff"
+    },
+    {
+      "ID": 203,
+      "Name": "Puzzle Fragment",
+      "Description": "If it were any more heavy, you'd surely be out of breath carrying it in your hands!\n\nNobody is sure what piece it is a part of, only leaving rumors of a witch that desired them...",
+      "Emoji": "<:Artifact203:1183238540432244757>",
+      "Origin Type": 3,
+      "Origin": "Banjo Kazooie",
+      "RDCreator": ""
+    },
+    {
+      "ID": 204,
+      "Name": "Grallite",
+      "Description": "Collected from a dilapidated town. This once common mineral gleamed of use many eons ago, traded as currency within the villages that valued it.\n\nRumor tells that if you break a bush, theres a chance one might be hiding in it!",
+      "Emoji": "<:Artifact204:1183238543653490749>",
+      "Origin Type": 3,
+      "Origin": "Graal Online",
+      "RDCreator": ""
+    },
+    {
+      "ID": 205,
+      "Name": "Chocobird Feather",
+      "Description": "Kweh! Kweh?",
+      "Emoji": "<:Artifact205:1183238546933428254>",
+      "Origin Type": 3,
+      "Origin": "Chocobo Dungeon",
+      "RDCreator": ""
+    },
+    {
+      "ID": 206,
+      "Name": "Third Axis Goggles",
+      "Description": "These lenses are able to tear into an enhanced dimension difficult for the mind to adapt, visually taking you to a view of the world never seen before... \n\nIt makes you feel dizzy when you wear it for too long...",
+      "Emoji": "<:Artifact206:1183238550649573457>",
+      "Origin Type": 5,
+      "Origin": "DeadlySprinklez",
+      "RDCreator": "DeadlySprinklez"
+    },
+    {
+      "ID": 207,
+      "Name": "Moon Flower",
+      "Description": "Grown locally on specific areas of a unique moon. Its atmosphere allows flower buds to grow within tiny gemstones that were scattered from fallen asteroid debris!",
+      "Emoji": "<:Artifact207:1183238556215427122>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 208,
+      "Name": "Firecrystal Ring",
+      "Description": "Volcanic activity often has the chance to create superheated crystals; while extremely hot and dangerous to collect, some have decided to harvest these to craft them into beautiful jewelry.\n\nThe ring itself is made out of obsidian, being adorned with grooves of hardened firecrystal dust.",
+      "Emoji": "<:Artifact208:1183238561290539020>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 209,
+      "Name": "Scarletflame Lighter",
+      "Description": "It doesn't seem similar to any old lighter, as even its small controlled flame hungrily spark and burn for more.\n\nNo matter how long it keeps burning, it never seems to die out, the world being nothing but an awaiting home for its fire.",
+      "Emoji": "<:Artifact209:1183238564989898762>",
+      "Origin Type": 2,
+      "Origin": "Play with fire",
+      "RDCreator": "Purplpasta, Shareoff"
+    },
+    {
+      "ID": 210,
+      "Name": "Abstractum Dex",
+      "Description": "Often held by high class abstractionists, believers of efficiency within the simplicity that seemingly constructs the universe they perceive.\n\nIt holds arcana capable of bending and contorting any material into abstract shapes, returning imperfection into the simple.",
+      "Emoji": "<:Artifact210:1183238569075150949>",
+      "Origin Type": 2,
+      "Origin": "Storia",
+      "RDCreator": "WillFlame"
+    },
+    {
+      "ID": 211,
+      "Name": "Wandering Soul",
+      "Description": "It is not often that souls fall from the afterworld. But in very rare cases, their path to the result of their fate can be cut by mistake. Leaving them to wander the expanse of existence for as long as it wills to remain.\n\nThis one seems to have resided in your safety.",
+      "Emoji": "<:Artifact211:1183238572384452639>",
+      "Origin Type": 2,
+      "Origin": "Madness waltz",
+      "RDCreator": "Xeno"
+    },
+    {
+      "ID": 212,
+      "Name": "Enchanted Night Light",
+      "Description": "Assembled from sculpted moonstone and nightsteel, ready to light up the darkest rooms with ease! Those days with mystery mushrooms and unknown slippery puddles in the dark are over!",
+      "Emoji": "<:Artifact212:1183238576155148388>",
+      "Origin Type": 2,
+      "Origin": "So Dang Dark",
+      "RDCreator": "9thCore, SaladPlainZone"
+    },
+    {
+      "ID": 213,
+      "Name": "Melty Cotton Candy",
+      "Description": "Scooped up from the clouds of a separate realm and confined into a stick. Its surface melts and contorts into bubbles before resting back within, unable to stay afar from its main body of sweet cloudy bliss.\n\nIt smells astrologically wonderful!",
+      "Emoji": "<:Artifact213:1183238580068425778>",
+      "Origin Type": 2,
+      "Origin": "Melty land nightmare",
+      "RDCreator": "Lugi, Qerewe, Seven"
+    },
+    {
+      "ID": 214,
+      "Name": "Fairyfly Lantern",
+      "Description": "The lost possession of a little girl with broken wishes, you sense as if you can picture your relationships fading away when you hold the lantern.\n\nPeeking through the inside, you can see leftover fairy dust still dimly lighting through the glass.",
+      "Emoji": "<:Artifact214:1183238583478386699>",
+      "Origin Type": 2,
+      "Origin": "Heavens Bug",
+      "RDCreator": "Kin, Xeno"
+    },
+    {
+      "ID": 215,
+      "Name": "Hopping Bunny",
+      "Description": "A tiny, fluffy, soft bunny almost as big as the palms of both of your hands! It occasionally backflips without reason, not requiring any need for food or water at all.\n\nSometimes, it backflips to your responses!",
+      "Emoji": "<:Artifact215:1183238586569596938>",
+      "Origin Type": 2,
+      "Origin": "Random",
+      "RDCreator": "Provolone"
+    },
+    {
+      "ID": 216,
+      "Name": "The Sword That Casts All Evil Away",
+      "Description": "Shining with valor and with wings of grandeur, held only by a warrior worthy enough to mold the universe with a heart of resplendent gold; it tears evil through the air like silk, as all that is corrupt fear its might.\n\nAlso once tried to be harnessed by four rookie adventurers... of which horribly failed.",
+      "Emoji": "<:Artifact216:1183238589790818404>",
+      "Origin Type": 2,
+      "Origin": "Role Playing Game",
+      "RDCreator": "Lin Gamerz, Xeno"
+    },
+    {
+      "ID": 217,
+      "Name": "Obol of Charon",
+      "Description": "Traditionally given to the dead in hopes to help their path after mortality. \n\nThe world of the unliving is full of unbeknowing riches, so you may aswell bring your own to its table.\n \nEven on the journey to the underworld, you always have debts to pay...",
+      "Emoji": "<:Artifact217:1183238593494388807>",
+      "Origin Type": 3,
+      "Origin": "Hades",
+      "RDCreator": ""
+    },
+    {
+      "ID": 218,
+      "Name": "Phaseblade",
+      "Description": "Once held by a nameless drifter. The blade itself is made out of focused solidified light, optimal for combat in any environment while moving with swiftness.\n\nTiny crackling pixels drift off its edge.",
+      "Emoji": "<:Artifact218:1183238597038588036>",
+      "Origin Type": 3,
+      "Origin": "Hyper Light Drifter",
+      "RDCreator": ""
+    },
+    {
+      "ID": 219,
+      "Name": "Science Package",
+      "Description": "A bottle full of distilled science know-how capable of giving you insight into the deepest secrets of industrial progress. Science stops for no one but your own delight for more.\n\nAutomation can sometimes come with a price you never cared for...",
+      "Emoji": "<:Artifact219:1183238600377245737>",
+      "Origin Type": 3,
+      "Origin": "Factorio",
+      "RDCreator": ""
+    },
+    {
+      "ID": 220,
+      "Name": "Stardew Fruit",
+      "Description": "The grand symbol of a bustling community. A fruit brimming with the essence of kindness, hard work, and solidarity, invigoratingly powerful enough to permanently boost your stamina.\n\nBiting into its cosmical sweetness reminds adventurers their most favorite of memories... What would that be for you?",
+      "Emoji": "<:Artifact220:1183238605666267219>",
+      "Origin Type": 3,
+      "Origin": "Stardew Valley",
+      "RDCreator": ""
+    },
+    {
+      "ID": 221,
+      "Name": "Lifebringer Staff",
+      "Description": "Carved from the wood of a willow tree and teeming with the power of the living. A bright green crystal of unknown origin is also embedded at the end.\n\nIt is able to manipulate the growth and creation of plant life and vegetation, enhancing life around it with ease.",
+      "Emoji": "<:Artifact221:1183238609197879316>",
+      "Origin Type": 5,
+      "Origin": "Maple",
+      "RDCreator": "Kin"
+    },
+    {
+      "ID": 222,
+      "Name": "Perfect Emerald",
+      "Description": "A delicate gemstone amongst a famous trio of beautiful crystals! It's green glisten twists light into a calming hue...",
+      "Emoji": "<:Artifact222:1183238612272291840>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 223,
+      "Name": "Perfect Ruby",
+      "Description": "A delicate gemstone amongst a famous trio of beautiful crystals! It's red gloss brings forth willpower from within...",
+      "Emoji": "<:Artifact223:1183238615665492048>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 224,
+      "Name": "Perfect Sapphire",
+      "Description": "A delicate gemstone amongst a famous trio of beautiful crystals! It's blue beauty beams strongly for the wronged...",
+      "Emoji": "<:Artifact224:1183238618786037880>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 225,
+      "Name": "Fallen Wish",
+      "Description": "Wishes granted by deities are often quick and unseen, calling forth the magic of the stars to meet their designated desiree.\n\nIn cases of ones death occuring in the middle of this transaction, their incoming wish will become lost and fall down through the atmosphere.\n\nThis one is only a remaining shell of what was once meant to be a vessel of joy.",
+      "Emoji": "<:Artifact225:1183238622233763970>",
+      "Origin Type": 2,
+      "Origin": "Believe",
+      "RDCreator": "Noche"
+    },
+    {
+      "ID": 226,
+      "Name": "Kitsune Gemstone",
+      "Description": "One of the many shiny charms of a kitsunes repertoire to attract the attention of innocent wanderers... Their fluffy tails and cute demeanors will sure be your demise for their mischevious pranks! But they're just too adorable to ignore, aren't they?",
+      "Emoji": "<:Artifact226:1183238625635348570>",
+      "Origin Type": 2,
+      "Origin": "Onegai! konkon oinari sama",
+      "RDCreator": "GDColon"
+    },
+    {
+      "ID": 227,
+      "Name": "VFX Badge",
+      "Description": "A badge attesting to mastery in the visual arts. Despite its simplicity, it represents the core essence of endless possibilities and creativity, along with its inevitable price.\n\nLegends have told of this badge being highly volatile in large numbers, good thing you only have one!",
+      "Emoji": "<:Artifact227:1183238628802052248>",
+      "Origin Type": 2,
+      "Origin": "PON PON PON",
+      "RDCreator": "Kneeckoh"
+    },
+    {
+      "ID": 228,
+      "Name": "Enchanted Crown",
+      "Description": "Crowns are not atypical as a cursed object to most peers, yet this one only seems to exhude peace and innocent love.\n\nInspecting it, you notice it seems to be slightly water damaged.",
+      "Emoji": "<:Artifact228:1183238633394810981>",
+      "Origin Type": 2,
+      "Origin": "Enchanted love",
+      "RDCreator": "Kin"
+    },
+    {
+      "ID": 229,
+      "Name": "Sunset Guitar",
+      "Description": "Attuned and empowered by dusk, usually often played at sunsets as old tradition to ensure safe nights.\n\nWhen played at evenings, you can feel the sun grow warmer and calmer.",
+      "Emoji": "<:Artifact229:1183238637748494387>",
+      "Origin Type": 2,
+      "Origin": "Daily routines",
+      "RDCreator": "3T"
+    },
+    {
+      "ID": 230,
+      "Name": "Holographic Crystal",
+      "Description": "Most holographs usually rely on their projector to keep them functioning, using rays of light to keep their shape.\n\nIn the most odd of cases, some holograms are able to keep its form even without any subsequent power to uphold it, locking together light in impossible ways nobody really understands... \n\nYou can even put your hand through it!",
+      "Emoji": "<:Artifact230:1183238641712107540>",
+      "Origin Type": 2,
+      "Origin": "We're finally landing",
+      "RDCreator": "DDRR0077"
+    },
+    {
+      "ID": 231,
+      "Name": "Arcanic Rune",
+      "Description": "The result of a fierce battle against a vile sorcerer. Its surface glows otherworldly with a runic engraving that sparks with unbridled dark strength. Cracks weave and permeate the slate, barely trapping the wrath of what was once within.\n\nThis remnant is all that is left of her rampage. Stricken with so much traumatic arcana that it left its blazing mark deep inside the crevices of this slab.",
+      "Emoji": "<:Artifact231:1183238645025624064>",
+      "Origin Type": 2,
+      "Origin": "::DROPOUT::",
+      "RDCreator": "NekoRaita"
+    },
+    {
+      "ID": 232,
+      "Name": "Homesick Droid",
+      "Description": "The inventor was never to be found after its creation, now wandering with you, pondering its origins and purpose inside this world... hoping to someday find its home.",
+      "Emoji": "<:Artifact232:1183238648334930041>",
+      "Origin Type": 2,
+      "Origin": "Hello world",
+      "RDCreator": "Noche"
+    },
+    {
+      "ID": 233,
+      "Name": "Mini Spaceship",
+      "Description": "Nobody knows how this ship powers itself nor how it functions, but it seems to be aware of its surroundings and can fly wherever it likes without trouble.\n\nIt's keen on following you, seemingly liking your presence. It sometimes even circles around you!",
+      "Emoji": "<:Artifact233:1183238652113981550>",
+      "Origin Type": 2,
+      "Origin": "Still feel",
+      "RDCreator": "Bunner, DPS2004, Huan, ThatOneGuy"
+    },
+    {
+      "ID": 234,
+      "Name": "Wicked Heart Mace",
+      "Description": "Elegant as it is deadly. This grand heart shaped mace was swung only by the most cruel of royalty, held by queens and princesses devious enough to grip their rich heritage with wicked desire for more... \n\nHolding it fills you with overpowering mania.",
+      "Emoji": "<:Artifact234:1183238655691722772>",
+      "Origin Type": 3,
+      "Origin": "Omori",
+      "RDCreator": ""
+    },
+    {
+      "ID": 235,
+      "Name": "Glass Torch",
+      "Description": "Specially casted to harness ultra bright fire at the cost of fragility. The green flames fuzz strongly as you observe it closer. \n\nDon't drop it!",
+      "Emoji": "<:Artifact235:1183238659764387860>",
+      "Origin Type": 3,
+      "Origin": "Crypt of The Necrodancer",
+      "RDCreator": ""
+    },
+    {
+      "ID": 236,
+      "Name": "Artificial Eyeball",
+      "Description": "An organ not made from natural matters, alive for a distant organism...",
+      "Emoji": "<:Artifact236:1183238663014977537>",
+      "Origin Type": 3,
+      "Origin": "",
+      "RDCreator": ""
+    },
+    {
+      "ID": 237,
+      "Name": "Dimensional Cube Piece",
+      "Description": "It's only inevitable that a peaceful realm will someday be torn apart by chaos.\n\nThis is a remnant of such a realm, a chunk of unknown perplexity that had binded together what once was.",
+      "Emoji": "<:Artifact237:1183238667070869605>",
+      "Origin Type": 3,
+      "Origin": "Fez",
+      "RDCreator": ""
+    },
+    {
+      "ID": 238,
+      "Name": "Gem Butterfly",
+      "Description": "One of the last few of its kind, and are fragile and gentle. Its wings flutter and sparkle like glitter, as its gem body gleams through the sky with every moment in the air.\n\nGem butterflies tend to stick to their owners, as they are prey to many spiders and predators.",
+      "Emoji": "<:Artifact238:1183238673559474227>",
+      "Origin Type": 3,
+      "Origin": "Bejeweled 3",
+      "RDCreator": ""
+    },
+    {
+      "ID": 239,
+      "Name": "Crystal Offering",
+      "Description": "Wanting to appease their deities in hopes for good health and harvest, a massive chunk of topaz was cut into the shape of meat by tribesmen. \n\nIt's actually made quite well despite the limited tools that were used to cut this gem, able to shine and reflect most light off its surface.",
+      "Emoji": "<:Artifact239:1183238676801654784>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 240,
+      "Name": "Interstellar Constratum",
+      "Description": "Fused using the universe itself. This book is filled with pages of unknown runes and depictions of galaxies, being able to harness and control the creation of the stars.\n \nConstellations form and dissipate around it, imbued with the power of the cosmos.",
+      "Emoji": "<:Artifact240:1183238679821566053>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 241,
+      "Name": "Samurai Plushie",
+      "Description": "Very rare and a collector's item to die for! This limited edition red samurai plush was only manufactured for a very short time, having stopped production due to a horrible undocumented accident.\n\nIt has been rumored that many have lost lives during this event, dying from an unknown samurai infection that shook waves of terror around the world. \n\nThe fear that this had caused pushed the whole world to declare a universal damnation of memory of the whole event, leaving future generations with peace.",
+      "Emoji": "<:Artifact241:1183238683151847554>",
+      "Origin Type": 2,
+      "Origin": "Butterfly",
+      "RDCreator": "Nocallia"
+    },
+    {
+      "ID": 242,
+      "Name": "Golden Boy Trophy",
+      "Description": "Wanting to decide the greatest of all great doctors, a trophy was made as a qualifying reward. Bestowed only towards the most skilled of people in the medical field, seemingly able to bend the rules of even death with their mastery and medical knowledge.\n\nIt is molded out of 24 karat gold, depicting a joyful, healthy young boy.",
+      "Emoji": "<:Artifact242:1183238686448554084>",
+      "Origin Type": 2,
+      "Origin": "Rodney's Rhythm Rounds",
+      "RDCreator": "DPS2004, Emdyion, Samario, Some_J_Name, Thefinals, Xeno"
+    },
+    {
+      "ID": 243,
+      "Name": "Radiant Rainbow Shard",
+      "Description": "Awarded to very prestigious lightbearers. A gem set ablaze with the essence of color itself.\n\nAny light reflected from its crystal structure emits a vibrant rainbow, radiating brightness stronger than any shadow.",
+      "Emoji": "<:Artifact243:1183238689892077618>",
+      "Origin Type": 2,
+      "Origin": "GREAT GREAT",
+      "RDCreator": "Kin, MarioMak967, Xeno"
+    },
+    {
+      "ID": 244,
+      "Name": "Globe of Constellations",
+      "Description": "Fashioned by threads of space and encased in lunarium glass, this globe was given as a gift from a deity for a musician who wanted to change the world for good. \n\nHolding it within your palms lets you see a window into the endless cosmos, breathing with far away stars and lights that dance within the pitch black void of space.",
+      "Emoji": "<:Artifact244:1183238696397451385>",
+      "Origin Type": 2,
+      "Origin": "Know you",
+      "RDCreator": "Lugi"
+    },
+    {
+      "ID": 245,
+      "Name": "Fractured Despair",
+      "Description": "Bloomed from forgotten cracks in the universe that were left unattended for eons, caused from errors of creation by the hands of gods. Even with instability and holding no soul or form, Entropy can and will do whatever it must to breathe life into loneliness.\n\nIts petals buzz and crackle with twitching colors, existing with impossible reason, filled with energy sapped from the noiseful unknown.",
+      "Emoji": "<:Artifact245:1183238705994027073>",
+      "Origin Type": 2,
+      "Origin": "RGB",
+      "RDCreator": "Delta, Xeno"
+    },
+    {
+      "ID": 246,
+      "Name": "Fortunes Grasp",
+      "Description": "Carefully pieced by the most powerful of mystics throughout many years. This orb gazes upon all of time as all cannot hide from its vision.  \n\nViewing within shows the endless branches of future possibilities, able to be easily picked apart and manipulated like twine with your measly fingers.",
+      "Emoji": "<:Artifact246:1183238709760503888>",
+      "Origin Type": 2,
+      "Origin": "Fortune teller",
+      "RDCreator": "MarioMak967, Shareoff"
+    },
+    {
+      "ID": 247,
+      "Name": "Witch's Wand",
+      "Description": "Willed by the heavens with the ability to fix anything in the world with one cast. \n\nIts very existence is solely driven by the wrongs of chaos and entropy, depraved on wiping away impurities. Natural law only reforms to its will, bent by godly magic that lusts for eternal order. \n\nEasy perfection always comes with a humane price, however...",
+      "Emoji": "<:Artifact247:1183238712738455643>",
+      "Origin Type": 2,
+      "Origin": "Xeno",
+      "RDCreator": "Daniel dice"
+    },
+    {
+      "ID": 248,
+      "Name": "Magma Moonstone",
+      "Description": "Excavated from a volcanic moon. One that lit up countries with an endless night of which dawn never came.\n\nIt is blazing to the touch and has a searing glow that can light up even the darkest of cities indefinitely.",
+      "Emoji": "<:Artifact248:1183238716458811473>",
+      "Origin Type": 2,
+      "Origin": "There is no sunrise or sunset",
+      "RDCreator": "Prodzpod"
+    },
+    {
+      "ID": 249,
+      "Name": "Eternal Slimestone",
+      "Description": "Concentrated gel matter calcified into a compressed stone encompassing unknown eons of age! It's surface is sticky and slimy, forever excreting the mysterious substance within, almost like it's producing it...",
+      "Emoji": "<:Artifact249:1183238719780704346>",
+      "Origin Type": 2,
+      "Origin": "Pseudo",
+      "RDCreator": "Tepid"
+    },
+    {
+      "ID": 250,
+      "Name": "Winged Strawberry",
+      "Description": "Delicious as it is extraordinary, this winged fruit is able to escape anyone's grasp in a dash. Evading its juicy demise from anyone who is unworthy of catching it.\n\nThe fruits exterior glosses in divine flavor, able to enhance even the blandest of pastries into sweet delicacy.",
+      "Emoji": "<:Artifact250:1183238722691547247>",
+      "Origin Type": 3,
+      "Origin": "Celeste",
+      "RDCreator": ""
+    },
+    {
+      "ID": 251,
+      "Name": "Zenith",
+      "Description": "The sword of all swords. A weapon seeping with cosmological power forged from the culmination of many powerful blades within existence, the grandness of outer space becoming but a mere toy in comparison.\n\nYou can feel reality tear apart from even the lightest swing, gods and deities can only pray to themselves hoping that they are spared.",
+      "Emoji": "<:Artifact251:1183238922302660731>",
+      "Origin Type": 3,
+      "Origin": "Terraria",
+      "RDCreator": ""
+    },
+    {
+      "ID": 252,
+      "Name": "Crown of the Rat King",
+      "Description": "Once owned by the corrupted rat king. This beautiful crown contains dark ancient power that can make worlds crumble in torment and despair. \n\nOnly ones with the purest of souls can withstand its insatiable hunger when worn, lest they be consumed by calamity inducing vitriol.",
+      "Emoji": "<:Artifact252:1183238926199177238>",
+      "Origin Type": 3,
+      "Origin": "A Dance of Fire and Ice",
+      "RDCreator": ""
+    },
+    {
+      "ID": 253,
+      "Name": "Dragon Nail",
+      "Description": "One surviving piece of what was once the fate of the world. \n\nIt is imbued with the power to wake a mighty dragon that can shift the lands it knew, tamed and reformed by the heart of who is worthy of holding them all.",
+      "Emoji": "<:Artifact253:1183238929890160650>",
+      "Origin Type": 3,
+      "Origin": "Mother 3",
+      "RDCreator": ""
+    },
+    {
+      "ID": 254,
+      "Name": "Special Diamond",
+      "Description": "Peculiarly shaped and as bright as blue can be. This odd specimen of a mineral is a sight to behold for all diamond enthusiasts!\n\nA lot is known about the world of its origin, but it has never been so beautiful up close!",
+      "Emoji": "<:Artifact254:1183238933803442217>",
+      "Origin Type": 3,
+      "Origin": "Minecraft",
+      "RDCreator": ""
+    },
+    {
+      "ID": 255,
+      "Name": "Miniature Black Hole",
+      "Description": "Have you ever wanted to have the pinnacle of an apocalypse inducing celestial body within the palm of your hand? With this, now you can show off to all your friends about how unanimously terrifying you are! Don't worry though, it's magically contained to not actually destroy the world with its mere existence. \n\nJust... be very careful with it.",
+      "Emoji": "<:Artifact255:1183238937632854016>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    },
+    {
+      "ID": 256,
+      "Name": "The Last Few",
+      "Description": "Existence.",
+      "Emoji": "<:Artifact256:1183238941470621747>",
+      "Origin Type": 1,
+      "Origin": "Original",
+      "RDCreator": ""
+    }
+  ]
 }

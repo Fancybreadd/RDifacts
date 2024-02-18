@@ -2,76 +2,52 @@ local command = {}
 function command.run(message)
     print("dailykey")
     --------------------------------------------------------------------FILESELECT
-    --single
-    local profileID = message.author.id 
-    local check = io.open(BotPath.."PROFILES/"..profileID..".json","r")
-    local username = message.author.username
-    local iconurl = message.author.avatarURL
-
-    --==--
-    if not check then
-        check = makeprofile(profileID)
-        noprofile(message)
-    end
-    --==--
-
-    local jsonstats = json.decode(io.input(check):read("*a"))
-
-    --verify(profileID)
+    local SaveData, DiscordUsername, DiscordPFP = ReturnUserData(message, nil, "Normal")
 
     --------------------------------------------------------------------INFO
-    local currenttime = os.time()
-    local playercooldown = jsonstats.timers.keytimer + DKCOOLDOWN
+    local CurrentTime = os.time()
+    local PlayerCooldown = SaveData.timers.keytimer + DailyKeyCOOLDOWN
     --local randomplus = math.random(4,20)
 
     --------------------------------------------------------------------CHECKS
-    if currenttime < playercooldown then --|if cooldown still active
-        check:close()
-        local remainingtime = playercooldown - currenttime --gets remaining unix time 
-        --print(remainingtime)
-        local readableremainingtime = SecondsToClock(remainingtime)
+    if CurrentTime < PlayerCooldown then --|if cooldown still active
+        local RemainingCooldown = PlayerCooldown - CurrentTime --gets remaining unix time 
+        local FormattedCooldown = SecondsToClock(RemainingCooldown)
 
-        message.channel:send{
-            embed = {
-                color = 0x13ff7b, title = "Daily Key...?",
-
-                author = {
-                    name = username.."'s r$dailykey",
-                    icon_url = iconurl
-                }, --
-
-                description = "You head to the dwarf keysmith for your daily **Key** "..MenuKEY..". The dwarf checks his logbook, and tells you yours isn't ready yet.",
-                fields = {
-                    {
-                        name = "Command isn't ready!",
-                        value = ""
-                    }
-                },
-                footer = {text = "You can r$dailykey again in "..readableremainingtime}
-            }
-        }
-
+        ErrorEmbedder(
+            message, 
+            "Daily Key...?",
+            message.author.username,
+            message.author.avatarURL,
+            "You visit the dwarf keysmith to claim your daily **Key** "..MenuKEY..". The dwarf flips through his logbook, then shakes his head. Saying yours isn't ready yet.",
+            "Command isn't ready!",
+            MenuDKEMB,
+            "r$dailykey will be available in "..FormattedCooldown,
+            0x13ff7b
+        )
         return
     end
 
     --------------------------------------------------------------------COMMAND
-    jsonstats.timers.keytimer = os.time()
-    jsonstats.wallet.keys = jsonstats.wallet.keys + 1 updatesave(profileID, jsonstats, check) --(S)
+    SaveData.timers.keytimer = os.time()
+    SaveData.wallet.keys = SaveData.wallet.keys + 1
+
+    UpdateSave(message.author.id, SaveData)
 
     message.channel:send{
         embed = {
             color = 0x13ff7b, title = "Daily Key!",
 
             author = {
-                name = username.."'s r$dailykey",
-                icon_url = iconurl
+                name = DiscordUsername,
+                icon_url = DiscordPFP
             }, --
 
-            description = "You head to the dwarf keysmith for your daily **Key** "..MenuKEY..". The dwarf checks his logbook, makes sure you're viable to get yours, and hands it to you!",
+            description = "You visit the dwarf keysmith for your daily **Key** "..MenuKEY..". The dwarf flips through his logbook, then nods. Handing your key!",
             fields = {
                 {
-                    name = "+1 Key "..MenuKEY,
-                    value = ""
+                    name = "Obtained :",
+                    value = "+1 Key "..MenuKEY
                 }
             }
         }

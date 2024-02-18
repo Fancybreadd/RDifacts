@@ -2,63 +2,53 @@ local command = {}
 function command.run(message)
     print("cooldown")
     --------------------------------------------------------------------FILESELECT
-    --single
-    local profileID = message.author.id 
-    local check = io.open(BotPath.."PROFILES/"..profileID..".json","r")
-    local username = message.author.username
-    local iconurl = message.author.avatarURL
-
-    --==--
-    if not check then
-        check = makeprofile(profileID)
-        noprofile(message)
-    end
-    --==--
-
-    local jsonstats = json.decode(io.input(check):read("*a"))
+    local SaveData, DiscordUsername, DiscordPFP = ReturnUserData(message, nil, "Normal")
 
     --------------------------------------------------------------------COMMAND
-    local advtimeleft = jsonstats.timers.adventuretimer + ADVCOOLDOWN - os.time()
-    local keytimeleft = jsonstats.timers.keytimer + DKCOOLDOWN - os.time()
-    local gkeytimeleft = jsonstats.timers.giftkeytimer + GKCOOLDOWN - os.time()
-    print(advtimeleft) print(keytimeleft)
+    local AdventureCooldown = SaveData.timers.adventuretimer + AdventureCOOLDOWN - os.time()
+    local KeyCooldown = SaveData.timers.keytimer + DailyKeyCOOLDOWN - os.time()
+    local GiftKeyCooldown = SaveData.timers.giftkeytimer + GiftKeyCOOLDOWN - os.time()
+
+    --print(AdventureCooldown) print(KeyCooldown)
 
     --turn that into readable time (hours, minutes, seconds)
-    local advrealtime = SecondsToClock(advtimeleft)
-    local keyrealtime = SecondsToClock(keytimeleft)
-    local gkeyrealtime = SecondsToClock(gkeytimeleft)
+    local AdvFormattedCooldown = SecondsToClock(AdventureCooldown)
+    local KeyFormattedCooldown = SecondsToClock(KeyCooldown)
+    local GKeyFormattedCooldown = SecondsToClock(GiftKeyCooldown)
 
-    local keyresult = "" local advresult = "" local gkeyresult = ""
+    local KeyText, AdventureText, GiftKeyText = "", "", ""
 
-    if keytimeleft <= 0 then keyresult = "Ready!" else keyresult = keyrealtime end
-    if advtimeleft <= 0 then advresult = "Ready!" else advresult = advrealtime end
-    if gkeytimeleft <= 0 then gkeyresult = "Ready!" else gkeyresult = gkeyrealtime end
+    if KeyCooldown <= 0 then KeyText = "Ready!" else KeyText = KeyFormattedCooldown end
+    if AdventureCooldown <= 0 then AdventureText = "Ready!" else AdventureText = AdvFormattedCooldown end
+    if GiftKeyCooldown <= 0 then GiftKeyText = "Ready!" else GiftKeyText = GKeyFormattedCooldown end
 
     --------------------------------------------------------------------MESSAGE
     message.channel:send{
         embed = {
             color = 0x177dff, title = "Cooldowns",
             author = {
-                name = username.."'s r$cooldown",
-                icon_url = iconurl
+                name = DiscordUsername,
+                icon_url = DiscordPFP
             },
 
             fields = {
                 {
                     name = MenuKEY.."  r$dailykey [r$dk]",
-                    value = "``"..keyresult.."``"
+                    value = "``"..KeyText.."``"
                 },
                 {
                     name = MenuGIFTKEY.."  r$giftkey [r$gk]",
-                    value = "``"..gkeyresult.."``"
+                    value = "``"..GiftKeyText.."``"
                 },
                 {
                     name = MenuADV.."  r$adventure [r$adv]",
-                    value = "``"..advresult.."``"
+                    value = "``"..AdventureText.."``"
                 }
-            }
+            },
+            thumbnail = {
+                url = MenuCDEMB
+            },
         }
     }
-    check:close()
 end
 return command --

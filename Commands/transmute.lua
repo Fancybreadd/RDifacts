@@ -1,60 +1,52 @@
-local opt1 = discordia.Button {type = "button", style = "primary", id = "T1", label = "[1]", disabled = true}
-local opt2 = discordia.Button {type = "button", style = "primary", id = "T2", label = "[2]", disabled = true}
-local opt3 = discordia.Button {type = "button", style = "primary", id = "T3", label = "[3]", disabled = true}
-local opt4 = discordia.Button {type = "button", style = "primary", id = "T4", label = "[4]", disabled = true}
-
 local command = {}
 function command.run(message)
     print("market")
     --------------------------------------------------------------------FILESELECT
-    --single
-    local profileID = message.author.id 
-    local check = io.open(BotPath.."PROFILES/"..profileID..".json","r")
-    local username = message.author.username
-    local iconurl = message.author.avatarURL
-
-    --==--
-    if not check then
-        check = makeprofile(profileID)
-        noprofile(message)
-    end
-    --==--
-
-    local jsonstats = json.decode(io.input(check):read("*a"))
+    local SaveData, DiscordUsername, DiscordPFP = ReturnUserData(message, nil, "Normal")
 
     --------------------------------------------------------------------INFO
-    local marbles = jsonstats.wallet.marbles
-    local emblems = jsonstats.wallet.emblems
-    local capsules = jsonstats.wallet.capsules
-    local ingredients = jsonstats.wallet.ingredients
-    local keys = jsonstats.wallet.keys
+    local Option1 = discordia.Button {type = "button", style = "primary", id = "T1", label = "[1]", disabled = true}
+    local Option2 = discordia.Button {type = "button", style = "primary", id = "T2", label = "[2]", disabled = true}
+    local Option3 = discordia.Button {type = "button", style = "primary", id = "T3", label = "[3]", disabled = true}
+
+    local Emblems = SaveData.wallet.emblems
+    local Capsules = SaveData.wallet.capsules
+    local Ingredients = SaveData.wallet.ingredients
+    local Keys = SaveData.wallet.keys
 
     --------------------------------------------------------------------CHECKS
-    if marbles >= 100 then opt1:enable() opt2:enable()
-    elseif marbles >= 35 then opt2:enable() end
-    if emblems >= 3 then opt3:enable()end
-    if capsules >= 2 then opt4:enable()end
+    if Ingredients >= 150 then Option1:enable()end
+    if Emblems >= 2 then Option2:enable()end
+    if Capsules >= 3 then Option3:enable()end
 
     --------------------------------------------------------------------COMMAND
-    local transmutemsg = message.channel:sendComponents {
-        embed ={
-            color = 0x000000, title = "Transmute",
-            author = {
-                name = username.. "'s r$transmute",
-                icon_url = iconurl
-            },
-            description = "[1] - 35 Marbles > 50 Ingredients \n"
-            .."[2] - 100 Marbles > 1 Capsule \n"
-            .."[3] - 3 Emblems "..MenuEMBLEM.." > 1 Capsule \n"
-            .."[4] - 2 Capsules "..MenuCAPSULE.." > 1 Key "..MenuKEY,
-            footer = {text = "The Everchanging Altar bubbles."}
+    local ShopText = {
+        color = 0x000000, title = "Transmute",
+        author = {
+            name = DiscordUsername.. "'s r$transmute",
+            icon_url = DiscordPFP
         },
-        components = discordia.Components {opt1,opt2,opt3,opt4}
+
+        thumbnail = {
+            url = MenuTEMB
+        },
+
+        description =
+        "[1] - "..Transmute1cost.." Ingredients "..MenuINGREDIENT.." -> 1 Capsule "..MenuCAPSULE.."\n"
+        .."[2] - "..Transmute2cost.." Emblems "..MenuEMBLEM.." -> 1 Capsule "..MenuCAPSULE.."\n"
+        .."[3] - "..Transmute3cost.." Capsules "..MenuCAPSULE.." -> 1 Key "..MenuKEY,
+        footer = {text = "The Everchanging Altar bubbles."}
     }
 
-    local pressed, interaction = transmutemsg:waitComponent("button", nil, 1000 * 30, function(interaction) --if a button is pressed
+
+    local TransmuteMessage = message.channel:sendComponents {
+        embed = ShopText,
+        components = discordia.Components {Option1,Option2,Option3}
+    }
+
+    local pressed, interaction = TransmuteMessage:waitComponent("button", nil, 1000 * 30, function(interaction) --if a button is pressed
         print(interaction.member.id)
-        if interaction.user.id ~= profileID then
+        if interaction.user.id ~= message.author.id then
             interaction:reply("You can't use this button!", true)
             return false
         end
@@ -62,21 +54,9 @@ function command.run(message)
         return true
     end)
 
-    transmutemsg:update { --turn off buttons after interaction
-        embed ={
-            color = 0x000000, title = "Transmuteaa",
-            author = {
-                name = username.. "'s r$transmute",
-                icon_url = iconurl
-            },
-            description =
-            "[1] - 35 Marbles -> 50 Ingredients \n"
-            .."[2] - 100 Marbles -> 1 Capsule \n"
-            .."[3] - 3 Emblems "..MenuEMBLEM.." -> 1 Capsule \n"
-            .."[4] - 3 Capsules "..MenuCAPSULE.." -> 1 Key "..MenuKEY,
-            footer = {text = "The Everchanging Altar bubbles."}
-        },
-        components = discordia.Components {opt1:disable(), opt2:disable(), opt3:disable(), opt4:disable()}
+    TransmuteMessage:update { --turn off buttons after interaction
+        embed = ShopText,
+        components = discordia.Components {Option1:disable(), Option2:disable(), Option3:disable()}
     }
 
     if not pressed then
@@ -86,46 +66,39 @@ function command.run(message)
 
     --------------------------------------------------------------------BUTTON CODE
     print("press! rechecking..") --redeclaring for button abuse 
-    check = io.open(BotPath.."PROFILES/"..profileID..".json","r")
-    jsonstats = json.decode(io.input(check):read("*a"))
+    SaveData = RecheckData(message)
 
-    local marbles = jsonstats.wallet.marbles
-    local emblems = jsonstats.wallet.emblems
-    local capsules = jsonstats.wallet.capsules
-    --local ingredients = jsonstats.wallet.ingredients
-    --local keys = jsonstats.wallet.keys
+    local Emblems = SaveData.wallet.emblems
+    local Capsules = SaveData.wallet.capsules
+    local Ingredients = SaveData.wallet.ingredients
+    --local Keys = SaveData.wallet.Keys
 
-    if interaction.data.custom_id == "T1" and marbles >= 35 then
-        print("opt1")
-        jsonstats.wallet.ingredients = jsonstats.wallet.ingredients + 50
-        jsonstats.wallet.marbles = jsonstats.wallet.marbles - 35
-        updatesave(profileID, jsonstats, check)
+    if interaction.data.custom_id == "T1" and Ingredients >= Transmute1cost then
+        print("Option2")
+        SaveData.wallet.capsules = SaveData.wallet.capsules + Transmute1reward
+        SaveData.wallet.ingredients = SaveData.wallet.ingredients - Transmute1cost
+        UpdateSave(message.author.id, SaveData)
 
-        interaction:reply("You transmuted 35 Marbles into 50 Ingredients.")
+        interaction:reply("You transmuted "..Transmute1cost.." **Ingredients** into 1 "..Transmute1reward.." **Capsule**.")
+        return
     end
-    if interaction.data.custom_id == "T2" and marbles > 100 then
-        print("opt2")
-        jsonstats.wallet.capsules = jsonstats.wallet.capsules + 1
-        jsonstats.wallet.marbles = jsonstats.wallet.marbles - 100
-        updatesave(profileID, jsonstats, check)
+    if interaction.data.custom_id == "T2" and Emblems >= Transmute2cost then
+        print("Option3")
+        SaveData.wallet.capsules = SaveData.wallet.capsules + Transmute2reward
+        SaveData.wallet.emblems = SaveData.wallet.emblems - Transmute2cost
+        UpdateSave(message.author.id, SaveData)
 
-        interaction:reply("You transmuted 100 Marbles into 1 Capsule.")
+        interaction:reply("You transmuted "..Transmute2cost.." **Emblems** into "..Transmute2reward.." **Capsule**.")
+        return
     end
-    if interaction.data.custom_id == "T3" and emblems > 3 then
-        print("opt3")
-        jsonstats.wallet.capsules = jsonstats.wallet.capsules + 1
-        jsonstats.wallet.emblems = jsonstats.wallet.emblems - 3
-        updatesave(profileID, jsonstats, check)
+    if interaction.data.custom_id == "T3" and Capsules >= Transmute3cost then
+        print("Option4")
+        SaveData.wallet.keys = SaveData.wallet.keys + Transmute3reward
+        SaveData.wallet.capsules = SaveData.wallet.capsules - Transmute3cost
+        UpdateSave(message.author.id, SaveData)
 
-        interaction:reply("You transmuted 3 Emblems into 1 Capsule.")
-    end
-    if interaction.data.custom_id == "T4" and capsules > 3 then
-        print("opt4")
-        jsonstats.wallet.capsules = jsonstats.wallet.keys+ 1
-        jsonstats.wallet.emblems = jsonstats.wallet.capsules - 3
-        updatesave(profileID, jsonstats, check)
-
-        interaction:reply("You transmuted 3 Capsules into 1 Key.")
+        interaction:reply("You transmuted "..Transmute3cost.." **Capsules** into "..Transmute3reward.." **Key**.")
+        return
     end
 end
 return command --

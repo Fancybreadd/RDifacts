@@ -2,159 +2,125 @@ local command = {}
 function command.run(message, arg, arg2)
     print("inspect")
     --------------------------------------------------------------------FILESELECT
-    --single
-    local profileID = message.author.id 
-    local check = io.open(BotPath.."PROFILES/"..profileID..".json","r")
-    local username = message.author.username
-    local iconurl = message.author.avatarURL
-
-    --==--
-    if not check then
-        check = makeprofile(profileID)
-        noprofile(message)
-    end
-    --==--
-
-    local jsonstats = json.decode(io.input(check):read("*a"))
+    local SaveData, DiscordUsername, DiscordPFP = ReturnUserData(message, nil, "Normal")
 
     --------------------------------------------------------------------CHECKS
-    if arg == nil then --|if no argument
-        --print(arg)
-        check:close()
-        message.channel:send{
-            embed = {
-                color = 0x535353, title = "Inspecting artifact...?",
-                author = {
-                    name = username.."'s r$inspect",
-                    icon_url = iconurl
-                },
 
-                description = "The Index doesn't respond...",
-                fields = {
-                    name = "No Input! Insert a number corresponding to an Artifact ID to use this command.",
-                    value = ""
-                },
-                footer = {text = "ex: r$inspect "..math.random(1,256)}
-            }
-        }
+    if arg == nil then
+        print ("i, no arg")
+        ErrorEmbedder(
+            message, 
+            "Inspecting Artifact..?",
+            message.author.username,
+            message.author.avatarURL,
+            "The Artifact Codex stays dormant, no response.",
+            "No artifact ID given, add an artifacts ID number when doing r$inspect",
+            MenuIEMB,
+            "example: r$inspect "..math.random(1,256),
+            0x535353
+        )
         return
     end
-
     ---o
-    local inspectid = tonumber(arg) --turn number in message into a number value
-    local if_have = false
+    local ResearchID = tonumber(arg) --turn number in message into a number value
+    local Owned = false
     ---o
 
-    if inspectid == nil then --|if argument is not a number
-        check:close()
-        message.channel:send{
-            embed = {
-                color = 0x535353, title = "Inspecting artifact...?",
-                author = {
-                    name = username.."'s r$inspect",
-                    icon_url = iconurl
-                },
-
-                description = "The Index is confused on what you're looking for...",
-                fields = {
-                    name = "Input isn't a number!",
-                    value = ""
-                },
-                footer = {text = "ex: r$inspect "..math.random(1,256)}
-            }
-        }
+    if ResearchID == nil then
+        print("i, arg not a number")
+        ErrorEmbedder(
+            message, 
+            "Inspecting Artifact..?",
+            message.author.username,
+            message.author.avatarURL,
+            "The Artifact Codex glows in response, but doesn't do anything. It seems like it doesn't know what to do with your request.",
+            "ID needs to be a number!",
+            MenuIEMB,
+            "example: r$inspect "..math.random(1,256),
+            0x535353
+        )
         return
 
-    elseif inspectid > 256 then --|if argument number is bigger than amount of existing artifacts
-        check:close()
-        message.channel:send{
-            embed = {
-                color = 0x535353, title = "Inspecting artifact...?",
-                author = {
-                    name = username.."'s r$inspect",
-                    icon_url = iconurl
-                },
-
-                description = "The Index is confused on what you're looking for...",
-                fields = {
-                    name = "Artifact doesn't exist!",
-                    value = ""
-                },
-                footer = {text = "Current highest ID is 256."}
-            }
-        }
+    elseif ResearchID > ArtifactPool then --|if argument number is bigger than amount of existing artifacts
+        print("i, id too big")
+        ErrorEmbedder(
+            message, 
+            "Inspecting Artifact..?",
+            message.author.username,
+            message.author.avatarURL,
+            "The Artifact Codex flips itself to a blank page...",
+            "ID given is bigger than current amount of existing artifacts.",
+            MenuIEMB,
+            "Current highest ID is "..ArtifactPool..".",
+            0x535353
+        )
         return
 
     end
 
-    for i,v in ipairs (jsonstats.inv) do --|loop code until if you have the artifact
-    if v == KEYNAMETABLE[inspectid] then
-            if_have = true --turn this to true
+    for i,v in ipairs (SaveData.inv) do --|loop code until ID 
+        if v == ResearchID then
+            Owned = true --turn this to true
+            print(i,v, "aaaaaaaaaaaaa")
             break
         end
-        --print(i,v)
     end
+    print("what????")
 
-    if if_have == false then --|if you dont have the artifact
-        check:close()
-        message.channel:send{
-            embed = {
-                color = 0x535353, title = "Inspecting artifact...?",
-                author = {
-                    name = username.."'s r$inspect",
-                    icon_url = iconurl
-                },
 
-                description = "The Index understands, but it can't tell you anything you can't bestow it...",
-                fields = {
-                    name = "You don't have this artifact yet!",
-                    value = ""
-                },
-                footer = {text = "Use r$inspect on artifacts you own!"}
-            }
-        }
+    if Owned == false then
+        print("i, dont have artifact")
+        ErrorEmbedder(
+            message, 
+            "Inspecting Artifact..?",
+            message.author.username,
+            message.author.avatarURL,
+            "The Artifact Codex responds, waiting to analyze the artifact from your hands... You don't have it though.",
+            "You do not own the artifact that has this ID!",
+            MenuIEMB,
+            "",
+            0x535353
+        )
         return
     end
 
     --------------------------------------------------------------------COMMAND
-    local arname =(JSONITEMS[KEYNAMETABLE[inspectid]][1]) --name
-    local aremote =(JSONITEMS[KEYNAMETABLE[inspectid]][2]) --emoji, sprite
-    local argrade =(JSONITEMS[KEYNAMETABLE[inspectid]][3]) --grade
-    local arID =(JSONITEMS[KEYNAMETABLE[inspectid]][4]) --ID
-    local ardesc =(JSONITEMS[KEYNAMETABLE[inspectid]][5]) --description
-    local aroig = "Original" --Origin  < v
-    if (JSONITEMS[KEYNAMETABLE[inspectid]][6]) ~= nil then aroig = (JSONITEMS[KEYNAMETABLE[inspectid]][6]) end
 
+    local ArtifactID = (ArtifactTable[ResearchID]["ID"]) --name
+    local ArtifactName = (ArtifactTable[ResearchID]["Name"]) --emoji, sprite
+    local ArtifactDescription =(ArtifactTable[ResearchID]["Description"]) --ID
+    local ArtifactEmoji =(ArtifactTable[ResearchID]["Emoji"]) --description
+    local ArtifactOrigin = OrTable[ArtifactTable[ResearchID]["Origin Type"]]..ArtifactTable[ResearchID]["Origin"]
+
+    if ArtifactTable[ResearchID]["RDCreator"] ~= "" then ArtifactOrigin = ArtifactOrigin.." - "..ArtifactTable[ResearchID]["RDCreator"] end
 
     --------------------------------------------------------------------MESSAGE
     message.channel:send{
         embed = {
-            color = 0x535353, title = "Inspecting artifact "..aremote,
+            color = 0x535353, title = "Inspecting Artifact...",
             author = {
-                name = username.."'s r$inspect",
-                icon_url = iconurl
+                name = DiscordUsername,
+                icon_url = DiscordPFP
             },
 
-            description = "# "..arname.."\n"..ardesc,
+            description = "# "..ArtifactEmoji.."  "..ArtifactName.."\n"..ArtifactDescription,
             fields = {
                 {
-                    name = "Grade",
-                    value = argrade,
-                    inline = true
-                },
-                {
                     name = "ID",
-                    value = arID,
+                    value = ArtifactID,
                     inline = true
                 },
                 {
                     name = "Origin",
-                    value = aroig
+                    value = ArtifactOrigin
                 }
-            }
+            },
+            thumbnail = {
+                url = MenuIEMB
+            },
         }
     }
 end
 return command --
 
---JSONITEMS[KEYNAMETABLE[inspectid][X]]
+--[ArtifactTable[ResearchID][X]]
